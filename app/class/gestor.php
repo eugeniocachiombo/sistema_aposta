@@ -4,7 +4,13 @@ class Gestor extends Pessoa
 {
     function CadastrarEquipa($equipa){
         $equipa_dao = new EquipaDao();
-        $equipa_dao->Cadastrar($equipa);
+        $retorno = $equipa_dao->Cadastrar($equipa);
+        
+        if($retorno){
+            echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Cadastrado com sucesso  <b> </font>";
+        }else{
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao cadastrar  <b> </font>";
+        }
     }
 
     function CadastrarPartida($partida){
