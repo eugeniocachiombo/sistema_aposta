@@ -2,13 +2,6 @@
 
 include "../init/autoload.php";
 
-$equipa = new Equipa(20, "Real Madrid");
-
-echo "<pre>";
-var_dump($equipa);
-echo "<pre>";
-echo "<hr>";
-
 $gestor = new Gestor();
 $gestor->SetId(1);
 $gestor->SetNome("Eugénio");
@@ -19,8 +12,10 @@ $gestor->SetNascimento("1999-04-27");
 $gestor->SetGenero("M");
 $gestor->SetN_bi("123456789LA987");
 $gestor->CadastrarEquipa();
+$gestor->CadastrarPartida();
 
+echo "Gestor Info";
 echo "<pre>";
-var_dump($gestor);
+print_r($gestor);
 echo "<pre>";
 echo "<hr>";

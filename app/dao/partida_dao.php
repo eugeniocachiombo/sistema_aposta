@@ -3,7 +3,11 @@
 class PartidaDao implements Crud {
 
     function Cadastrar($partida){
-        echo "Saída: " . $partida->GetEquipaA();
+        echo "Partida Info";
+        echo "<pre>";
+        print_r($partida);
+        echo "<pre>";
+        echo "<hr>";
     }
 
     function Actualizar($partida){
