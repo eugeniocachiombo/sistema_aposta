@@ -19,9 +19,9 @@
             <div class="row d-table d-md-flex">
                 <div class="col-md-4 pe-4 justify-content-center d-flex align-items-center" style="background: khaki">
                     <center>
-                        <i class="fas fa-user-plus pt-4" style="font-size: 40px"></i>
+                        <i class="fas fa-futbol pt-4" style="font-size: 40px"></i>
                         <br>
-                        <h3><b>Cadastramento</b></h3>
+                        <h3><b>Partida</b></h3>
                         <center>
                 </div>
 
@@ -29,41 +29,40 @@
                     <div class="col d-table d-md-flex">
                         <div class="col pe-4 ">
 
-                            <label class="w-100 text-start pt-3" for="genero">Equipa A</label> <br>
-                            <select class="form-control" required name="genero" id="genero"
+                            <label class="w-100 text-start pt-3" for="equipaA">Equipa A</label> <br>
+                            <select class="form-control" required name="equipaA" id="equipaA"
                                 style="width: 205px; border: 2px solid cadetblue;">
                                 <option value="">Selecione...</option>
                                 <?php 
-                                
-                                    //$equipa_dao = new EquipaDao();
-                                    //$retorno = $equipa_dao->Listar();
-                                   /* foreach ($retorno as $value) {
-                                        echo $value['nome_equipa'];
-                                       // echo "<option value='" . $value['id_equipa'] . "'>" . $value['nome_equipa'] . "</option>";
-                                    }*/
-                                    
+                                    $equipa_dao = new EquipaDao();
+                                    $retorno = $equipa_dao->Listar();
+                                    foreach ($retorno as $value) {
+                                       echo "<option value='" . $value['id_equipa'] . "'>" . $value['nome_equipa'] . "</option>";
+                                    }
                                 ?>
                             </select> 
 
-                            <label class="w-100 text-start pt-3" for="genero">Equipa B</label> <br>
-                            <select class="form-control" required name="genero" id="genero"
+                            <label class="w-100 text-start pt-3" for="equipaB">Equipa B</label> <br>
+                            <select class="form-control" required name="equipaB" id="equipaB"
                                 style="width: 205px; border: 2px solid cadetblue;">
                                 <option value="">Selecione...</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Femenino</option>
+                                <?php 
+                                    $equipa_dao = new EquipaDao();
+                                    $retorno = $equipa_dao->Listar();
+                                    foreach ($retorno as $value) {
+                                       echo "<option value='" . $value['id_equipa'] . "'>" . $value['nome_equipa'] . "</option>";
+                                    }
+                                ?>
                             </select>
 
                         </div>
 
-                        <div class="col pe-4">
-                            <label class="w-100 text-start pt-3" for="n_bi">Nº BI</label> <br>
-                            <input type="text" required class="form-control" name="n_bi" id="n_bi">
-
-                            <label class="w-100 text-start pt-3" for="acesso">Tipo de Acesso</label> <br>
-                            <select class="form-control" disabled name="acesso" id="acesso"
+                        <div class="col pe-4 d-none">
+                            <label class="w-100 text-start pt-3" for="id_gestor">Acesso</label> <br>
+                            <select class="form-control" disabled name="id_gestor" id="id_gestor"
                                 style="width: 205px; border: 2px solid cadetblue;">
                                 <option value="">Selecione...</option>
-                                <option selected value="Partida">Partida</option>
+                                <option selected value="<?php echo $_SESSION["id"]?>"><?php echo $_SESSION["nome"] . " " . $_SESSION["sobrenome"] ?></option>
                             </select>
                         </div>
                     </div>

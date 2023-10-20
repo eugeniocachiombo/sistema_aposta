@@ -15,6 +15,12 @@ class Gestor extends Pessoa
 
     function CadastrarPartida($partida){
         $partida_dao = new PartidaDao();
-        $partida_dao->Cadastrar($partida);
+        $retorno = $partida_dao->Cadastrar($partida);
+        
+        if($retorno){
+            echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Cadastrado com sucesso  <b> </font>";
+        }else{
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao cadastrar  <b> </font>";
+        }
     }
 }
