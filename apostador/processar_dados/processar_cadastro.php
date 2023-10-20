@@ -6,7 +6,11 @@
         $sobrenome = $_POST["sobrenome"];
         $email = $_POST["email"];
         $senha = $_POST["senha"];
+        
         $nascimento = $_POST["nascimento"];
+        $nascimento = explode("-", $nascimento);
+        $nascimento = $nascimento[2] . "-" . $nascimento[1] . "-" . $nascimento[0];
+
         $genero = $_POST["genero"];
         $n_bi = $_POST["n_bi"];
 
