@@ -1,9 +1,6 @@
 <?php
 
-include "../interface/crud.php";
-include "../class/aposta.php";
-
-class ApostaDao extends Aposta implements Crud {
+class GestorDao extends Gestor implements Crud {
     
     function Cadastrar(){
 

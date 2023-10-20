@@ -1,5 +1,4 @@
 <?php
-include "Pessoa.php";
 
 class Gestor extends Pessoa 
 {

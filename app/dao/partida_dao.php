@@ -1,9 +1,6 @@
 <?php
 
-include "../interface/crud.php";
-include "../class/administrador.php";
-
-class AdministradorDao extends Administrador implements Crud {
+class PartidaDao extends Partida implements Crud {
     
     function Cadastrar(){
 

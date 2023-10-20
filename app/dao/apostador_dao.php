@@ -1,9 +1,6 @@
 <?php
 
-include "../interface/crud.php";
-include "../class/equipa.php";
-
-class EquipaDao extends Equipa implements Crud {
+class ApostadorDao extends Apostador implements Crud {
     
     function Cadastrar(){
 
