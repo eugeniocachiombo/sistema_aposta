@@ -5,15 +5,7 @@
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Cadastro de Partida</title>
 
-<?php
-    $equipa_dao = new EquipaDao();
-    $retorno = $equipa_dao->Listar(); 
-    foreach ($retorno as $value) {
-        echo $value['nome_equipa'];
-    }
-?>
-
-<main class="mt-4 mb-4 " data-bs-theme="dark">
+<main class="mt-4 mb-4 ">
 
     <div class="container">
         <div class="row">
