@@ -1,0 +1,1 @@
+flatpickr("#nascimento", {dateFormat: "d-m-Y",});
