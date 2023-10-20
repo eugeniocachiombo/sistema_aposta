@@ -1,16 +1,16 @@
 <?php
 
-class AdministradorDao extends Administrador implements Crud {
+class AdministradorDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($administrador){
 
     }
 
-    function Actualizar(){
+    function Actualizar($administrador){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

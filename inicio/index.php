@@ -18,6 +18,7 @@ $gestor->SetSenha("123456");
 $gestor->SetNascimento("1999-04-27");
 $gestor->SetGenero("M");
 $gestor->SetN_bi("123456789LA987");
+$gestor->CadastrarEquipa();
 
 echo "<pre>";
 var_dump($gestor);

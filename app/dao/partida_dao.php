@@ -1,16 +1,16 @@
 <?php
 
-class PartidaDao extends Partida implements Crud {
-    
-    function Cadastrar(){
+class PartidaDao implements Crud {
+
+    function Cadastrar($partida){
+        echo "Saída: " . $partida->GetEquipaA();
+    }
+
+    function Actualizar($partida){
 
     }
 
-    function Actualizar(){
-
-    }
-
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

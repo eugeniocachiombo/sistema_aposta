@@ -1,16 +1,16 @@
 <?php
 
-class PublicadorDao extends Publicador implements Crud {
+class PublicadorDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($publicador){
 
     }
 
-    function Actualizar(){
+    function Actualizar($publicador){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

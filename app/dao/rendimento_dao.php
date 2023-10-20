@@ -1,16 +1,16 @@
 <?php
 
-class RendimentoDao extends Rendimento implements Crud {
+class RendimentoDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($rendimento){
 
     }
 
-    function Actualizar(){
+    function Actualizar($rendimento){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

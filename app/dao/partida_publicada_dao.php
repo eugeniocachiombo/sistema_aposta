@@ -1,16 +1,16 @@
 <?php
 
-class PartidaPublicadaDao extends PartidaPublicada implements Crud {
+class PartidaPublicadaDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($partida_publicada){
 
     }
 
-    function Actualizar(){
+    function Actualizar($partida_publicada){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

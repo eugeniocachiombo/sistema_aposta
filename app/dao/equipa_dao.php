@@ -1,16 +1,16 @@
 <?php
 
-class EquipaDao extends Equipa implements Crud {
+class EquipaDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($equipa){
 
     }
 
-    function Actualizar(){
+    function Actualizar($equipa){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

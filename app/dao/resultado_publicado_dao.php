@@ -1,16 +1,16 @@
 <?php
 
-class ResultadoPublicadoDao extends ResultadoPublicado implements Crud {
+class ResultadoPublicadoDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($resultado_publicado){
 
     }
 
-    function Actualizar(){
+    function Actualizar($resultado_publicado){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

@@ -1,16 +1,16 @@
 <?php
 
-class GestorDao extends Gestor implements Crud {
+class GestorDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($gestor){
 
     }
 
-    function Actualizar(){
+    function Actualizar($gestor){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

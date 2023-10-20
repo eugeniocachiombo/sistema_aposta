@@ -1,16 +1,16 @@
 <?php
 
-class ApostadorDao extends Apostador implements Crud {
+class ApostadorDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($apostador){
 
     }
 
-    function Actualizar(){
+    function Actualizar($apostador){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 

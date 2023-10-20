@@ -1,16 +1,16 @@
 <?php
 
-class ApostaDao extends Aposta implements Crud {
+class ApostaDao implements Crud {
     
-    function Cadastrar(){
+    function Cadastrar($aposta){
 
     }
 
-    function Actualizar(){
+    function Actualizar($aposta){
 
     }
 
-    function Eliminar(){
+    function Eliminar($id){
 
     }
 
