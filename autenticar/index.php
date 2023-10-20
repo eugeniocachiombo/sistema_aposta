@@ -6,6 +6,7 @@
     <form action="" method="post" class="d-flex justify-content-center align-items-center" style="height: 60vh">
             
             <div class="col-5 ">
+            <i class="fas fa-user w-100" style="font-size: 40px"></i>
             <h1><b>Autenticação</b></h1>
                 <div class="col">
                     <label class="w-100 text-start" for="n_bi">Nº BI</label> <br>

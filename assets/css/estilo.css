@@ -21,7 +21,7 @@ body{
 header{
     min-height: 20vh;
     background: khaki;
-    color: aliceblue;
+    color: white;
 }
 
 main{
@@ -30,8 +30,8 @@ main{
 
 footer{
     min-height: 20vh;
-    background: darkkhaki;
-    color: aliceblue;
+    background: #222;
+    color: white;
 }
 
 #table-responsive{
