@@ -2,6 +2,7 @@
 <?php include "../inc/header.html"; ?>
 <?php include "../init/autoload.php"; ?>
 <?php include "../config/db/conexao.php"; ?>
+<link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Cadastro de Gestor</title>
 
 <main class="mt-4 mb-4 " data-bs-theme="dark">
@@ -77,8 +78,11 @@
 
                     <hr class="d-none d-md-block">
                     <div class="col col-md-2 mt-4 pe-4">
-                        <input type="submit" class="form-control" name="btn_cadastrar" id="btn_cadastrar"
-                            value="Cadastrar">
+                        <button type="submit" class="form-control button" name="btn_cadastrar" id="btn_cadastrar">
+                            <span id="texto_cadastrar">Cadastrar</span>
+                            <span id="spinner" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        </button>
+                            
                     </div>
                 </div>
 

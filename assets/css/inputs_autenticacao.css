@@ -1,4 +1,4 @@
-input[type='submit'], .button, input[type='button']{
+input[type='submit'], input[type='button']{
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 7px;
@@ -6,10 +6,9 @@ input[type='submit'], .button, input[type='button']{
     background: khaki;
     color: black;
     font-weight: bold;
-    width: 205px;
 }
 
-input[type='submit']:hover, .button:hover, input[type='button']:hover{
+input[type='submit']:hover, input[type='button']:hover{
     background: rgb(44, 73, 74);
     color: white;
 }
@@ -18,11 +17,9 @@ input[type='text'], input[type='email'], input[type='date'], input[type='passwor
     padding: 5px;
     border: 2px solid cadetblue;
     margin-top: 5px;
-    width: 205px;
 }
 
 select{
-    width: 205px;
     padding: 5px;
     border: 2px solid cadetblue;
     margin-top: 5px;

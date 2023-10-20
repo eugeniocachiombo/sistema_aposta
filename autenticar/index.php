@@ -1,5 +1,6 @@
 <?php include "../inc/headHTML.html"; ?>
 <?php include "../inc/header.html"; ?>
+<link rel="stylesheet" href="../assets/css/inputs_autenticacao.css">
 <title>Autenticação</title>
 
 <main>
