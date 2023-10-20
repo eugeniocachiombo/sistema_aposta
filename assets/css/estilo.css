@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Courier, monospace;
+    animation: opacidade 2s;
+}
+
+@keyframes opacidade{
+    0%{
+        filter: opacity(10%);
+    }
+
+    100%{
+        filter: opacity(100%);
+    }
+}
+
+header{
+    min-height: 20vh;
+    background: khaki;
+    color: aliceblue;
+}
+
+main{
+    min-height: 60vh;
+}
+
+footer{
+    min-height: 20vh;
+    background: darkkhaki;
+    color: aliceblue;
+}
+
+#table-responsive{
+    overflow: auto;
+    max-height: 50vh;
+}
+

@@ -1,0 +1,33 @@
+input[type='submit'], input[type='button']{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background: khaki;
+    color: black;
+    font-weight: bold;
+}
+
+input[type='submit']:hover, input[type='button']:hover{
+    background: rgb(44, 73, 74);
+    color: white;
+}
+
+input[type='text'], input[type='password']{
+    padding: 5px;
+    border: 2px solid cadetblue;
+    margin-top: 5px;
+}
+
+input[type='text']:hover, input[type='password']:hover{
+    
+}
+
+select{
+    padding: 5px;
+    border: 2px solid cadetblue;
+    background: khaki;
+    margin-top: 5px;
+    width: 205px;
+    height: 38px;
+}
