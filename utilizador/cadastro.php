@@ -2,6 +2,19 @@
 <?php include "../inc/header.html"; ?>
 <title>Cadastro de utilizador</title>
 
+<?php
+    if(isset($_POST["btn_cadastrar"])){
+        echo "Tudo Pronto";
+        $nome;
+        $sobrenome;
+        $email;
+        $senha;
+        $nascimento;
+        $genero;
+        $acesso;
+    }
+?>
+
 <main class="mt-4 mb-4 ">
     <form action="" method="post" class="d-flex align-items-center" style="min-height: 60vh">
 
