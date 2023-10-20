@@ -29,9 +29,10 @@ class EquipaDao implements Crud {
 
     function Listar(){
         $con = GetConexao();
-        $sql = "select * from equipa;";
+        $sql = "select * from equipa";
         $stmt = $con->prepare($sql);
-        return $stmt->execute();
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
     function ListarPorId($id){
@@ -39,7 +40,9 @@ class EquipaDao implements Crud {
         $sql = "select * from equipa where id_equipa = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id);
-        return $stmt->execute();
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
 }
+

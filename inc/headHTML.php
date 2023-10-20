@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,3 +16,14 @@
     <script src="../assets/js/flat_picker.js"></script>
 </head>
 <body>
+
+<?php
+    $_SESSION["id"] = 1;
+    $_SESSION["nome"] = "default";
+    $_SESSION["sobrenome"] = "default";
+    $_SESSION["email"] = "default";
+    $_SESSION["senha"] = "default";
+    $_SESSION["nascimento"] = "default";
+    $_SESSION["genero"] = "default";
+    $_SESSION["n_bi"] = "default";
+?>

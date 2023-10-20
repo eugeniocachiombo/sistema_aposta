@@ -1,5 +1,5 @@
 <?php
-    
+     
     spl_autoload_register(function($class){
 
         $model = "../app/class/" . $class .".php";

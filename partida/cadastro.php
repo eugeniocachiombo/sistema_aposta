@@ -3,7 +3,15 @@
 <?php include "../init/autoload.php"; ?>
 <?php include "../config/db/conexao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Cadastro de Gestor</title>
+<title>Cadastro de Partida</title>
+
+<?php
+    $equipa_dao = new EquipaDao();
+    $retorno = $equipa_dao->Listar(); 
+    foreach ($retorno as $value) {
+        echo $value['nome_equipa'];
+    }
+?>
 
 <main class="mt-4 mb-4 " data-bs-theme="dark">
 
@@ -27,33 +35,25 @@
 
                 <div class="col ">
                     <div class="col d-table d-md-flex">
-                        <div class="col pe-4">
-
-                            <label class="w-100 text-start pt-3" for="nome">Nome: </label> <br>
-                            <input type="text" required class="form-control " name="nome" id="nome">
-
-                            <label class="w-100 text-start pt-3" for="sobrenome">Sobrenome: </label> <br>
-                            <input type="text" required class="form-control" name="sobrenome" id="sobrenome">
-
-                        </div>
-
-                        <div class="col pe-4">
-
-                            <label class="w-100 text-start pt-3" for="email">E-mail</label> <br>
-                            <input type="email" required class="form-control" name="email" id="email">
-
-                            <label class="w-100 text-start pt-3" for="n_bi">Senha</label> <br>
-                            <input type="password" required class="form-control" name="senha" id="senha">
-
-                        </div>
-
                         <div class="col pe-4 ">
 
-                            <label class="w-100 text-start pt-3" for="nascimento">Data de Nascimento</label> <br>
-                            <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                name="nascimento" id="nascimento" placeholder="dd-mm-yyyy">
+                            <label class="w-100 text-start pt-3" for="genero">Equipa A</label> <br>
+                            <select class="form-control" required name="genero" id="genero"
+                                style="width: 205px; border: 2px solid cadetblue;">
+                                <option value="">Selecione...</option>
+                                <?php 
+                                
+                                    //$equipa_dao = new EquipaDao();
+                                    //$retorno = $equipa_dao->Listar();
+                                   /* foreach ($retorno as $value) {
+                                        echo $value['nome_equipa'];
+                                       // echo "<option value='" . $value['id_equipa'] . "'>" . $value['nome_equipa'] . "</option>";
+                                    }*/
+                                    
+                                ?>
+                            </select> 
 
-                            <label class="w-100 text-start pt-3" for="genero">Gênero</label> <br>
+                            <label class="w-100 text-start pt-3" for="genero">Equipa B</label> <br>
                             <select class="form-control" required name="genero" id="genero"
                                 style="width: 205px; border: 2px solid cadetblue;">
                                 <option value="">Selecione...</option>
@@ -71,7 +71,7 @@
                             <select class="form-control" disabled name="acesso" id="acesso"
                                 style="width: 205px; border: 2px solid cadetblue;">
                                 <option value="">Selecione...</option>
-                                <option selected value="gestor">Gestor</option>
+                                <option selected value="Partida">Partida</option>
                             </select>
                         </div>
                     </div>
@@ -80,9 +80,10 @@
                     <div class="col col-md-2 mt-4 pe-4">
                         <button type="submit" class="form-control button" name="btn_cadastrar" id="btn_cadastrar">
                             <span id="texto_cadastrar">Cadastrar</span>
-                            <span id="spinner" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                            <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
+                                aria-hidden="true"></span>
                         </button>
-                            
+
                     </div>
                 </div>
 
