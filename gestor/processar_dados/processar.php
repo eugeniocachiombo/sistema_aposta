@@ -43,23 +43,40 @@
 
             $n_bi = $_POST["n_bi"];
             $senha = $_POST["senha"];
-            openssl_encrypt("1234", 'aes-256-cbc', 12, 0, openssl_random_pseudo_bytes(16));
-            
-            $cripto = openssl_decrypt("123", 'aes-256-cbc', 12, 0, openssl_random_pseudo_bytes(16));
-            echo "<br> Saida: " . $cripto; 
-
-            echo "<pre>";
-            //var_dump($retorno);
-            echo "</pre>";
     
             $gestor_dao = new GestorDao();
             $retorno = $gestor_dao->ListarPorBISenha($n_bi, $senha);
             
             if($retorno){
-                echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Encontrado  <b> </font>";
+                CriarSessao($retorno);
+                ?> <script> window.location = "../gestor"; </script> <?php
             }else{
                 echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Utilizador Não Encontrado  <b> </font>";
             }
         }
+    }
+
+    function CriarSessao($retorno){
+
+        $id = $retorno["id_gestor"];
+        $nome = $retorno["nome_gestor"];
+        $sobrenome = $retorno["sobrenome_gestor"];
+        $email = $retorno["email_gestor"];
+        $senha = $retorno["senha_gestor"];
+        $nascimento = $retorno["nascimento_gestor"];
+        $nascimento = explode("-", $nascimento);
+        $nascimento = $nascimento[2] . "-" . $nascimento[1] . "-" . $nascimento[0];
+        $genero = $retorno["genero_gestor"];
+        $n_bi = $retorno["n_bi_gestor"];
+
+
+        $_SESSION["id"] = $nome;
+        $_SESSION["nome"] = $nome;
+        $_SESSION["sobrenome"] = $sobrenome;
+        $_SESSION["email"] = $email;
+        $_SESSION["senha"] = $senha;
+        $_SESSION["nascimento"] = $nascimento;
+        $_SESSION["genero"] = $genero;
+        $_SESSION["n_bi"] = $n_bi;
     }
 ?>
