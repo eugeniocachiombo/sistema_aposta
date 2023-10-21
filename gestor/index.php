@@ -138,7 +138,7 @@
 
             <div class="col-12 col-sm-6 pt-4">
                 <div class="table-responsive" style="max-height: 60vh">
-                    <table class="table table-dark table-striped table-hover" >
+                    <table class="table table-secondary table-striped table-hover" >
                         <tr style="border: none;">
                             <th class="text-start">Resultados</td>
                         </tr>

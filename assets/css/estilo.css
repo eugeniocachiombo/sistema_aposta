@@ -21,7 +21,7 @@ body{
 header{
     min-height: 20vh;
     background: khaki;
-    color: white;
+    color: rgb(58, 58, 58);
 }
 
 main{

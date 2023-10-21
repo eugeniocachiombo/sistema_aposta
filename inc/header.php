@@ -23,7 +23,7 @@
 <header class="d-flex align-items-center">
     <div class="container d-flex d-md-block w-100 pt-3 pb-3">
         <div class="col-2 col-md-12 text-md-center">
-            <i class="fas fa-volleyball" style="font-size: 80px; color: white;"></i>
+            <i class="fas fa-volleyball" style="font-size: 80px; color: black;"></i>
         </div>
     
         <div class="col display-6 d-flex align-items-end">
