@@ -13,8 +13,9 @@
             <h3> <i class="fas fa-futbol"></i> Painel de actividades</h3>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-sm-6 pt-4">
+        <div class="row pt-4">
+            <p>Registos a respecto de cadastro de equipas e partidas</p>
+            <div class="col-12 col-sm-6 ">
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-warning table-striped table-hover">
                         <tr style="border: none;">
@@ -35,7 +36,7 @@
                 <hr class=" d-sm-none" size="6px">
             </div>
 
-            <div class="col-12 col-sm-6 pt-4">
+            <div class="col-12 col-sm-6 ">
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-success table-striped table-hover" >
                         <tr style="border: none;">
@@ -57,10 +58,27 @@
             </div>
         </div>
 
-        <hr style="color: #299" size="8px" class='d-none d-sm-block'>
+        <hr style="color: #299" size="8px" class=''>
+        
+        <div class="row w-40 pt-4 pb-2">
+            <div class="col ">
+                <i class="fas fa-futbol text-dark" style="font-size: 50px"></i>
+            </div>
 
-        <div class="row">
-            <div class="col pt-4">
+            <div class="col text-center d-flex justify-content-center align-items-center">
+                <h4>Apostar para ganhar!</h4>
+            </div>
+
+            <div class="col text-end ">
+                <i class="fas fa-futbol text-dark" style="font-size: 50px"></i>
+            </div>
+        </div>
+
+        <hr style="color: #299" size="8px" class=''>
+
+        <div class="row pt-4">
+            <p>Registos a respecto de partidas</p>
+            <div class="col ">
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-info table-striped table-hover">
                         
@@ -100,10 +118,27 @@
             </div>
         </div>
 
-        <hr style="color: #299" size="8px" class='d-none d-sm-block'>
+        <hr style="color: #299" size="8px" class=''>
+        
+        <div class="row w-40 pt-4 pb-2">
+            <div class="col ">
+                <i class="fas fa-futbol text-dark" style="font-size: 50px"></i>
+            </div>
 
-        <div class="row">
-            <div class="col-12 col-sm-6 pt-4">
+            <div class="col text-center d-flex justify-content-center align-items-center">
+                <h4>Apostar para ganhar!</h4>
+            </div>
+
+            <div class="col text-end ">
+                <i class="fas fa-futbol text-dark" style="font-size: 50px"></i>
+            </div>
+        </div>
+
+        <hr style="color: #299" size="8px" class=''>
+
+        <div class="row pt-4">
+            <p>Registos a respecto de apostas e resultados obtidos nas sessões</p>
+            <div class="col-12 col-sm-6 ">
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-primary table-striped table-hover">
                         <tr style="border: none;">
@@ -136,7 +171,7 @@
                 <hr class=" d-sm-none" size="6px">
             </div>
 
-            <div class="col-12 col-sm-6 pt-4">
+            <div class="col-12 col-sm-6 ">
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-secondary table-striped table-hover" >
                         <tr style="border: none;">
