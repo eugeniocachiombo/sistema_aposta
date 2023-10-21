@@ -3,6 +3,7 @@
 <?php include "../init/autoload.php"; ?>
 <?php include "../config/db/conexao.php"; ?>
 <?php include "../app/dao/partida_publicada_dao.php"; ?>
+<?php include "../app/dao/resultado_publicado_dao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Página Inicial</title>
 
@@ -99,21 +100,35 @@
             </div>
         </div>
 
+        <hr style="color: #299" size="8px" class='d-none d-sm-block'>
+
         <div class="row">
             <div class="col-12 col-sm-6 pt-4">
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-warning table-striped table-hover">
                         <tr style="border: none;">
-                            <th class="text-start">Equipas</th>
+                            <th class="text-start">Apostas</th>
                         </tr>
 
                         <?php 
-                            $equipa_dao = new EquipaDao();
-                            $retorno = $equipa_dao->Listar();
+                            $aposta_dao = new ApostaDao();
+                            $retorno = $aposta_dao->Listar();
                             foreach ($retorno as $value) {
-                               echo "<tr style='border: none;'>";
-                               echo "<td style='border: none;'>" . $value['nome_equipa'] . "</td>";
-                               echo "</tr>";
+
+                                $data_aposta = explode("-", $value['data_aposta']);
+                                $data_aposta = $data_aposta[2] . "/" . $data_aposta[1] . "/" . $data_aposta[0];
+
+                                $hora_aposta = str_split(strval($value['hora_aposta']), 5);
+                                $hora_aposta = $hora_aposta[0];
+
+                               echo "<tr style='border: none;'>" .
+                                        "<td style='border: none;text-align:left'> <b>" 
+                                            . $value['nome_equipaA'] . " x " . $value['nome_equipaB'] . 
+                                            "</b> <br class='d-blcok d-sm-none'>  Data do jogo: <b>". $data_partida . " " . $hora_partida . "</b>" .
+                                            "</b> <br class='d-block d-sm-none'>  Publicado: <b>". $data_publicada . " " . $hora_publicada . "</b>" .
+                                            "</b> <br class='d-block d-sm-none'> por: <b>". $value['nome_publicador'] . " " . $value['sobrenome_publicador'] . "</b>" .
+                                        "</td>" .
+                                     "</tr>";
                             }
                         ?>
                     </table>
@@ -125,7 +140,7 @@
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-success table-striped table-hover" >
                         <tr style="border: none;">
-                            <th class="text-start">Partidas</td>
+                            <th class="text-start">Resultados</td>
                         </tr>
 
                         <?php 
