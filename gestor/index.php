@@ -154,8 +154,8 @@
                                 $hora_publicada = str_split(strval($value['hora_publicada']), 5);
                                 $hora_publicada = $hora_publicada[0];
 
-                               echo "<tr style='border: none;'>" .
-                                        "<td style='border: none;text-align:left'> " .
+                               echo "<tr style='border: none; '>" .
+                                        "<td style='border: none; text-align:left; padding-bottom: 30px'> " .
                                             "Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] .
                                             "</b><br> Publicadodor: <b>" . $value['nome_publicador'] . " " . $value['sobrenome_publicador'] . 
                                             "</b><br>  Data publicada: <b>". $data_publicada . " " . $hora_publicada . "</b>" .
@@ -169,7 +169,7 @@
             </div>
         </div>
 
-        <div class="row pt-2" style="background: khaki">
+        <div class="row mt-4 pt-2" style="background: khaki">
             <h3> <i class="fas fa-futbol"></i> .... </h3>
         </div>
     </div>
