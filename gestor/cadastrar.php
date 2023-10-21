@@ -9,7 +9,7 @@
 
     <div class="container">
         <div class="row">
-            <?php include "processar_dados/processar_cadastro.php";?>
+            <?php include "processar_dados/processar.php";?>
         </div>
     </div>
 

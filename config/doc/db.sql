@@ -10,7 +10,7 @@ create table gestor(
     senha_gestor varchar(25),
     nascimento_gestor date,
     genero_gestor enum('M', 'F'),
-    n_bi_gestor varchar(12)
+    n_bi_gestor varchar(20)
 );
 create table publicador(
     id_publicador int primary key auto_increment not null,
@@ -20,8 +20,9 @@ create table publicador(
     senha_publicador varchar(25),
     nascimento_publicador date,
     genero_publicador enum('M', 'F'),
-    n_bi_publicador varchar(12)
+    n_bi_publicador varchar(20)
 );
+
 create table apostador(
     id_apostador int primary key auto_increment not null,
     nome_apostador varchar(50),
@@ -30,7 +31,7 @@ create table apostador(
     senha_apostador varchar(25),
     nascimento_apostador date,
     genero_apostador enum('M', 'F'),
-    n_bi_apostador varchar(12)
+    n_bi_apostador varchar(20)
 );
 create table adiminstrador(
     id_adiminstrador int primary key auto_increment not null,
@@ -40,7 +41,7 @@ create table adiminstrador(
     senha_adiminstrador varchar(25),
     nascimento_adiminstrador date,
     genero_adiminstrador enum('M', 'F'),
-    n_bi_adiminstrador varchar(12)
+    n_bi_adiminstrador varchar(20)
 );
 
 create table equipa(
