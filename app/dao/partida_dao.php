@@ -33,7 +33,13 @@ class PartidaDao implements Crud {
 
     function Listar(){
         $con = GetConexao();
-        $sql = "select * from partida";
+        $sql = "select *, equipaA.nome_equipa as nome_equipaA, equipaB.nome_equipa as nome_equipaB from partida
+        left outer join equipa as equipaA
+        on equipaA.id_equipa = partida.id_equipaA
+        left outer join equipa as equipaB
+        on equipaB.id_equipa = partida.id_equipaB
+        left outer join gestor
+        on gestor.id_gestor = partida.id_gestor";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -41,7 +47,14 @@ class PartidaDao implements Crud {
 
     function ListarPorId($id){
         $con = GetConexao();
-        $sql = "select * from partida where id_partida = ?;";
+        $sql = "select *, equipaA.nome_equipa as nome_equipaA, equipaB.nome_equipa as nome_equipaB from partida
+        left outer join equipa as equipaA
+        on equipaA.id_equipa = partida.id_equipaA
+        left outer join equipa as equipaB
+        on equipaB.id_equipa = partida.id_equipaB
+        left outer join gestor
+        on gestor.id_gestor = partida.id_gestor
+        where id_partida = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id);
         $stmt->execute();
