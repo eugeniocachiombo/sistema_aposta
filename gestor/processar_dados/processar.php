@@ -43,6 +43,14 @@
 
             $n_bi = $_POST["n_bi"];
             $senha = $_POST["senha"];
+            openssl_encrypt("1234", 'aes-256-cbc', 12, 0, openssl_random_pseudo_bytes(16));
+            
+            $cripto = openssl_decrypt("123", 'aes-256-cbc', 12, 0, openssl_random_pseudo_bytes(16));
+            echo "<br> Saida: " . $cripto; 
+
+            echo "<pre>";
+            //var_dump($retorno);
+            echo "</pre>";
     
             $gestor_dao = new GestorDao();
             $retorno = $gestor_dao->ListarPorBISenha($n_bi, $senha);

@@ -4,7 +4,7 @@ class GestorDao implements Crud {
     
     function Cadastrar($gestor){
         $con = GetConexao();
-        $sql = "insert into gestor (nome_gestor, sobrenome_gestor, email_gestor, senha_gestor, nascimento_gestor, genero_gestor, n_bi_gestor) values (?,?,?,md5(?),?,?,?);";
+        $sql = "insert into gestor (nome_gestor, sobrenome_gestor, email_gestor, senha_gestor, nascimento_gestor, genero_gestor, n_bi_gestor) values (?, ?, ?, md5(?), ?, ?, ?);";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $gestor->GetNome());
         $stmt->bindValue( 2, $gestor->GetSobrenome());
@@ -57,7 +57,7 @@ class GestorDao implements Crud {
 
     function ListarPorBISenha($n_bi, $senha){
         $con = GetConexao();
-        $sql = "select * from gestor where n_bi = ? and senha = md5(?);";
+        $sql = "select * from gestor where n_bi_gestor = ? and senha_gestor = md5(?)";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $n_bi);
         $stmt->bindValue( 2, $senha);

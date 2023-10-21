@@ -1,4 +1,4 @@
-create database sistema_aposta;
+create database sistema_aposta DEFAULT CHARACTER SET utf8mb4;
 
 use sistema_aposta;
 
@@ -7,7 +7,7 @@ create table gestor(
     nome_gestor varchar(50),
     sobrenome_gestor varchar(50),
     email_gestor varchar(30),
-    senha_gestor varchar(25),
+    senha_gestor varchar(45),
     nascimento_gestor date,
     genero_gestor enum('M', 'F'),
     n_bi_gestor varchar(20)
@@ -17,7 +17,7 @@ create table publicador(
     nome_publicador varchar(50),
     sobrenome_publicador varchar(50),
     email_publicador varchar(30),
-    senha_publicador varchar(25),
+    senha_publicador varchar(45),
     nascimento_publicador date,
     genero_publicador enum('M', 'F'),
     n_bi_publicador varchar(20)
@@ -28,7 +28,7 @@ create table apostador(
     nome_apostador varchar(50),
     sobrenome_apostador varchar(50),
     email_apostador varchar(30),
-    senha_apostador varchar(25),
+    senha_apostador varchar(45),
     nascimento_apostador date,
     genero_apostador enum('M', 'F'),
     n_bi_apostador varchar(20)
@@ -38,7 +38,7 @@ create table adiminstrador(
     nome_adiminstrador varchar(50),
     sobrenome_adiminstrador varchar(50),
     email_adiminstrador varchar(30),
-    senha_adiminstrador varchar(25),
+    senha_adiminstrador varchar(45),
     nascimento_adiminstrador date,
     genero_adiminstrador enum('M', 'F'),
     n_bi_adiminstrador varchar(20)
