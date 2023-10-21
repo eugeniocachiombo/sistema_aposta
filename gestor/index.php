@@ -105,7 +105,7 @@
         <div class="row">
             <div class="col-12 col-sm-6 pt-4">
                 <div class="table-responsive" style="max-height: 60vh">
-                    <table class="table table-warning table-striped table-hover">
+                    <table class="table table-primary table-striped table-hover">
                         <tr style="border: none;">
                             <th class="text-start">Apostas</th>
                         </tr>
@@ -122,11 +122,11 @@
                                 $hora_aposta = $hora_aposta[0];
 
                                echo "<tr style='border: none;'>" .
-                                        "<td style='border: none;text-align:left'> <b>" 
-                                            . $value['nome_equipaA'] . " x " . $value['nome_equipaB'] . 
-                                            "</b> <br class='d-blcok d-sm-none'>  Data do jogo: <b>". $data_partida . " " . $hora_partida . "</b>" .
-                                            "</b> <br class='d-block d-sm-none'>  Publicado: <b>". $data_publicada . " " . $hora_publicada . "</b>" .
-                                            "</b> <br class='d-block d-sm-none'> por: <b>". $value['nome_publicador'] . " " . $value['sobrenome_publicador'] . "</b>" .
+                                        "<td style='border: none;text-align:left'> " 
+                                            . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
+                                            "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
+                                            "</b><br>  Data de aposta: <b>". $data_partida . " " . $hora_partida . "</b>" .
+                                            "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
                                         "</td>" .
                                      "</tr>";
                             }
@@ -138,7 +138,7 @@
 
             <div class="col-12 col-sm-6 pt-4">
                 <div class="table-responsive" style="max-height: 60vh">
-                    <table class="table table-success table-striped table-hover" >
+                    <table class="table table-dark table-striped table-hover" >
                         <tr style="border: none;">
                             <th class="text-start">Resultados</td>
                         </tr>
