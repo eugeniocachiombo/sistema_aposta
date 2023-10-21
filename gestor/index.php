@@ -125,7 +125,7 @@
                                         "<td style='border: none;text-align:left'> " 
                                             . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
                                             "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
-                                            "</b><br>  Data de aposta: <b>". $data_partida . " " . $hora_partida . "</b>" .
+                                            "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
                                             "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
                                         "</td>" .
                                      "</tr>";
@@ -144,12 +144,23 @@
                         </tr>
 
                         <?php 
-                            $partida_dao = new PartidaDao();
-                            $retorno = $partida_dao->Listar();
+                            $resultado_publicado_dao = new ResultadoPublicadoDao();
+                            $retorno = $resultado_publicado_dao->Listar();
                             foreach ($retorno as $value) {
-                               echo "<tr style='border: none;'>";
-                                echo "<td style='border: none;'>" . $value["nome_equipaA"] . " x " . $value["nome_equipaB"] ."</td>";
-                               echo "</tr>";
+
+                                $data_publicada = explode("-", $value['data_publicada']);
+                                $data_publicada = $data_publicada[2] . "/" . $data_publicada[1] . "/" . $data_publicada[0];
+
+                                $hora_publicada = str_split(strval($value['hora_publicada']), 5);
+                                $hora_publicada = $hora_publicada[0];
+
+                               echo "<tr style='border: none;'>" .
+                                        "<td style='border: none;text-align:left'> " .
+                                            "Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] .
+                                            "</b><br> Publicadodor: <b>" . $value['nome_publicador'] . " " . $value['sobrenome_publicador'] . 
+                                            "</b><br>  Data publicada: <b>". $data_publicada . " " . $hora_publicada . "</b>" .
+                                        "</td>" .
+                                     "</tr>";
                             }
                         ?>
                     </table>
