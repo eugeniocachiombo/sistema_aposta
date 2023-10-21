@@ -7,7 +7,6 @@ nascimento.addEventListener("focus", ()=>{
         {
             dateFormat: "d-m-Y",
             minDate: "01.01.1950",
-            maxDate: "15.12." + idade_adulta,
-            defaultDate: ["10-01-1999"]
+            maxDate: "15.12." + idade_adulta
         });
 })
