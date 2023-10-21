@@ -10,8 +10,13 @@
         </div>
     </div>
 
-    <div class="col text-end">
-        <i class="fas fa-user w-100" style="font-size: 20px"></i>
+    <div class="col-8 text-end">
+        <i class="fas fa-user" style="font-size: 20px"></i>
+        <?php 
+            if(isset($_SESSION["id"])){
+                echo $_SESSION["nome"] . " " .  $_SESSION["sobrenome"]; 
+            } 
+        ?>
     </div>
 </div>
 
