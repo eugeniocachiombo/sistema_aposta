@@ -1,15 +1,11 @@
 th{
-    background: dimgrey;
-    color: aliceblue;
-    padding: 5px;
+    background: khaki;
+    color: darkslategray;
     text-align: center;
-    border: 1px solid dimgrey;
 }
 
 td{
     text-align: center;
     background: khaki;
     color: gray;
-    padding: 5px;
-    border: 1px solid dimgrey;
 }
