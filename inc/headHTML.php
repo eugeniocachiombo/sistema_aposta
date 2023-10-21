@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/fontawesome/css/all5.css">
     <link rel="stylesheet" href="../assets/fontawesome/css/all6.css">
     <link rel="stylesheet" href="../assets/css/flat_picker.css">
+    <link rel="stylesheet" href="../assets/css/tema_calendario.css">
     <link rel="stylesheet" href="../assets/css/estilo.css">
     <link rel="stylesheet" href="../assets/css/tabela.css">
     <script src="../assets/bootstrap/js/bootstrap.js"></script>

@@ -28,13 +28,23 @@
             $gestor->SetN_bi($n_bi);
     
             $gestor_dao = new GestorDao();
-            $retorno = $gestor_dao->Cadastrar($gestor);
+            $retorno_veritificao_bi = $gestor_dao->ListarPorBI($n_bi);
             
-            if($retorno){
-                echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Cadastrado com sucesso  <b> </font>";
-            }else{
-                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao cadastrar  <b> </font>";
+            if($retorno_veritificao_bi){
+
+                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe um utilizador com este número de BI  <b> </font>";
+            
+            } else{
+
+                $retorno_sucesso = $gestor_dao->Cadastrar($gestor);
+                if($retorno_sucesso){
+                    echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Cadastrado com sucesso  <b> </font>";
+                }else{
+                    echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao cadastrar  <b> </font>";
+                }
+
             }
+            
         }
     }
 
@@ -45,10 +55,10 @@
             $senha = $_POST["senha"];
     
             $gestor_dao = new GestorDao();
-            $retorno = $gestor_dao->ListarPorBISenha($n_bi, $senha);
+            $retorno_autenticacao = $gestor_dao->ListarPorBISenha($n_bi, $senha);
             
-            if($retorno){
-                CriarSessao($retorno);
+            if($retorno_autenticacao){
+                CriarSessao($retorno_autenticacao);
                 ?> <script> window.location = "../gestor"; </script> <?php
             }else{
                 echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Utilizador Não Encontrado  <b> </font>";

@@ -65,4 +65,13 @@ class GestorDao implements Crud {
         return $stmt->fetch();
     }
 
+    function ListarPorBI($n_bi){
+        $con = GetConexao();
+        $sql = "select * from gestor where n_bi_gestor = ?";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $n_bi);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
 }
