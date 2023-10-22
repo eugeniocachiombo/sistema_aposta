@@ -1,8 +1,12 @@
+<?php $acesso = isset($_SESSION["tipo_acesso_logado"]) ? $_SESSION["tipo_acesso_logado"] : ""; ?>
+
 <main class="mb-4 mt-4">
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
             <h3> <i class="fas fa-futbol"></i> Painel de actividades</h3>
         </div>
+
+        <?php if($acesso == "administrador" || $acesso == "gestor" || $acesso == "publicador"){ ?>
 
         <div class="row pt-4">
             <p>Registos a respecto de cadastro de equipas e partidas</p>
@@ -29,7 +33,7 @@
 
             <div class="col-12 col-sm-6 ">
                 <div class="table-responsive" style="max-height: 60vh">
-                    <table class="table table-success table-striped table-hover" >
+                    <table class="table table-success table-striped table-hover">
                         <tr style="border: none;">
                             <th class="text-start">Partidas</td>
                         </tr>
@@ -50,7 +54,7 @@
         </div>
 
         <hr style="color: #299" size="8px" class=''>
-        
+
         <div class="row w-40 pt-4 pb-2">
             <div class="col ">
                 <i class="fas fa-futbol text-dark" style="font-size: 50px"></i>
@@ -67,12 +71,14 @@
 
         <hr style="color: #299" size="8px" class=''>
 
+        <?php } ?>
+
         <div class="row pt-4">
-            <p>Registos a respecto de partidas</p>
+            <p>Registos a respecto de partidas publicadas</p>
             <div class="col ">
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-info table-striped table-hover">
-                        
+
                         <tr style="border: none;">
                             <th class="text-start">Partidas publicadas</td>
                         </tr>
@@ -110,7 +116,7 @@
         </div>
 
         <hr style="color: #299" size="8px" class=''>
-        
+
         <div class="row w-40 pt-4 pb-2">
             <div class="col ">
                 <i class="fas fa-futbol text-dark" style="font-size: 50px"></i>
@@ -129,6 +135,9 @@
 
         <div class="row pt-4">
             <p>Registos a respecto de apostas e resultados obtidos nas sessões</p>
+            
+            <?php if( $acesso == "administrador" ){ ?>
+
             <div class="col-12 col-sm-6 ">
                 <div class="table-responsive" style="max-height: 60vh">
                     <table class="table table-primary table-striped table-hover">
@@ -162,9 +171,11 @@
                 <hr class=" d-sm-none" size="6px">
             </div>
 
+            <?php } ?>
+
             <div class="col-12 col-sm-6 ">
                 <div class="table-responsive" style="max-height: 60vh">
-                    <table class="table table-secondary table-striped table-hover" >
+                    <table class="table table-secondary table-striped table-hover">
                         <tr style="border: none;">
                             <th class="text-start">Resultados</td>
                         </tr>
@@ -193,6 +204,43 @@
                 </div>
                 <hr class=" d-sm-none" size="6px">
             </div>
+
+            <?php if( $acesso == "apostador" ){ ?>
+
+                <div class="col-12 col-sm-6 ">
+                    <div class="table-responsive" style="max-height: 60vh">
+                        <table class="table table-primary table-striped table-hover">
+                            <tr style="border: none;">
+                                <th class="text-start">Minhas Vitórias</th>
+                            </tr>
+
+                            <?php 
+                                $aposta_dao = new ApostaDao();
+                                $retorno = $aposta_dao->Listar();
+                                foreach ($retorno as $value) {
+
+                                    $data_aposta = explode("-", $value['data_aposta']);
+                                    $data_aposta = $data_aposta[2] . "/" . $data_aposta[1] . "/" . $data_aposta[0];
+
+                                    $hora_aposta = str_split(strval($value['hora_aposta']), 5);
+                                    $hora_aposta = $hora_aposta[0];
+
+                                echo "<tr style='border: none;'>" .
+                                            "<td style='border: none;text-align:left'> " 
+                                                . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
+                                                "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
+                                                "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
+                                                "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
+                                            "</td>" .
+                                        "</tr>";
+                                }
+                            ?>
+                        </table>
+                    </div>
+                    <hr class=" d-sm-none" size="6px">
+                </div>
+
+            <?php } ?>
         </div>
 
         <div class="row mt-4 pt-2" style="background: khaki">
