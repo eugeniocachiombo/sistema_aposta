@@ -8,10 +8,10 @@
 <title>Editar Dados</title>
 
 <?php
-    if(empty($_SESSION["id_gestor"])){ 
+    if(empty($_SESSION["id_apostador"])){ 
         ?>
 <script>
-window.location = "../gestor/autenticar.php";
+window.location = "../apostador/autenticar.php";
 </script>
 <?php
     }
@@ -50,11 +50,11 @@ window.location = "../gestor/autenticar.php";
 
                                     <label class="w-100 text-start pt-3" for="nome">Nome: </label> <br>
                                     <input type="text" required class="form-control " name="nome" id="nome"
-                                        value="<?php echo $_SESSION["nome_gestor"]; ?>">
+                                        value="<?php echo $_SESSION["nome_apostador"]; ?>">
 
                                     <label class="w-100 text-start pt-3" for="sobrenome">Sobrenome: </label> <br>
                                     <input type="text" required class="form-control" name="sobrenome" id="sobrenome"
-                                        value="<?php echo $_SESSION["sobrenome_gestor"]; ?>">
+                                        value="<?php echo $_SESSION["sobrenome_apostador"]; ?>">
 
                                 </div>
 
@@ -62,13 +62,13 @@ window.location = "../gestor/autenticar.php";
 
                                     <label class="w-100 text-start pt-3" for="email">E-mail</label> <br>
                                     <input type="email" required class="form-control" name="email" id="email"
-                                        value="<?php echo $_SESSION["email_gestor"]; ?>">
+                                        value="<?php echo $_SESSION["email_apostador"]; ?>">
 
                                     <label class="w-100 text-start pt-3" for="nascimento">Data de Nascimento</label>
                                     <br>
                                     <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required
                                         class="form-control" name="nascimento" id="nascimento" placeholder="dd-mm-yyyy"
-                                        value="<?php echo $_SESSION["nascimento_gestor"]; ?>">
+                                        value="<?php echo $_SESSION["nascimento_apostador"]; ?>">
 
                                 </div>
 
@@ -79,7 +79,7 @@ window.location = "../gestor/autenticar.php";
                                         style="width: 205px; border: 2px solid cadetblue;">
                                         <option value="">Selecione...</option>
                                         <?php
-                                            if($_SESSION["genero_gestor"] == "M"){ ?>
+                                            if($_SESSION["genero_apostador"] == "M"){ ?>
                                         <option value="M" selected>Masculino</option>
                                         <option value="F">Femenino</option> <?php
                                             } else{ ?>
@@ -91,7 +91,7 @@ window.location = "../gestor/autenticar.php";
 
                                     <label class="w-100 text-start pt-3" for="n_bi">Nº BI</label> <br>
                                     <input type="text" required class="form-control" name="n_bi" id="n_bi"
-                                        value="<?php echo $_SESSION["n_bi_gestor"]; ?>">
+                                        value="<?php echo $_SESSION["n_bi_apostador"]; ?>">
 
                                 </div>
                             </div>

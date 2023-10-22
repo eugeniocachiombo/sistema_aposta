@@ -3,7 +3,7 @@
 <?php include "../init/autoload.php"; ?>
 <?php include "../config/db/conexao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Cadastro de Gestor</title>
+<title>Cadastro de Apostador</title>
 
 <main class="mt-4 mb-4 " data-bs-theme="dark">
 
@@ -71,7 +71,7 @@
                             <select class="form-control" disabled name="acesso" id="acesso"
                                 style="width: 205px; border: 2px solid cadetblue;">
                                 <option value="">Selecione...</option>
-                                <option selected value="gestor">Gestor</option>
+                                <option selected value="Apostador">Apostador</option>
                             </select>
                         </div>
                     </div>

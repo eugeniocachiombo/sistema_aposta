@@ -8,10 +8,10 @@
 <title>Eliminar Conta</title>
 
 <?php
-    if(empty($_SESSION["id_gestor"])){ 
+    if(empty($_SESSION["id_apostador"])){ 
         ?>
             <script>
-                window.location = "../gestor/autenticar.php";
+                window.location = "../apostador/autenticar.php";
             </script>
         <?php
     }
