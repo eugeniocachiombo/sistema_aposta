@@ -8,10 +8,10 @@
 <title>Página Inicial</title>
 
 <?php
-    if(!empty($_SESSION["id"])){ 
+    if(isset($_SESSION["id_logado"])){ 
         ?>
             <script>
-                    window.location = "../" + $_SESSION["tipo_acesso_logado"];
+                    window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
             </script>
         <?php
     }
