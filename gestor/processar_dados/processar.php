@@ -3,6 +3,43 @@
     Actualizar();
     Autenticar();
     AlterarSenha();
+    EliminarConta();
+
+    function EliminarConta(){
+        
+        if(isset($_POST["btn_eliminar_conta"])){
+
+            $id_gestor = $_SESSION["id_gestor"];
+            $senha = $_POST["senha"];
+    
+            $gestor_dao = new GestorDao();
+            $retorno_senha = $gestor_dao->ListarPorIDSenha($id_gestor, $senha);
+            
+            if($retorno_senha){
+
+                $retorno_sucesso = $gestor_dao->Eliminar($id_gestor);
+                if($retorno_sucesso){
+                    echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Conta eliminada com sucesso  <b> </font>";
+                    session_destroy();
+                    ?> 
+                            Encaminhado para Inicio... <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                            <script>
+                                setInterval(() => {
+                                    window.location = "../inicio";
+                                }, 3000);
+                            </script>
+                    <?php
+                }else{
+                    echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao tentar eliminar conta  <b> </font>";
+                } 
+
+            }else{
+
+                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro!... senha incorreta  <b> </font>";
+            
+            }
+        }
+    }
 
     function AlterarSenha(){
         if(isset($_POST["btn_alterar_senha"])){

@@ -83,7 +83,6 @@ window.location = "../gestor/autenticar.php";
 </main>
 
 <script src="../assets/js/validacao_utilizadores_alterar_senha.js"></script>
-<script src="../assets/js/data_utilizadores.js"></script>
 
 <?php include "../inc/footer.html"; ?>
 <?php include "../inc/footHTML.html"; ?>

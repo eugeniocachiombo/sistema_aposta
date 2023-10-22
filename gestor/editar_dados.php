@@ -21,7 +21,7 @@ window.location = "../gestor/autenticar.php";
 
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
-            <h3> <i class="fas fa-futbol"></i> Informações Pessoais</h3>
+            <h3> <i class="fas fa-pen"></i> Informações Pessoais</h3>
         </div>
 
         <div class="container">
