@@ -2,6 +2,34 @@
     Cadastrar();
     Actualizar();
     Autenticar();
+    AlterarSenha();
+
+    function AlterarSenha(){
+        if(isset($_POST["btn_alterar_senha"])){
+
+            $id_gestor = $_SESSION["id_gestor"];
+            $senha_antiga = $_POST["senha_antiga"];
+            $senha_nova = $_POST["senha_nova"];
+    
+            $gestor_dao = new GestorDao();
+            $retorno_senha_antiga = $gestor_dao->ListarPorIDSenha($id_gestor, $senha_antiga);
+            
+            if($retorno_senha_antiga){
+
+                $retorno_sucesso = $gestor_dao->AlterarSenha($id_gestor, $senha_nova);
+                if($retorno_sucesso){
+                    echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Senha alterada com sucesso  <b> </font>";
+                }else{
+                    echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao alterar senha  <b> </font>";
+                }
+
+            }else{
+
+                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro!... senha antiga incorreta  <b> </font>";
+            
+            }      
+        }
+    }
 
     function Cadastrar(){
         if(isset($_POST["btn_cadastrar"])){

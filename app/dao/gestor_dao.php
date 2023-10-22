@@ -30,6 +30,15 @@ class GestorDao implements Crud {
         return $stmt->execute();
     }
 
+    function AlterarSenha($id_gestor, $senha_nova){
+        $con = GetConexao();
+        $sql = "update gestor set senha_gestor = md5(?) where id_gestor = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $senha_nova);
+        $stmt->bindValue( 2, $id_gestor);
+        return $stmt->execute();
+    }
+
     function Eliminar($id){
         $con = GetConexao();
         $sql = "delete from gestor where id_gestor = ?;";
@@ -65,6 +74,16 @@ class GestorDao implements Crud {
         return $stmt->fetch();
     }
 
+    function ListarPorIDSenha($id_gestor, $senha){
+        $con = GetConexao();
+        $sql = "select * from gestor where id_gestor = ? and senha_gestor = md5(?)";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $id_gestor);
+        $stmt->bindValue( 2, $senha);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
     function ListarPorBI($n_bi){
         $con = GetConexao();
         $sql = "select * from gestor where n_bi_gestor = ?";
@@ -73,5 +92,6 @@ class GestorDao implements Crud {
         $stmt->execute();
         return $stmt->fetch();
     }
+    
 
 }

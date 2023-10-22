@@ -5,7 +5,7 @@
 <?php include "../app/dao/partida_publicada_dao.php"; ?>
 <?php include "../app/dao/resultado_publicado_dao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Página Inicial</title>
+<title>Editar Dados</title>
 
 <?php
     if(empty($_SESSION["id_gestor"])){ 
