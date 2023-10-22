@@ -5,7 +5,7 @@
 <?php include "../app/dao/partida_publicada_dao.php"; ?>
 <?php include "../app/dao/resultado_publicado_dao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Alterar Senha</title>
+<title>Eliminar Conta</title>
 
 <?php
     if(empty($_SESSION["id_gestor"])){ 
@@ -45,12 +45,18 @@
                         </div>
 
                         <div class="col ">
+                            <div class="col d-table d-md-flex">
+                                <div class="col pe-4">
+                                    <label class="w-100 text-start pt-3" for="senha">Senha: </label> <br>
+                                    <input type="password" required class="form-control " name="senha" id="senha">
+                                </div>
+                            </div>
 
                             <hr class="d-none d-md-block">
                             <div class="col col-md-2 mt-4 pe-4">
                                 <button type="submit" class="form-control button" name="btn_eliminar_conta"
                                     id="btn_eliminar_conta">
-                                    <span id="texto_eliminar_conta">Eliminar Minha Conta</span>
+                                    <span id="texto_eliminar_conta">Eliminar Conta</span>
                                     <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
                                         aria-hidden="true"></span>
                                 </button>
