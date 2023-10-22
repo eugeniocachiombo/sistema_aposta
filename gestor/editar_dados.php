@@ -25,7 +25,7 @@ window.location = "../gestor/autenticar.php";
         </div>
 
         <div class="container">
-            <div class="row">
+            <div class="row pt-4">
                 <?php include "processar_dados/processar.php";?>
             </div>
         </div>
