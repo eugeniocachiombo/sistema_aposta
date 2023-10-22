@@ -54,20 +54,24 @@ class Gestor extends Pessoa
     }
 
     function CadastrarPartida($partida){
-        $partida_dao = new PartidaDao();
-        $retorno_nome = $partida_dao->ListarPorNome($partida->GetNome());
         
-        if($retorno_nome){
+        $equipaA = $partida->GetEquipaA()->GetId();
+        $equipaB = $partida->GetEquipaB()->GetId();
+        
+        $partida_dao = new PartidaDao();
+        $retorno = $partida_dao->ListarPorEuipas($equipaA, $equipaB);
+        
+        if($retorno){
             
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe partida com este nome  <b> </font>";
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe partida com estas equipas  <b> </font>";
         
         }else{
 
             $retorno_cadastro = $partida_dao->Cadastrar($partida);
             if($retorno_cadastro){
-                echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Cadastrado com sucesso  <b> </font>";
+                echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Criado com sucesso  <b> </font>";
             }else{
-                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao cadastrar  <b> </font>";
+                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao criar  <b> </font>";
             }
 
         }

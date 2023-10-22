@@ -85,8 +85,7 @@
     </form>
 </main>
 
-<script src="../assets/js/validacao_utilizadores.js"></script>
-<script src="../assets/js/data_utilizadores.js"></script>
+<script src="../assets/js/validacao_partida.js"></script>
 
 <?php include "../inc/footer.html"; ?>
 <?php include "../inc/footHTML.html"; ?>
