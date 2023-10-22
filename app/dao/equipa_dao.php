@@ -44,5 +44,14 @@ class EquipaDao implements Crud {
         return $stmt->fetchAll();
     }
 
+    function ListarPorNome($nome){
+        $con = GetConexao();
+        $sql = "select * from equipa where nome_equipa = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $nome);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
 }
 

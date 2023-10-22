@@ -1,20 +1,40 @@
 <?php
+    Cadastrar();
+    Actualizar();
+    Eliminar();
+
+    function Cadastrar(){
+        if(isset($_POST["btn_cadastrar"])){
+
+            $nome = $_POST["nome"];
+            $equipa = new Equipa(0, $nome);
     
-    if(isset($_POST["btn_cadastrar"])){
+            $gestor = new Gestor();
+            $gestor->CadastrarEquipa($equipa);
+        }
+    }
 
-        $gestor = new Gestor();
-        $gestor->SetId($_SESSION["id"]);
-        $gestor->SetNome($_SESSION["nome"]);
-        $gestor->SetSobrenome($_SESSION["sobrenome"]);
-        $gestor->SetEmail($_SESSION["email"]);
-        $gestor->SetSenha($_SESSION["senha"]);
-        $gestor->SetNascimento($_SESSION["nascimento"]);
-        $gestor->SetGenero($_SESSION["genero"]);
-        $gestor->SetN_bi($_SESSION["n_bi"]);
+    function Actualizar(){
+        if(isset($_POST["btn_actualizar"])){
 
-        $nome = $_POST["nome"];
-        $equipa = new Equipa(0, $nome);
-        $gestor->CadastrarEquipa($equipa);
-        
+            $id = $_POST["id"];
+            $nome = $_POST["nome"];
+            $equipa = new Equipa($id, $nome);
+    
+            $gestor = new Gestor();
+            $gestor->ActualizarEquipa($equipa);
+        }
+    }
+
+    function Eliminar(){
+        if(isset($_POST["btn_eliminar"])){
+
+            $id = $_POST["id"];
+            $nome = $_POST["nome"];
+            $equipa = new Equipa($id, "default");
+    
+            $gestor = new Gestor();
+            $gestor->EliminarEquipa($equipa);
+        }
     }
 ?>
