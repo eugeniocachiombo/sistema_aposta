@@ -107,18 +107,22 @@
                 
                 } else {
 
-                    $retorno_novos_dados = $gestor_dao->ListarPorId($_SESSION["id_gestor"]);
-                    CriarSessao($retorno_novos_dados);
-                    echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Dados actualizados com sucesso  <b> </font>";
+                    $retorno_sucesso = $gestor_dao->Actualizar($gestor);
                     
-                    ?> 
-                        Encaminhado para meus dados... <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                        <script>
-                            setInterval(() => {
-                                window.location = "../gestor/meus_dados.php";
-                            }, 3000);
-                        </script>
-                    <?php
+                    if($retorno_sucesso){
+                        $retorno_novos_dados = $gestor_dao->ListarPorId($_SESSION["id_gestor"]);
+                        CriarSessao($retorno_novos_dados);
+                        echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Dados actualizados com sucesso  <b> </font>";
+                        
+                        ?> 
+                            Encaminhado para meus dados... <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                            <script>
+                                setInterval(() => {
+                                    window.location = "../gestor/meus_dados.php";
+                                }, 3000);
+                            </script>
+                        <?php
+                    }
 
                 }
             }
