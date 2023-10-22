@@ -8,7 +8,7 @@
 <title>Página Inicial</title>
 
 <?php
-    if(empty($_SESSION["id"])){ 
+    if(empty($_SESSION["id_gestor"])){ 
         ?>
             <script>
                     window.location = "../gestor/autenticar.php";

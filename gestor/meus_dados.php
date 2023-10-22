@@ -8,7 +8,7 @@
 <title>Página Inicial</title>
 
 <?php
-    if(empty($_SESSION["id"])){ 
+    if(empty($_SESSION["id_gestor"])){ 
         ?>
             <script>
                     window.location = "../gestor/autenticar.php";
@@ -26,11 +26,11 @@
         <div class="d-flex justify-content-start align-items-center" style="min-height: 40vh; font-size: 20px;">
             <div>
                 <br>
-                <strong> <i class="fas fa-user"></i> <?php echo $_SESSION["nome"] . " " . $_SESSION["sobrenome"]; ?> </strong> <br> <hr>
-                <strong> <i class="fas fa-at"></i> E-mail: </strong> <?php echo $_SESSION["email"]; ?> <br>  
-                <strong> <i class="fas fa-calendar"></i> Nascido: </strong> <?php echo $_SESSION["nascimento"]; ?> <br> 
-                <strong> <i class="fas fa-venus"></i> Gênero: </strong> <?php echo ($_SESSION["genero"] == "M") ? "Masculino" : "Femenino"; ?> <br> 
-                <strong> <i class="fas fa-address-card"></i> BI Nº: </strong> <?php echo $_SESSION["n_bi"]; ?> 
+                <strong> <i class="fas fa-user"></i> <?php echo $_SESSION["nome_gestor"] . " " . $_SESSION["sobrenome_gestor"]; ?> </strong> <br> <hr>
+                <strong> <i class="fas fa-at"></i> E-mail: </strong> <?php echo $_SESSION["email_gestor"]; ?> <br>  
+                <strong> <i class="fas fa-calendar"></i> Nasco: </strong> <?php echo $_SESSION["nascimento_gestor"]; ?> <br> 
+                <strong> <i class="fas fa-venus"></i> Gênero: </strong> <?php echo ($_SESSION["genero_gestor"] == "M") ? "Masculino" : "Femenino"; ?> <br> 
+                <strong> <i class="fas fa-address-card"></i> BI Nº: </strong> <?php echo $_SESSION["n_bi_gestor"]; ?> 
             </div>
         </div>
            

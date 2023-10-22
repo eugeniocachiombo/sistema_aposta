@@ -80,13 +80,18 @@
         $n_bi = $retorno["n_bi_gestor"];
 
 
-        $_SESSION["id"] = $nome;
-        $_SESSION["nome"] = $nome;
-        $_SESSION["sobrenome"] = $sobrenome;
-        $_SESSION["email"] = $email;
-        $_SESSION["senha"] = $senha;
-        $_SESSION["nascimento"] = $nascimento;
-        $_SESSION["genero"] = $genero;
-        $_SESSION["n_bi"] = $n_bi;
+        $_SESSION["id_logado"] = $id;
+        $_SESSION["nome_logado"] = $nome;
+        $_SESSION["sobrenome_logado"] = $sobrenome;
+
+
+        $_SESSION["id_gestor"] = $id;
+        $_SESSION["nome_gestor"] = $nome;
+        $_SESSION["sobrenome_gestor"] = $sobrenome;
+        $_SESSION["email_gestor"] = $email;
+        $_SESSION["senha_gestor"] = $senha;
+        $_SESSION["nascimento_gestor"] = $nascimento;
+        $_SESSION["genero_gestor"] = $genero;
+        $_SESSION["n_bi_gestor"] = $n_bi;
     }
 ?>

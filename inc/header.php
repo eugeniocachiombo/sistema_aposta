@@ -25,8 +25,8 @@
     <div class="col text-end">
         <i class="fas fa-user" style="font-size: 20px"></i>
         <?php 
-            if(isset($_SESSION["id"])){
-                echo $_SESSION["nome"] . " " .  $_SESSION["sobrenome"]; 
+            if(isset($_SESSION["id_logado"])){
+                echo $_SESSION["nome_logado"] . " " .  $_SESSION["sobrenome_logado"]; 
             } 
         ?>
     </div>
