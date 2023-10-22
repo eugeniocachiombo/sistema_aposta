@@ -7,6 +7,16 @@
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Página Inicial</title>
 
+<?php
+    if(empty($_SESSION["id"])){ 
+        ?>
+            <script>
+                    window.location = "../gestor/autenticar.php";
+            </script>
+        <?php
+    }
+?>
+
 <main class="mb-4 mt-4">
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
