@@ -7,6 +7,18 @@
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Eliminar Partida</title>
 
+
+<?php
+    if(empty($_SESSION["id_gestor"])){ 
+        ?>
+<script>
+window.location = "../gestor/autenticar.php";
+</script>
+<?php
+    }
+?>
+
+
 <main class="mt-4 mb-4 ">
     <div class="container ">
         <div class="row pt-2 mb-4" style="background: khaki">
