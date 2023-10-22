@@ -23,14 +23,17 @@
             <h3> <i class="fas fa-futbol"></i> Informações Pessoais</h3>
         </div>
 
+        <div class="d-flex justify-content-start align-items-center" style="min-height: 40vh; font-size: 20px;">
+            <div>
+                <br>
+                <strong> <i class="fas fa-user"></i> <?php echo $_SESSION["nome"] . " " . $_SESSION["sobrenome"]; ?> </strong> <br> <hr>
+                <strong> <i class="fas fa-at"></i> E-mail: </strong> <?php echo $_SESSION["email"]; ?> <br>  
+                <strong> <i class="fas fa-calendar"></i> Nascido: </strong> <?php echo $_SESSION["nascimento"]; ?> <br> 
+                <strong> <i class="fas fa-venus"></i> Gênero: </strong> <?php echo ($_SESSION["genero"] == "M") ? "Masculino" : "Femenino"; ?> <br> 
+                <strong> <i class="fas fa-address-card"></i> BI Nº: </strong> <?php echo $_SESSION["n_bi"]; ?> 
+            </div>
+        </div>
            
-            <strong>Nome: </strong> <?php echo $_SESSION["nome"]; ?> <br>
-            <strong>Sobrenome: </strong> <?php echo $_SESSION["sobrenome"]; ?> <br>
-            <strong>E-mail: </strong> <?php echo $_SESSION["email"]; ?> <br>
-            <strong>Data de Nascimento: </strong> <?php echo $_SESSION["nascimento"]; ?> <br>
-            <strong>Gênero: </strong> <?php echo $_SESSION["genero"]; ?> <br>
-            <strong>Nº do BI: </strong> <?php echo $_SESSION["n_bi"]; ?> <br>
-
         <div class="row mt-4 pt-2" style="background: khaki">
             <h3> <i class="fas fa-futbol"></i> .... </h3>
         </div>
