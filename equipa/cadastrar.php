@@ -5,7 +5,7 @@
 <?php include "../app/dao/partida_publicada_dao.php"; ?>
 <?php include "../app/dao/resultado_publicado_dao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Cadastro de Equipa</title>
+<title>Cadastrar Equipa</title>
 
 <?php
     if(empty($_SESSION["id_gestor"])){ 

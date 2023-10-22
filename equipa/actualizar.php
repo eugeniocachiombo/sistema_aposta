@@ -10,10 +10,10 @@
 <?php
     if(empty($_SESSION["id_gestor"])){ 
         ?>
-<script>
-window.location = "../gestor/autenticar.php";
-</script>
-<?php
+            <script>
+                window.location = "../gestor/autenticar.php";
+            </script>
+        <?php
     }
 ?>
 
