@@ -48,7 +48,8 @@
                             <div class="col d-table d-md-flex">
                                 <div class="col pe-4">
                                     <label class="w-100 text-start pt-3" for="senha">Senha: </label> <br>
-                                    <input type="password" required class="form-control " name="senha" id="senha">
+                                    <input type="password" required class="form-control " name="senha" id="senha" 
+                                        placeholder="Digite a senha">
                                 </div>
                             </div>
 

@@ -49,7 +49,7 @@ window.location = "../gestor/autenticar.php";
                                 <div class="col pe-4">
 
                                     <label class="w-100 text-start pt-3" for="senha_antiga">Antiga Senha: </label> <br>
-                                    <input type="text" required class="form-control " name="senha_antiga" id="senha_antiga">
+                                    <input type="text" required class="form-control " name="senha_antiga" id="senha_antiga" >
                                 </div>
 
                                 <div class="col pe-4">
