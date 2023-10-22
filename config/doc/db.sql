@@ -33,15 +33,15 @@ create table apostador(
     genero_apostador enum('M', 'F'),
     n_bi_apostador varchar(20)
 );
-create table adiminstrador(
-    id_adiminstrador int primary key auto_increment not null,
-    nome_adiminstrador varchar(50),
-    sobrenome_adiminstrador varchar(50),
-    email_adiminstrador varchar(30),
-    senha_adiminstrador varchar(45),
-    nascimento_adiminstrador date,
-    genero_adiminstrador enum('M', 'F'),
-    n_bi_adiminstrador varchar(20)
+create table adminstrador(
+    id_adminstrador int primary key auto_increment not null,
+    nome_adminstrador varchar(50),
+    sobrenome_adminstrador varchar(50),
+    email_adminstrador varchar(30),
+    senha_adminstrador varchar(45),
+    nascimento_adminstrador date,
+    genero_adminstrador enum('M', 'F'),
+    n_bi_adminstrador varchar(20)
 );
 
 create table equipa(
