@@ -7,23 +7,6 @@
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Lista de Equipas</title>
 
-<?php
-    if(empty($_SESSION["id_gestor"])){ 
-        if(isset($_SESSION["id_logado"])){ 
-            ?>
-                <script>
-                        window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
-                </script>
-            <?php
-        }else{
-        ?>
-            <script>
-                    window.location = "../gestor/autenticar.php";
-            </script>
-        <?php
-        }
-    }
-?>
 
 <main class="mb-4 mt-4">
     <div class="container ">

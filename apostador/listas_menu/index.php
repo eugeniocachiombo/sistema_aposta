@@ -36,10 +36,7 @@
             Partida
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="../partida/cadastrar.php">Criar</a></li>
-            <li><a class="dropdown-item" href="../partida/actualizar.php">Actualizar</a></li>
             <li><a class="dropdown-item" href="../partida/listar.php">Listar</a></li>
-            <li><a class="dropdown-item" href="../partida/eliminar.php">Eliminar</a></li>
         </ul>
     </li>
 
