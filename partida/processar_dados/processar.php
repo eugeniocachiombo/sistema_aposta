@@ -61,12 +61,9 @@
             $gestor->SetGenero($_SESSION["genero_gestor"]);
             $gestor->SetN_bi($_SESSION["n_bi_gestor"]);
             
-            $id = $_POST["equipaA"];
-            $id_equipaA = "default";
-            $id_equipaB = "default";
-    
-            $equipaA = new Equipa($id_equipaA, "default");
-            $equipaB = new Equipa($id_equipaB, "default");
+            $id = $_POST["id"];
+            $equipaA = new Equipa(0, "default");
+            $equipaB = new Equipa(0, "default");
             $partida = new Partida($id, $equipaA, $equipaB, $gestor);
             $gestor->EliminarPartida($partida);
         }
