@@ -6,7 +6,7 @@ let spinner = document.querySelector("#spinner");
 let texto_actualizar = document.querySelector("#texto_actualizar");
 
 spinner.style = "display: none";
-texto_actualizar.innerText = "actualizar";
+texto_actualizar.innerText = "Actualizar";
 
 input_submit.addEventListener("click", () => {
     spinner.style = "display: iniline";
@@ -14,7 +14,7 @@ input_submit.addEventListener("click", () => {
     setTimeout(() => {
         ValidarComClick();
         spinner.style = "display: none";
-        texto_actualizar.innerText = "actualizar";
+        texto_actualizar.innerText = "Actualizar";
     }, 2000);
 });
 

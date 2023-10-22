@@ -34,12 +34,12 @@ window.location = "../gestor/autenticar.php";
 
             <div class="container d-flex justify-content-center">
                 <div class="row d-table d-md-flex">
-                    <div class="col-md-8 pe-4 justify-content-center d-flex align-items-center"
+                    <div class="col-md-4 pe-4 justify-content-center d-flex align-items-center"
                         style="background: khaki">
                         <center>
                             <i class="fas fa-trash pt-4" style="font-size: 40px"></i>
                             <br>
-                            <h3><b>Equipa</b></h3>
+                            <h3><b>Eliminar Equipa</b></h3>
                         <center>
                     </div>
 

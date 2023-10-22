@@ -33,13 +33,13 @@ window.location = "../gestor/autenticar.php";
 
             <div class="container d-flex justify-content-center">
                 <div class="row d-table d-md-flex">
-                    <div class="col-md-8 pe-4 justify-content-center d-flex align-items-center"
+                    <div class="col-md-4 pe-4 justify-content-center d-flex align-items-center"
                         style="background: khaki">
                         <center>
-                            <i class="fas fa-pen pt-4" style="font-size: 40px"></i>
+                            <i class="fas fa-users-gear pt-4" style="font-size: 40px"></i>
                             <br>
-                            <h3><b>Equipa</b></h3>
-                            <center>
+                            <h3><b>Actualizar Equipa</b></h3>
+                        <center>
                     </div>
 
                     <div class="col ">
@@ -57,13 +57,11 @@ window.location = "../gestor/autenticar.php";
                                         }
                                     ?>
                                 </select>
-                            </div>
-
-                            <div class="col pe-4">
 
                                 <label class="w-100 text-start pt-3" for="nome">Nome: </label> <br>
                                 <input type="text" required class="form-control " name="nome" id="nome">
 
+                            
                             </div>
 
                         </div>

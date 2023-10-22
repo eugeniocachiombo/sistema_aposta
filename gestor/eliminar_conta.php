@@ -38,7 +38,7 @@
                         <div class="col-md-4 mt-2 pe-4 justify-content-center d-flex align-items-center"
                             style="background: khaki">
                             <center>
-                                <i class="fas fa-trash pt-4" style="font-size: 40px"></i>
+                                <i class="fas fa-user-xmark pt-4" style="font-size: 40px"></i>
                                 <br>
                                 <h3><b>Eliminar Conta</b></h3>
                                 <center>
