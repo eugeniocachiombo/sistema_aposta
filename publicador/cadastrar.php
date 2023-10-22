@@ -1,5 +1,5 @@
-<?php include "../inc/headHTML.html"; ?>
-<?php include "../inc/header.html"; ?>
+<?php include "../inc/headHTML.php"; ?>
+<?php include "../inc/header.php"; ?>
 <?php include "../init/autoload.php"; ?>
 <?php include "../config/db/conexao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
@@ -9,7 +9,7 @@
 
     <div class="container">
         <div class="row">
-            <?php include "processar_dados/processar_cadastro.php";?>
+            <?php include "processar_dados/processar.php";?>
         </div>
     </div>
 
@@ -71,7 +71,7 @@
                             <select class="form-control" disabled name="acesso" id="acesso"
                                 style="width: 205px; border: 2px solid cadetblue;">
                                 <option value="">Selecione...</option>
-                                <option selected value="publicador">Publicador</option>
+                                <option selected value="Publicador">Publicador</option>
                             </select>
                         </div>
                     </div>
