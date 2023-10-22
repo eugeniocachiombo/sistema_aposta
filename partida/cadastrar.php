@@ -1,7 +1,9 @@
 <?php include "../inc/headHTML.php"; ?>
-<?php include "../inc/header.html"; ?>
+<?php include "../inc/header.php"; ?>
 <?php include "../init/autoload.php"; ?>
 <?php include "../config/db/conexao.php"; ?>
+<?php include "../app/dao/partida_publicada_dao.php"; ?>
+<?php include "../app/dao/resultado_publicado_dao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Cadastro de Partida</title>
 
@@ -9,7 +11,7 @@
 
     <div class="container">
         <div class="row">
-            <?php include "processar_dados/processar_cadastro.php";?>
+            <?php include "processar_dados/processar.php";?>
         </div>
     </div>
 
