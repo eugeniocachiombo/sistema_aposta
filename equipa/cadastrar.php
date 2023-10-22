@@ -19,8 +19,13 @@
 
 <main class="mt-4 mb-4 " data-bs-theme="dark">
 
+<div class="container ">
+        <div class="row pt-2" style="background: khaki">
+            <h3> <i class="fas fa-futbol"></i> Registo de Equipas</h3>
+        </div>
+
     <div class="container">
-        <div class="row">
+        <div class="row pt-4">
             <?php include "processar_dados/processar.php";?>
         </div>
     </div>
@@ -59,6 +64,11 @@
             </div>
         </div>
     </form>
+
+    <div class="row mt-4 pt-2" style="background: khaki">
+            <h3> <i class="fas fa-futbol"></i> .... </h3>
+        </div>
+    </div>
 </main>
 
 <script src="../assets/js/validacao_equipa.js"></script>
