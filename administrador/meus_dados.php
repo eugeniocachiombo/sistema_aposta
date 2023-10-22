@@ -30,7 +30,8 @@
                 <strong> <i class="fas fa-at"></i> E-mail: </strong> <?php echo $_SESSION["email_administrador"]; ?> <br>  
                 <strong> <i class="fas fa-calendar"></i> Nascido: </strong> <?php echo $_SESSION["nascimento_administrador"]; ?> <br> 
                 <strong> <i class="fas fa-venus"></i> Gênero: </strong> <?php echo ($_SESSION["genero_administrador"] == "M") ? "Masculino" : "Femenino"; ?> <br> 
-                <strong> <i class="fas fa-address-card"></i> BI Nº: </strong> <?php echo $_SESSION["n_bi_administrador"]; ?> 
+                <strong> <i class="fas fa-address-card"></i> BI Nº: </strong> <?php echo $_SESSION["n_bi_administrador"]; ?> <br>
+                <strong> <i class="fas fa-lock"></i> Acesso: </strong> <?php echo ucfirst($_SESSION["tipo_acesso_logado"]); ?> 
             </div>
         </div>
            
