@@ -44,6 +44,6 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="terminar_sessao.php">Terminar Sessão</a>
+        <a class="nav-link" href="../terminar_sessao">Terminar Sessão</a>
     </li>
 </ul>
