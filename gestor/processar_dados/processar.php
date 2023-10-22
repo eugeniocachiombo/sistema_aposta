@@ -230,6 +230,7 @@
         $_SESSION["id_logado"] = $id;
         $_SESSION["nome_logado"] = $nome;
         $_SESSION["sobrenome_logado"] = $sobrenome;
+        $_SESSION["tipo_acesso_logado"] = "gestor";
 
 
         $_SESSION["id_gestor"] = $id;
