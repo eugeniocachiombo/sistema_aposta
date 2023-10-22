@@ -38,19 +38,19 @@
             $gestor->SetGenero($_SESSION["genero_gestor"]);
             $gestor->SetN_bi($_SESSION["n_bi_gestor"]);
             
-            $id = $_POST["equipaA"];
+            $id = $_POST["id"];
             $id_equipaA = $_POST["equipaA"];
             $id_equipaB = $_POST["equipaB"];
     
             $equipaA = new Equipa($id_equipaA, "default");
             $equipaB = new Equipa($id_equipaB, "default");
             $partida = new Partida($id, $equipaA, $equipaB, $gestor);
-            $gestor->CadastrarPartida($partida);
+            $gestor->ActualizarPartida($partida);
         }
     }
 
     function Eliminar(){
-        if(isset($_POST["btn_actualizar"])){
+        if(isset($_POST["btn_eliminar"])){
 
             $gestor = new Gestor();
             $gestor->SetId($_SESSION["id_gestor"]);
@@ -68,7 +68,7 @@
             $equipaA = new Equipa($id_equipaA, "default");
             $equipaB = new Equipa($id_equipaB, "default");
             $partida = new Partida($id, $equipaA, $equipaB, $gestor);
-            $gestor->CadastrarPartida($partida);
+            $gestor->EliminarPartida($partida);
         }
     }
     

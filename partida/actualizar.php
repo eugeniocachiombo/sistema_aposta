@@ -5,7 +5,7 @@
 <?php include "../app/dao/partida_publicada_dao.php"; ?>
 <?php include "../app/dao/resultado_publicado_dao.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Cadastro de Partida</title>
+<title>Editar Partida</title>
 
 <main class="mt-4 mb-4 ">
     <div class="container ">
@@ -35,6 +35,19 @@
                     <div class="col ">
                         <div class="col d-table d-md-flex">
                             <div class="col pe-4 ">
+
+                                <label class="w-100 text-start pt-3" for="id">Partida</label> <br>
+                                <select class="form-control" required name="id" id="id"
+                                    style="width: 205px; border: 2px solid cadetblue;">
+                                    <option value="">Selecione...</option>
+                                    <?php 
+                                    $partida_dao = new PartidaDao();
+                                    $retorno = $partida_dao->Listar();
+                                    foreach ($retorno as $value) {
+                                       echo "<option value='" . $value['id_partida'] . "'>" . $value['nome_equipaA'] ." x ". $value['nome_equipaB'] . "</option>";
+                                    }
+                                ?>
+                                </select>
 
                                 <label class="w-100 text-start pt-3" for="equipaA">Equipa A</label> <br>
                                 <select class="form-control" required name="equipaA" id="equipaA"
@@ -77,8 +90,8 @@
 
                         <hr class="d-none d-md-block">
                         <div class="col col-md-2 mt-4 pe-4">
-                            <button type="submit" class="form-control button" name="btn_cadastrar" id="btn_cadastrar">
-                                <span id="texto_cadastrar">Cadastrar</span>
+                            <button type="submit" class="form-control button" name="btn_actualizar" id="btn_actualizar">
+                                <span id="texto_actualizar">Actualizar</span>
                                 <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
                                     aria-hidden="true"></span>
                             </button>
@@ -96,7 +109,7 @@
     </div>
 </main>
 
-<script src="../assets/js/validacao_partida.js"></script>
+<script src="../assets/js/validacao_partida_actualizar.js"></script>
 
 <?php include "../inc/footer.html"; ?>
 <?php include "../inc/footHTML.html"; ?>

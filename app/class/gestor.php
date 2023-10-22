@@ -78,14 +78,15 @@ class Gestor extends Pessoa
     }
 
     function ActualizarPartida($partida){
-        $partida_dao = new PartidaDao();
-        $retorno_nome = $partida_dao->ListarPorNome($partida->GetNome());
-        
-        if($retorno_nome){
 
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe partida com este nome  <b> </font>";
+        $id_partida = $partida->GetId();
+        $equipaA = $partida->GetEquipaA()->GetId();
+        $equipaB = $partida->GetEquipaB()->GetId();
         
-        }else{
+        $partida_dao = new PartidaDao();
+        $retorno = $partida_dao->ListarPorEuipas($equipaA, $equipaB);
+
+        if($retorno["id_partida"] == $id_partida){
 
             $retorno = $partida_dao->Actualizar($partida);
             if($retorno){
@@ -93,7 +94,9 @@ class Gestor extends Pessoa
             }else{
                 echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao actualizar  <b> </font>";
             }
-
+        
+        }else{
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Impossível actualizar a partida  <b> </font>";
         }
     }
 
