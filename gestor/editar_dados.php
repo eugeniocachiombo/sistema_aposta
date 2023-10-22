@@ -79,9 +79,9 @@ window.location = "../gestor/autenticar.php";
 
                             <hr class="d-none d-md-block">
                             <div class="col col-md-2 mt-4 pe-4">
-                                <button type="submit" class="form-control button" name="btn_cadastrar"
-                                    id="btn_cadastrar">
-                                    <span id="texto_cadastrar">Cadastrar</span>
+                                <button type="submit" class="form-control button" name="btn_actualizar"
+                                    id="btn_actualizar">
+                                    <span id="texto_actualizar">actualizar</span>
                                     <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
                                         aria-hidden="true"></span>
                                 </button>
@@ -99,6 +99,9 @@ window.location = "../gestor/autenticar.php";
         </div>
     </div>
 </main>
+
+<script src="../assets/js/validacao_utilizadores_actualizar.js"></script>
+<script src="../assets/js/data_utilizadores.js"></script>
 
 <?php include "../inc/footer.html"; ?>
 <?php include "../inc/footHTML.html"; ?>
