@@ -30,8 +30,8 @@
         if(isset($_POST["btn_eliminar"])){
 
             $id = $_POST["id"];
-            $nome = $_POST["nome"];
-            $equipa = new Equipa($id, "default");
+            $nome = "default";
+            $equipa = new Equipa($id, $nome);
     
             $gestor = new Gestor();
             $gestor->EliminarEquipa($equipa);
