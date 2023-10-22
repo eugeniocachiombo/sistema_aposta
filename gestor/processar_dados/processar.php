@@ -1,5 +1,6 @@
 <?php
     Cadastrar();
+    Actualizar();
     Autenticar();
 
     function Cadastrar(){
@@ -43,6 +44,63 @@
                     echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao cadastrar  <b> </font>";
                 }
 
+            }
+            
+        }
+    }
+
+    function Actualizar(){
+        if(isset($_POST["btn_actualizar"])){
+
+            $nome = $_POST["nome"];
+            $sobrenome = $_POST["sobrenome"];
+            $email = $_POST["email"];
+    
+            $nascimento = $_POST["nascimento"];
+            $nascimento = explode("-", $nascimento);
+            $nascimento = $nascimento[2] . "-" . $nascimento[1] . "-" . $nascimento[0];
+    
+            $genero = $_POST["genero"];
+            $n_bi = $_POST["n_bi"];
+    
+            $gestor = new Gestor();
+            $gestor->SetId(0);
+            $gestor->SetNome($nome);
+            $gestor->SetSobrenome($sobrenome);
+            $gestor->SetEmail($email);
+            $gestor->SetNascimento($nascimento);
+            $gestor->SetGenero($genero);
+            $gestor->SetN_bi($n_bi);
+    
+            $gestor_dao = new GestorDao();
+
+            if( $_SESSION["n_bi_gestor"] == $n_bi){
+
+                $retorno_sucesso = $gestor_dao->Actualizar($gestor);
+                if($retorno_sucesso){
+                    echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Dados actualizados com sucesso  <b> </font>";
+                }else{
+                    echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao actualizar  <b> </font>";
+                }
+
+            }else{
+
+                $retorno_veritificao_bi = $gestor_dao->ListarPorBI($n_bi);
+
+                if($retorno_veritificao_bi){
+
+                    echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe um utilizador com este número de BI  <b> </font>";
+                
+                } else {
+
+                    $retorno_sucesso = $gestor_dao->Actualizar($gestor);
+                    if($retorno_sucesso){
+                        echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Dados actualizados com sucesso  <b> </font>";
+                    }else{
+                        echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao actualizar  <b> </font>";
+                    }
+
+                }
             }
             
         }

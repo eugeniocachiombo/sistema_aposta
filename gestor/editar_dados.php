@@ -18,9 +18,16 @@ window.location = "../gestor/autenticar.php";
 ?>
 
 <main class="mb-4 mt-4">
+
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
             <h3> <i class="fas fa-futbol"></i> Informações Pessoais</h3>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <?php include "processar_dados/processar.php";?>
+            </div>
         </div>
 
         <div class="row d-flex justify-content-start align-items-center" style="min-height: 40vh; font-size: 20px;">
@@ -34,7 +41,7 @@ window.location = "../gestor/autenticar.php";
                                 <i class="fas fa-user-pen pt-4" style="font-size: 40px"></i>
                                 <br>
                                 <h3><b>Actualizar Dados</b></h3>
-                            <center>
+                                <center>
                         </div>
 
                         <div class="col ">
@@ -42,23 +49,26 @@ window.location = "../gestor/autenticar.php";
                                 <div class="col pe-4">
 
                                     <label class="w-100 text-start pt-3" for="nome">Nome: </label> <br>
-                                    <input type="text" required class="form-control " name="nome" id="nome" value="<?php echo $_SESSION["nome_gestor"]; ?>">
+                                    <input type="text" required class="form-control " name="nome" id="nome"
+                                        value="<?php echo $_SESSION["nome_gestor"]; ?>">
 
                                     <label class="w-100 text-start pt-3" for="sobrenome">Sobrenome: </label> <br>
-                                    <input type="text" required class="form-control" name="sobrenome" id="sobrenome" value="<?php echo $_SESSION["sobrenome_gestor"]; ?>">
+                                    <input type="text" required class="form-control" name="sobrenome" id="sobrenome"
+                                        value="<?php echo $_SESSION["sobrenome_gestor"]; ?>">
 
                                 </div>
 
                                 <div class="col pe-4">
 
                                     <label class="w-100 text-start pt-3" for="email">E-mail</label> <br>
-                                    <input type="email" required class="form-control" name="email" id="email" value="<?php echo $_SESSION["email_gestor"]; ?>">
+                                    <input type="email" required class="form-control" name="email" id="email"
+                                        value="<?php echo $_SESSION["email_gestor"]; ?>">
 
                                     <label class="w-100 text-start pt-3" for="nascimento">Data de Nascimento</label>
                                     <br>
                                     <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required
-                                        class="form-control" name="nascimento" id="nascimento" 
-                                        placeholder="dd-mm-yyyy" value="<?php echo $_SESSION["nascimento_gestor"]; ?>">
+                                        class="form-control" name="nascimento" id="nascimento" placeholder="dd-mm-yyyy"
+                                        value="<?php echo $_SESSION["nascimento_gestor"]; ?>">
 
                                 </div>
 
@@ -70,17 +80,18 @@ window.location = "../gestor/autenticar.php";
                                         <option value="">Selecione...</option>
                                         <?php
                                             if($_SESSION["genero_gestor"] == "M"){ ?>
-                                              <option value="M" selected >Masculino</option> 
-                                              <option value="F">Femenino</option> <?php
+                                        <option value="M" selected>Masculino</option>
+                                        <option value="F">Femenino</option> <?php
                                             } else{ ?>
-                                               <option value="M">Masculino</option> 
-                                               <option value="F" selected >Femenino</option> <?php
+                                        <option value="M">Masculino</option>
+                                        <option value="F" selected>Femenino</option> <?php
                                             }
                                         ?>
                                     </select>
 
                                     <label class="w-100 text-start pt-3" for="n_bi">Nº BI</label> <br>
-                                    <input type="text" required class="form-control" name="n_bi" id="n_bi" value="<?php echo $_SESSION["n_bi_gestor"]; ?>">
+                                    <input type="text" required class="form-control" name="n_bi" id="n_bi"
+                                        value="<?php echo $_SESSION["n_bi_gestor"]; ?>">
 
                                 </div>
                             </div>
