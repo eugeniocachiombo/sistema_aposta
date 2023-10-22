@@ -1,3 +1,5 @@
+<?php $acesso = isset($_SESSION["tipo_acesso_logado"]) ? $_SESSION["tipo_acesso_logado"] : ""; ?>
+
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
@@ -26,7 +28,9 @@
         <?php } ?>
         <li><a class="dropdown-item" href="../partida/listar.php">Listar</a></li>
     </ul>
+
 </li>
+
 
 <li class="nav-item">
     <a class="nav-link" href="../terminar_sessao">Terminar Sessão</a>

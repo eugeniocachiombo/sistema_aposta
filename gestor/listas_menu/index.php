@@ -1,5 +1,3 @@
-<?php $acesso = isset($_SESSION["tipo_acesso_logado"]) ? $_SESSION["tipo_acesso_logado"] : ""; ?>
-
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
     <li class="nav-item">

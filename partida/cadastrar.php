@@ -8,7 +8,7 @@
 <title>Cadastro de Partida</title>
 
 <?php
-    if(empty($_SESSION["id_gestor"])){ 
+    if(empty($_SESSION["id_gestor"]) && empty($_SESSION["id_administrador"])){ 
         if(isset($_SESSION["id_logado"])){ 
             ?>
                 <script>
