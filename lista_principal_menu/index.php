@@ -1,3 +1,4 @@
+
 <?php $acesso = isset($_SESSION["tipo_acesso_logado"]) ? $_SESSION["tipo_acesso_logado"] : ""; ?>
 
 <li class="nav-item dropdown">
@@ -15,8 +16,9 @@
     </ul>
 </li>
 
-<?php if( $acesso != "apostador" ){ ?>
+
 <li class="nav-item dropdown">
+    <?php if( $acesso != "apostador" ){ ?>
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
         Partida
@@ -29,9 +31,23 @@
         <?php } ?>
         <li><a class="dropdown-item" href="../partida/listar.php">Listar</a></li>
     </ul>
+    <?php } ?>
+
+    <a class="nav-link dropdown-toggle bg-dark text-white txt_publicar" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Partidas Publicadas
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <?php if( $acesso == "publicador" || $acesso == "administrador" ){ ?>
+        <li><a class="dropdown-item " href="../partida_publicada/cadastrar.php">Publicar </a></li>
+        <li><a class="dropdown-item " href="../partida_publicada/actualizar.php">Actualizar </a></li>
+        <li><a class="dropdown-item " href="../partida_publicada/eliminar.php">Eliminar </a></li>
+        <?php } ?>
+        <li><a class="dropdown-item " href="../partida_publicada/listar.php">Listar</a></li>
+    </ul>
 
 </li>
-<?php } ?>
+
 
 <?php if( $acesso == "administrador" || $acesso == "apostador" ){ ?>
 <li class="nav-item dropdown">
@@ -51,37 +67,26 @@
 </li>
 <?php } ?>
 
-<li class="nav-item dropdown" style="min-width: 155px">
+<li class="nav-item dropdown" style="min-width: 150px">
+
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
-        Partidas Publicadas
+        Resultados
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if( $acesso == "publicador" || $acesso == "administrador" ){ ?>
-        <li><a class="dropdown-item" href="../partida_publicada/cadastrar.php">Criar</a></li>
-        <li><a class="dropdown-item" href="../partida_publicada/actualizar.php">Actualizar</a></li>
-        <li><a class="dropdown-item" href="../partida_publicada/eliminar.php">Eliminar</a></li>
-        <?php } ?>
-        <li><a class="dropdown-item" href="../partida_publicada/listar.php">Listar</a></li>
-    </ul>
-
-</li>
-
-<li class="nav-item dropdown" style="min-width: 155px">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Resultados Publicados
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <?php if( $acesso == "publicador" || $acesso == "administrador" ){ ?>
-        <li><a class="dropdown-item" href="../resultado_publicado/cadastrar.php">Criar</a></li>
+        <li><a class="dropdown-item" href="../resultado_publicado/cadastrar.php">Publicar</a></li>
         <li><a class="dropdown-item" href="../resultado_publicado/actualizar.php">Actualizar</a></li>
         <li><a class="dropdown-item" href="../resultado_publicado/eliminar.php">Eliminar</a></li>
         <?php } ?>
         <li><a class="dropdown-item" href="../resultado_publicado/listar.php">Listar</a></li>
     </ul>
 
+    
+
 </li>
+
+
 
 
 <li class="nav-item" style="min-width: 160px">
