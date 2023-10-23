@@ -230,6 +230,11 @@
         $_SESSION["id_logado"] = $id;
         $_SESSION["nome_logado"] = $nome;
         $_SESSION["sobrenome_logado"] = $sobrenome;
+        $_SESSION["email_logado"] = $email;
+        $_SESSION["senha_logado"] = $senha;
+        $_SESSION["nascimento_logado"] = $nascimento;
+        $_SESSION["genero_logado"] = $genero;
+        $_SESSION["n_bi_logado"] = $n_bi;
         $_SESSION["tipo_acesso_logado"] = "gestor";
 
 
