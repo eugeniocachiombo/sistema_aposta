@@ -6,8 +6,7 @@
 </style>
 
 <div class="d-flex align-items-center p-2">
-    <div class="col">
-
+    <div class="col d-flex flex-wrap wrap">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

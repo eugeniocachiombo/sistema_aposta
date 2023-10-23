@@ -102,7 +102,10 @@
 ?>
 
 <?php
-    if( $uri[2] == "equipa" || $uri[2] == "partida"){
+    if( $uri[2] == "equipa" || $uri[2] == "partida" 
+    || $uri[2] == "partida_publicada" || $uri[2] == "resultado_publicado"
+    || $uri[2] == "aposta"
+    ){
 
         include "../". $_SESSION["tipo_acesso_logado"] ."/listas_menu/index.php";  
     

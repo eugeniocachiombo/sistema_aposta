@@ -1,6 +1,6 @@
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-    <li class="nav-item">
+    <li class="nav-item" style="min-width: 155px">
         <a class="nav-link active" aria-current="page" href="../publicador">Página Inicial</a>
     </li>
 
