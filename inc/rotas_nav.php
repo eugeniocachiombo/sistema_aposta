@@ -26,11 +26,7 @@
 
         }
 
-    } else if( $uri[2] == "equipa" || $uri[2] == "partida"){
-
-            include "../gestor/listas_menu/index.php"; 
-            
-    } 
+    }  
 ?>
 
 <?php
@@ -81,7 +77,6 @@
     } 
 ?>
 
-
 <?php
     if($uri[2] == "publicador"){
 
@@ -106,3 +101,10 @@
     } 
 ?>
 
+<?php
+    if( $uri[2] == "equipa" || $uri[2] == "partida"){
+
+        include "../". $_SESSION["tipo_acesso_logado"] ."/listas_menu/index.php";  
+    
+    } 
+?>
