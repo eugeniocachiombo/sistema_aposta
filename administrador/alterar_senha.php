@@ -7,15 +7,11 @@
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Alterar Senha</title>
 
-<?php
-    if(empty($_SESSION["id_administrador"])){ 
-        ?>
-            <script>
-                window.location = "../administrador/autenticar.php";
-            </script>
-        <?php
-    }
+<?php 
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarSeAdministrador();
 ?>
+
 
 <main class="mb-4 mt-4">
     <div class="container ">

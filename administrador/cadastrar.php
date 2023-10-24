@@ -6,13 +6,8 @@
 <title>Cadastro de Administrador</title>
 
 <?php
-    if(isset($_SESSION["id_logado"])){ 
-        ?>
-            <script>
-                    window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
-            </script>
-        <?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarUtilizadorLogado();
 ?>
 
 <main class="mt-4 mb-4 " data-bs-theme="dark">

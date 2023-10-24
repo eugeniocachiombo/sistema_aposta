@@ -6,13 +6,8 @@
 <title>Autenticação</title>
 
 <?php
-    if(isset($_SESSION["id_logado"])){ 
-        ?>
-            <script>
-                window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
-            </script>
-        <?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarUtilizadorLogado();
 ?>
 
 <main>

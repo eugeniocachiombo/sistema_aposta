@@ -8,13 +8,8 @@
 <title>Eliminar Conta</title>
 
 <?php
-    if(empty($_SESSION["id_administrador"])){ 
-        ?>
-            <script>
-                window.location = "../administrador/autenticar.php";
-            </script>
-        <?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarSeAdministrador();
 ?>
 
 <main class="mb-4 mt-4">
