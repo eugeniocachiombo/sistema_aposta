@@ -23,6 +23,7 @@
         aria-expanded="false">
         Partida
     </a>
+
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if( $acesso == "gestor" || $acesso == "administrador" ){ ?>
         <li><a class="dropdown-item" href="../partida/cadastrar.php">Criar</a></li>
@@ -37,6 +38,7 @@
         aria-expanded="false">
         Partidas Publicadas
     </a>
+
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if( $acesso == "publicador" || $acesso == "administrador" ){ ?>
         <li><a class="dropdown-item " href="../partida_publicada/cadastrar.php">Publicar </a></li>
@@ -45,7 +47,6 @@
         <?php } ?>
         <li><a class="dropdown-item " href="../partida_publicada/listar.php">Listar</a></li>
     </ul>
-
 </li>
 
 
@@ -55,6 +56,7 @@
         aria-expanded="false">
         Aposta
     </a>
+
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if( $acesso == "apostador"  ){ ?>
         <li><a class="dropdown-item" href="../aposta/cadastrar.php">Criar</a></li>
@@ -63,16 +65,15 @@
         <?php } ?>
         <li><a class="dropdown-item" href="../aposta/listar.php">Listar</a></li>
     </ul>
-
 </li>
 <?php } ?>
 
 <li class="nav-item dropdown" style="min-width: 150px">
-
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
         Resultados
     </a>
+
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if( $acesso == "publicador" || $acesso == "administrador" ){ ?>
         <li><a class="dropdown-item" href="../resultado_publicado/cadastrar.php">Publicar</a></li>
@@ -81,12 +82,7 @@
         <?php } ?>
         <li><a class="dropdown-item" href="../resultado_publicado/listar.php">Listar</a></li>
     </ul>
-
-    
-
 </li>
-
-
 
 
 <li class="nav-item" style="min-width: 160px">
