@@ -9,7 +9,7 @@
     if(isset($_SESSION["id_logado"])){ 
         ?>
             <script>
-                    window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
+                window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
             </script>
         <?php
     }
@@ -17,7 +17,6 @@
 
 <main>
     <form method="post" class="d-flex justify-content-center align-items-center needs-validation" style="height: 60vh">
-
         <div class="container">
             <div class="row">
                 <?php include "processar_dados/processar.php";?>

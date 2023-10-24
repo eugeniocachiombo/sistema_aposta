@@ -1,4 +1,4 @@
-<?php $acesso = isset($_SESSION["tipo_acesso_logado"]) ? $_SESSION["tipo_acesso_logado"] : ""; ?>
+<?php $tipo_acesso = isset($_SESSION["tipo_acesso_logado"]) ? $_SESSION["tipo_acesso_logado"] : ""; ?>
 
 <main class="mb-4 mt-4">
     <div class="container ">
@@ -6,7 +6,7 @@
             <h3> <i class="fas fa-futbol"></i> Painel de actividades</h3>
         </div>
 
-        <?php if($acesso == "administrador" || $acesso == "gestor" || $acesso == "publicador"){ ?>
+        <?php if($tipo_acesso == "administrador" || $tipo_acesso == "gestor" || $tipo_acesso == "publicador"){ ?>
 
         <div class="row pt-4">
             <p>Registos a respeito de cadastro de equipas e partidas</p>
@@ -136,7 +136,7 @@
         <div class="row pt-4">
             <p>Registos a respeito de apostas e resultados obtidos nas sessões</p>
             
-            <?php if( $acesso == "administrador" ){ ?>
+            <?php if( $tipo_acesso == "administrador" ){ ?>
 
                 <div class="col-12 col-sm-6 ">
                     <div class="table-responsive" style="max-height: 60vh">
@@ -205,7 +205,7 @@
                 <hr class=" d-sm-none" size="6px">
             </div>
 
-            <?php if( $acesso == "apostador" ){ ?>
+            <?php if( $tipo_acesso == "apostador" ){ ?>
 
                 <div class="col-12 col-sm-6 ">
                     <div class="table-responsive" style="max-height: 60vh">

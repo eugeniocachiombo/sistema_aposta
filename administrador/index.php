@@ -26,6 +26,5 @@
 ?>
 
 <?php include "../inc/pagina_inicial_info.php"; ?>
-
 <?php include "../inc/footer.html"; ?>
 <?php include "../inc/footHTML.html"; ?>
