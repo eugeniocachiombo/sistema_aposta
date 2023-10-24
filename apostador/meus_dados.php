@@ -8,13 +8,8 @@
 <title>Meus Dados</title>
 
 <?php
-    if(empty($_SESSION["id_apostador"])){ 
-        ?>
-            <script>
-                    window.location = "../apostador/autenticar.php";
-            </script>
-        <?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarSeApostador();
 ?>
 
 <main class="mb-4 mt-4">

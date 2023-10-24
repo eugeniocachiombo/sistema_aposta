@@ -6,17 +6,11 @@
 <title>Cadastro de Apostador</title>
 
 <?php
-    if(isset($_SESSION["id_logado"])){ 
-        ?>
-            <script>
-                    window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
-            </script>
-        <?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarUtilizadorLogado();
 ?>
 
 <main class="mt-4 mb-4 " data-bs-theme="dark">
-
     <div class="container">
         <div class="row">
             <?php include "processar_dados/processar.php";?>
@@ -24,7 +18,6 @@
     </div>
 
     <form action="" method="post" class="d-flex align-items-center needs-validation" style="min-height: 60vh">
-
         <div class="container d-flex justify-content-center">
             <div class="row d-table d-md-flex">
                 <div class="col-md-4 pe-4 justify-content-center d-flex align-items-center" style="background: khaki">
@@ -38,27 +31,22 @@
                 <div class="col ">
                     <div class="col d-table d-md-flex">
                         <div class="col pe-4">
-
                             <label class="w-100 text-start pt-3" for="nome">Nome: </label> <br>
                             <input type="text" required class="form-control " name="nome" id="nome">
 
                             <label class="w-100 text-start pt-3" for="sobrenome">Sobrenome: </label> <br>
                             <input type="text" required class="form-control" name="sobrenome" id="sobrenome">
-
                         </div>
 
                         <div class="col pe-4">
-
                             <label class="w-100 text-start pt-3" for="email">E-mail</label> <br>
                             <input type="email" required class="form-control" name="email" id="email">
 
                             <label class="w-100 text-start pt-3" for="n_bi">Senha</label> <br>
                             <input type="password" required class="form-control" name="senha" id="senha">
-
                         </div>
 
                         <div class="col pe-4 ">
-
                             <label class="w-100 text-start pt-3" for="nascimento">Data de Nascimento</label> <br>
                             <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
                                 name="nascimento" id="nascimento" placeholder="dd-mm-yyyy">
@@ -70,7 +58,6 @@
                                 <option value="M">Masculino</option>
                                 <option value="F">Femenino</option>
                             </select>
-
                         </div>
 
                         <div class="col pe-4">
@@ -92,10 +79,8 @@
                             <span id="texto_cadastrar">Cadastrar</span>
                             <span id="spinner" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                         </button>
-                            
                     </div>
                 </div>
-
             </div>
         </div>
     </form>
