@@ -69,7 +69,7 @@
 </li>
 <?php } ?>
 
-<li class="nav-item dropdown" style="min-width: 150px">
+<li class="nav-item dropdown" >
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
         Resultados

@@ -1,4 +1,4 @@
-<li class="nav-item" style="min-width: 155px">
+<li class="nav-item">
     <a class="nav-link active" aria-current="page" href="../apostador">Página Inicial</a>
 </li>
 
