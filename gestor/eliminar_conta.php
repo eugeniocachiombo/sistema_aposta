@@ -8,17 +8,11 @@
 <title>Eliminar Conta</title>
 
 <?php
-    if(empty($_SESSION["id_gestor"])){ 
-        ?>
-            <script>
-                window.location = "../gestor/autenticar.php";
-            </script>
-        <?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarSeGestor();
 ?>
 
 <main class="mb-4 mt-4">
-
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
             <h3> <i class="fas fa-shield-halved"></i> Segurança</h3>
@@ -32,7 +26,6 @@
 
         <div class="row d-flex justify-content-start align-items-center" style="min-height: 40vh; font-size: 20px;">
             <form action="" method="post" class="d-flex align-items-center needs-validation" style="min-height: 60vh">
-
                 <div class="container d-flex justify-content-center">
                     <div class="row d-table d-md-flex">
                         <div class="col-md-4 mt-2 pe-4 justify-content-center d-flex align-items-center"
@@ -61,10 +54,8 @@
                                     <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
                                         aria-hidden="true"></span>
                                 </button>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </form>

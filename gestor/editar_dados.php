@@ -8,17 +8,11 @@
 <title>Editar Dados</title>
 
 <?php
-    if(empty($_SESSION["id_gestor"])){ 
-        ?>
-<script>
-window.location = "../gestor/autenticar.php";
-</script>
-<?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarSeGestor();
 ?>
 
 <main class="mb-4 mt-4">
-
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
             <h3> <i class="fas fa-pen"></i> Informações Pessoais</h3>
@@ -32,7 +26,6 @@ window.location = "../gestor/autenticar.php";
 
         <div class="row d-flex justify-content-start align-items-center" style="min-height: 40vh; font-size: 20px;">
             <form action="" method="post" class="d-flex align-items-center needs-validation" style="min-height: 60vh">
-
                 <div class="container d-flex justify-content-center">
                     <div class="row d-table d-md-flex">
                         <div class="col-md-4 mt-2 pe-4 justify-content-center d-flex align-items-center"
@@ -47,7 +40,6 @@ window.location = "../gestor/autenticar.php";
                         <div class="col ">
                             <div class="col d-table d-md-flex">
                                 <div class="col pe-4">
-
                                     <label class="w-100 text-start pt-3" for="nome">Nome: </label> <br>
                                     <input type="text" required class="form-control " name="nome" id="nome"
                                         value="<?php echo $_SESSION["nome_gestor"]; ?>">
@@ -55,11 +47,9 @@ window.location = "../gestor/autenticar.php";
                                     <label class="w-100 text-start pt-3" for="sobrenome">Sobrenome: </label> <br>
                                     <input type="text" required class="form-control" name="sobrenome" id="sobrenome"
                                         value="<?php echo $_SESSION["sobrenome_gestor"]; ?>">
-
                                 </div>
 
                                 <div class="col pe-4">
-
                                     <label class="w-100 text-start pt-3" for="email">E-mail</label> <br>
                                     <input type="email" required class="form-control" name="email" id="email"
                                         value="<?php echo $_SESSION["email_gestor"]; ?>">
@@ -69,11 +59,9 @@ window.location = "../gestor/autenticar.php";
                                     <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required
                                         class="form-control" name="nascimento" id="nascimento" placeholder="dd-mm-yyyy"
                                         value="<?php echo $_SESSION["nascimento_gestor"]; ?>">
-
                                 </div>
 
                                 <div class="col pe-4 ">
-
                                     <label class="w-100 text-start pt-3" for="genero">Gênero</label> <br>
                                     <select class="form-control" required name="genero" id="genero"
                                         style="width: 205px; border: 2px solid cadetblue;">
@@ -92,7 +80,6 @@ window.location = "../gestor/autenticar.php";
                                     <label class="w-100 text-start pt-3" for="n_bi">Nº BI</label> <br>
                                     <input type="text" required class="form-control" name="n_bi" id="n_bi"
                                         value="<?php echo $_SESSION["n_bi_gestor"]; ?>">
-
                                 </div>
                             </div>
 
@@ -104,10 +91,8 @@ window.location = "../gestor/autenticar.php";
                                     <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
                                         aria-hidden="true"></span>
                                 </button>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </form>

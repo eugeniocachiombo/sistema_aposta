@@ -8,21 +8,8 @@
 <title>Página Inicial</title>
 
 <?php
-    if(empty($_SESSION["id_gestor"])){ 
-        if(isset($_SESSION["id_logado"])){ 
-            ?>
-                <script>
-                        window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
-                </script>
-            <?php
-        }else{
-        ?>
-            <script>
-                    window.location = "../gestor/autenticar.php";
-            </script>
-        <?php
-        }
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarGeral();
 ?>
 
 <?php include "../inc/pagina_inicial_info.php"; ?>

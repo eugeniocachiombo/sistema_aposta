@@ -8,13 +8,8 @@
 <title>Meus Dados</title>
 
 <?php
-    if(empty($_SESSION["id_gestor"])){ 
-        ?>
-            <script>
-                    window.location = "../gestor/autenticar.php";
-            </script>
-        <?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarSeGestor();
 ?>
 
 <main class="mb-4 mt-4">
