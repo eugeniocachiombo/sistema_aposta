@@ -4,36 +4,32 @@ $uri = $_SERVER["REQUEST_URI"];
 $divir_uri = explode("/", $uri);
 $caminho_actual = $divir_uri[2];
 $parametro_caminho = $divir_uri[3];
-VerificarPaginaActual($caminho_actual);
+VerificarPaginaActual($caminho_actual, $parametro_caminho);
 
-function VerificarPaginaActual($caminho){
+function VerificarPaginaActual($caminho, $parametro){
     switch ($caminho) {
         case 'inicio':
             PaginaInicio();
             break;
 
         case 'gestor':
-            PaginaGestor();
+            PaginaGestor($parametro);
             break;
 
         case 'apostador':
-            PaginaApostador();
+            PaginaApostador($parametro);
             break;
 
         case 'administrador':
-            PaginaAdministrador();
+            PaginaAdministrador($parametro);
             break;
 
         case 'publicador':
-            PaginaPublicador();
-            break;
-
-        case 'equipa':
-            PaginaPublicador();
+            PaginaPublicador($parametro);
             break;
         
         default:
-            PaginaInicio();
+            PaginaAccao();
             break;
     }
 }
@@ -42,8 +38,8 @@ function PaginaInicio(){
     include "../inicio/listas_menu/index.php";
 }
 
-function PaginaGestor(){
-    switch ($parametro_caminho) {
+function PaginaGestor($parametro){
+    switch ($parametro) {
         case 'autenticar.php':
             include "../gestor/listas_menu/autenticar.php"; 
             break;
@@ -58,8 +54,8 @@ function PaginaGestor(){
     }
 }
 
-function PaginaApostador(){
-    switch ($parametro_caminho) {
+function PaginaApostador($parametro){
+    switch ($parametro) {
         case 'autenticar.php':
             include "../apostador/listas_menu/autenticar.php"; 
             break;
@@ -74,8 +70,8 @@ function PaginaApostador(){
     }
 }
 
-function PaginaAdministrador(){
-    switch ($parametro_caminho) {
+function PaginaAdministrador($parametro){
+    switch ($parametro) {
         case 'autenticar.php':
             include "../administrador/listas_menu/autenticar.php"; 
             break;
@@ -90,7 +86,23 @@ function PaginaAdministrador(){
     }
 }
 
-function VerificarPaginaParametro(){
+function PaginaPublicador($parametro){
+    switch ($parametro) {
+        case 'autenticar.php':
+            include "../publicador/listas_menu/autenticar.php"; 
+            break;
+
+        case 'cadastrar.php':
+            include "../publicador/listas_menu/cadastrar.php"; 
+            break;
+        
+        default:
+            include "../publicador/listas_menu/index.php"; 
+            break;
+    }
+}
+
+function PaginaAccao(){
     include "../". $_SESSION["tipo_acesso_logado"] ."/listas_menu/index.php";
 }
 

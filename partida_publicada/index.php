@@ -7,6 +7,16 @@
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Lista de Partidas Publicadas</title>
 
+<?php
+if(empty($_SESSION["id_logado"])){ 
+    ?>
+        <script>
+                window.location = "../inicio";
+        </script>
+    <?php
+}
+?>
+
 <main class="mb-4 mt-4">
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
