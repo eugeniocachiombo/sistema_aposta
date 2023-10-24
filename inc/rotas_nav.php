@@ -1,10 +1,9 @@
 <?php
 
 $uri = $_SERVER["REQUEST_URI"];
-$divir_uri = explode("/", $uri);
-$uri_filtrado = array_values(array_filter($divir_uri));
-$caminho_actual = $divir_uri[0] == "sistema_aposta" ? $uri_filtrado[1] :  $uri_filtrado[0];
-$parametro_caminho = $divir_uri[0] == "sistema_aposta" ? $uri_filtrado[2] :  $uri_filtrado[1];
+$uri_repartido = explode("/", $uri);
+$caminho_actual = $uri_repartido[1] == "sistema_aposta" ? $uri_repartido[2] :  $uri_repartido[1];
+$parametro_caminho = $uri_repartido[1] == "sistema_aposta" ? $uri_repartido[3] :  $uri_repartido[2];
 VerificarPaginaActual($caminho_actual, $parametro_caminho);
 
 function VerificarPaginaActual($caminho, $parametro){
