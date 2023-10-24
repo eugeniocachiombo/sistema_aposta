@@ -8,13 +8,8 @@
 <title>Meus Dados</title>
 
 <?php
-    if(empty($_SESSION["id_publicador"])){ 
-        ?>
-            <script>
-                    window.location = "../publicador/autenticar.php";
-            </script>
-        <?php
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarSePublicador();
 ?>
 
 <main class="mb-4 mt-4">
