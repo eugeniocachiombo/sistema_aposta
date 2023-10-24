@@ -3,7 +3,7 @@
     CliqueBotaoActualizar();
     CliqueBotaoEliminarConta();
     CliqueBotaoAlterarSenha();
-    Autenticar();
+    CliqueBotaoAutenticar();
 
     function CliqueBotaoCadastrar(){
         if(isset($_POST["btn_cadastrar"])){
@@ -76,6 +76,24 @@
                 "n_bi" => "nulo"
             );
             VerificarSenhaAntiga($dados_enviados);   
+        }
+    }
+
+    function CliqueBotaoAutenticar(){
+        if(isset($_POST["btn_autenticar"])){
+            $n_bi = $_POST["n_bi"];
+            $senha = $_POST["senha"];
+            $dados_enviados = Array(
+                "id_administrador" => "nulo",
+                "nome" => "nulo",
+                "sobrenome" => "nulo",
+                "email" => "nulo",
+                "senha" => $senha,
+                "nascimento" => "nulo",
+                "genero" => "nulo",
+                "n_bi" => $n_bi
+            );
+            VerificarUtilizadorBISenha($dados_enviados);
         }
     }
 
@@ -221,58 +239,62 @@
             echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao alterar senha  <b> </font>";
         }
     }
-    
 
-    function Autenticar(){
-        if(isset($_POST["btn_autenticar"])){
-
-            $n_bi = $_POST["n_bi"];
-            $senha = $_POST["senha"];
-    
-            $administrador_dao = new AdministradorDao();
-            $retorno_autenticacao = $administrador_dao->ListarPorBISenha($n_bi, $senha);
-            
-            if($retorno_autenticacao){
-                CriarSessao($retorno_autenticacao);
-                ?> <script>
-window.location = "../administrador";
-</script> <?php
-            }else{
-                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Utilizador Não Encontrado  <b> </font>";
-            }
+    function VerificarUtilizadorBISenha($dados_enviados){
+        $administrador_dao = new AdministradorDao();
+        $retorno_dados_utilizador = $administrador_dao->ListarPorBISenha( $dados_enviados["n_bi"], $dados_enviados["senha"] );
+        if($retorno_dados_utilizador){
+            CriarSessao($retorno_dados_utilizador);
+            ProcessarEncaminharParaIndex();
+        }else{
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Utilizador Não Encontrado  <b> </font>";
         }
     }
 
-    function CriarSessao($retorno){
+    function ProcessarEncaminharParaIndex(){
+        ?> 
+            <script>
+                window.location = "../administrador";
+            </script> 
+        <?php
+    }
 
-        $id = $retorno["id_administrador"];
-        $nome = $retorno["nome_administrador"];
-        $sobrenome = $retorno["sobrenome_administrador"];
-        $email = $retorno["email_administrador"];
-        $senha = $retorno["senha_administrador"];
-        $nascimento = $retorno["nascimento_administrador"];
-        $nascimento = explode("-", $nascimento);
-        $nascimento = $nascimento[2] . "-" . $nascimento[1] . "-" . $nascimento[0];
-        $genero = $retorno["genero_administrador"];
-        $n_bi = $retorno["n_bi_administrador"];
+    function CriarSessao($dados_utilizador){
+        $data_tratada = TratarData( $dados_utilizador["nascimento_administrador"] );
+        $dados_enviados = Array(
+            "id" => $dados_utilizador["id_administrador"],
+            "nome" => $dados_utilizador["nome_administrador"],
+            "sobrenome" => $dados_utilizador["sobrenome_administrador"],
+            "email" => $dados_utilizador["email_administrador"],
+            "senha" => $dados_utilizador["senha_administrador"],
+            "nascimento" => $data_tratada,
+            "genero" => $dados_utilizador["genero_administrador"],
+            "n_bi" => $dados_utilizador["n_bi_administrador"]
+        );
+        CriarSessaoLogado($dados_enviados);
+        CriarSessaoPorTipoAcesso($dados_enviados);
+    }
 
-        $_SESSION["id_logado"] = $id;
-        $_SESSION["nome_logado"] = $nome;
-        $_SESSION["sobrenome_logado"] = $sobrenome;
-        $_SESSION["email_logado"] = $email;
-        $_SESSION["senha_logado"] = $senha;
-        $_SESSION["nascimento_logado"] = $nascimento;
-        $_SESSION["genero_logado"] = $genero;
-        $_SESSION["n_bi_logado"] = $n_bi;
+    function CriarSessaoLogado($dados_enviados) {
+        $_SESSION["id_logado"] = $dados_enviados["id"];
+        $_SESSION["nome_logado"] = $dados_enviados["nome"];
+        $_SESSION["sobrenome_logado"] = $dados_enviados["sobrenome"];
+        $_SESSION["email_logado"] = $dados_enviados["email"];
+        $_SESSION["senha_logado"] = $dados_enviados["senha"];
+        $_SESSION["nascimento_logado"] = $dados_enviados["nascimento"];
+        $_SESSION["genero_logado"] = $dados_enviados["genero"];
+        $_SESSION["n_bi_logado"] = $dados_enviados["n_bi"];
         $_SESSION["tipo_acesso_logado"] = "administrador";
+    }
 
-        $_SESSION["id_administrador"] = $id;
-        $_SESSION["nome_administrador"] = $nome;
-        $_SESSION["sobrenome_administrador"] = $sobrenome;
-        $_SESSION["email_administrador"] = $email;
-        $_SESSION["senha_administrador"] = $senha;
-        $_SESSION["nascimento_administrador"] = $nascimento;
-        $_SESSION["genero_administrador"] = $genero;
-        $_SESSION["n_bi_administrador"] = $n_bi;
+    function CriarSessaoPorTipoAcesso($dados_enviados){
+        $_SESSION["id_administrador"] = $dados_enviados["id"];
+        $_SESSION["nome_administrador"] = $dados_enviados["nome"];
+        $_SESSION["sobrenome_administrador"] = $dados_enviados["sobrenome"];
+        $_SESSION["email_administrador"] = $dados_enviados["email"];
+        $_SESSION["senha_administrador"] = $dados_enviados["senha"];
+        $_SESSION["nascimento_administrador"] = $dados_enviados["nascimento"];
+        $_SESSION["genero_administrador"] = $dados_enviados["genero"];
+        $_SESSION["n_bi_administrador"] = $dados_enviados["n_bi"];
     }
 ?>
