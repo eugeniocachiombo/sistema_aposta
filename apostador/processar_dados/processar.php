@@ -18,7 +18,7 @@
                 "genero" => $_POST["genero"],
                 "n_bi" => $_POST["n_bi"]
             );
-            $apostador = InstanciarObjectoapostador($dados_enviados);
+            $apostador = InstanciarObjectoApostador($dados_enviados);
             VerificarExistenciaBI( $apostador );
         }
     }
@@ -36,7 +36,7 @@
                 "genero" => $_POST["genero"],
                 "n_bi" => $_POST["n_bi"]
             );
-            $apostador = InstanciarObjectoapostador($dados_enviados);
+            $apostador = InstanciarObjectoApostador($dados_enviados);
             VerificarIgualdadeBI($apostador);
         }
     }
@@ -103,7 +103,7 @@
         return $data_tratada;
     }
 
-    function InstanciarObjectoapostador($dados_enviados){
+    function InstanciarObjectoApostador($dados_enviados){
         $apostador = new Apostador();
         $apostador->SetId( $dados_enviados["id"] );
         $apostador->SetNome( $dados_enviados["nome"] );
