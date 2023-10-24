@@ -4,7 +4,8 @@
 }
 
 body{
-    font-family: Courier, monospace;
+    /*font-family: Courier, monospace;*/
+    font-family: verdana;
     animation: opacidade 2s;
 }
 

@@ -41,14 +41,17 @@ ul li:hover {
 </div>
 
 <header class="d-flex align-items-center">
-    <div class="container d-flex d-md-block w-100 pt-3 pb-3">
+    <div class="container d-flex d-md-block w-100 pt-3 pb-3 ">
         <div class="col-2 col-md-12 text-md-center d-flex justify-content-center align-items-center">
             <i class="fas fa-volleyball" style="font-size: 80px; color: black;"></i>
         </div>
 
-        <div class="col display-6 d-flex align-items-center">
-            <p class=" w-100 d-none d-md-block text-md-center  "><b>Sistema de Aposta S.A</b></p>
-            <p class=" w-100 d-md-none text-md-center ms-2" style="font-size: 20px;"><b>Sistema de Aposta S.A</b></p>
+        <div class="col display-6 d-none d-md-flex align-items-center">
+            <p class=" w-100 text-md-center " style="font-family: verdana"><b>Sistema de Aposta</b></p>
+        </div>
+
+        <div class="col display-6 d-flex d-md-none align-items-end ">
+            <p class=" w-100 text-md-center ms-3 " style="font-size: 22px; font-family: verdana"><b>Sistema de Aposta</b></p>
         </div>
     </div>
 </header>
