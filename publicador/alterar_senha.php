@@ -9,7 +9,7 @@
 
 <?php 
 include "processar_dados/verificar_acesso_a_pagina.php";
-VerificarSeGestor();
+VerificarSePublicador();
 ?>
 
 
