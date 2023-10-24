@@ -20,11 +20,11 @@ ul li:hover {
 
             <div class="col d-flex justify-content-end align-items-center" style="min-width: 250px">
                 <i class="fas fa-user me-2" style="font-size: 20px"></i>
-                <?php 
-                    if(isset($_SESSION["id_logado"])){
-                        echo $_SESSION["nome_logado"] . " " .  $_SESSION["sobrenome_logado"]; 
-                    } 
-                ?>
+                    <?php 
+                        if(isset($_SESSION["id_logado"])){
+                            echo $_SESSION["nome_logado"] . " " .  $_SESSION["sobrenome_logado"]; 
+                        } 
+                    ?>
             </div>
             
             <nav class="navbar navbar-expand-lg navbar-light bg-white">

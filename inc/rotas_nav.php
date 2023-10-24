@@ -2,8 +2,9 @@
 
 $uri = $_SERVER["REQUEST_URI"];
 $divir_uri = explode("/", $uri);
-$caminho_actual = $divir_uri[2];
-$parametro_caminho = $divir_uri[3];
+$uri_filtrado = array_values(array_filter($divir_uri));
+$caminho_actual = $divir_uri[0] == "sistema_aposta" ? $uri_filtrado[1] :  $uri_filtrado[0];
+$parametro_caminho = $divir_uri[0] == "sistema_aposta" ? $uri_filtrado[2] :  $uri_filtrado[1];
 VerificarPaginaActual($caminho_actual, $parametro_caminho);
 
 function VerificarPaginaActual($caminho, $parametro){
@@ -27,9 +28,29 @@ function VerificarPaginaActual($caminho, $parametro){
         case 'publicador':
             PaginaPublicador($parametro);
             break;
+
+        case 'equipa':
+            PaginaAccao();
+            break;
+
+        case 'partida':
+            PaginaAccao();
+            break;
+
+        case 'partida_publicada':
+            PaginaAccao();
+            break;
+
+        case 'resultado_publicado':
+            PaginaAccao();
+            break;
+
+        case 'aposta':
+            PaginaAccao();
+            break;
         
         default:
-            PaginaAccao();
+            PaginaInicio();
             break;
     }
 }
@@ -106,12 +127,3 @@ function PaginaAccao(){
     include "../". $_SESSION["tipo_acesso_logado"] ."/listas_menu/index.php";
 }
 
-//
-  /*  if( $caminho == "equipa" || $caminho == "partida" 
-    || $caminho == "partida_publicada" || $caminho == "resultado_publicado"
-    || $caminho == "aposta"
-    ){
-
-          
-    
-    } */
