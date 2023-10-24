@@ -1,9 +1,9 @@
 <?php
     CliqueBotaoCadastrar();
     CliqueBotaoActualizar();
+    CliqueBotaoEliminarConta();
+    CliqueBotaoAlterarSenha();
     Autenticar();
-    AlterarSenha();
-    EliminarConta();
 
     function CliqueBotaoCadastrar(){
         if(isset($_POST["btn_cadastrar"])){
@@ -38,6 +38,44 @@
             );
             $administrador = InstanciarObjectoAdministrador($dados_enviados);
             VerificarIgualdadeBI($administrador);
+        }
+    }
+
+    function CliqueBotaoEliminarConta(){  
+        if(isset($_POST["btn_eliminar_conta"])){
+            $id_administrador = $_SESSION["id_administrador"];
+            $senha = $_POST["senha"];
+            $dados_enviados = Array(
+                "id_administrador" => $id_administrador,
+                "nome" => "nulo",
+                "sobrenome" => "nulo",
+                "email" => "nulo",
+                "senha" => $senha,
+                "nascimento" => "nulo",
+                "genero" => "nulo",
+                "n_bi" => "nulo"
+            );
+            VerificarSenha($dados_enviados);
+        }
+    }
+
+    function CliqueBotaoAlterarSenha(){
+        if(isset($_POST["btn_alterar_senha"])){
+            $id_administrador = $_SESSION["id_administrador"];
+            $senha_antiga = $_POST["senha_antiga"];
+            $senha_nova = $_POST["senha_nova"];
+            $dados_enviados = Array(
+                "id_administrador" => $id_administrador,
+                "nome" => "nulo",
+                "sobrenome" => "nulo",
+                "email" => "nulo",
+                "senha_antiga" => $senha_antiga,
+                "senha_nova" => $senha_nova,
+                "nascimento" => "nulo",
+                "genero" => "nulo",
+                "n_bi" => "nulo"
+            );
+            VerificarSenhaAntiga($dados_enviados);   
         }
     }
 
@@ -128,69 +166,61 @@
         <?php
     }
 
-    function EliminarConta(){
-        
-        if(isset($_POST["btn_eliminar_conta"])){
-
-            $id_administrador = $_SESSION["id_administrador"];
-            $senha = $_POST["senha"];
-    
-            $administrador_dao = new AdministradorDao();
-            $retorno_senha = $administrador_dao->ListarPorIDSenha($id_administrador, $senha);
-            
-            if($retorno_senha){
-
-                $retorno_sucesso = $administrador_dao->Eliminar($id_administrador);
-                if($retorno_sucesso){
-                    echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Conta eliminada com sucesso  <b> </font>";
-                    session_destroy();
-                    ?>
-                    Encaminhado para Inicio... <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                    <script>
-                    setInterval(() => {
-                        window.location = "../inicio";
-                    }, 3000);
-                    </script>
-                    <?php
-                }else{
-                    echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao tentar eliminar conta  <b> </font>";
-                } 
-
-            }else{
-
-                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro!... senha incorreta  <b> </font>";
-            
-            }
+    function VerificarSenha($dados_enviados){
+        $administrador_dao = new AdministradorDao();
+        $retorno_verificao_senha = $administrador_dao->ListarPorIDSenha( $dados_enviados["id_administrador"], $dados_enviados["senha"]);
+        if($retorno_verificao_senha){
+            EliminarConta($dados_enviados);
+        }else{
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro!... senha incorreta  <b> </font>";
         }
     }
 
-    function AlterarSenha(){
-        if(isset($_POST["btn_alterar_senha"])){
-
-            $id_administrador = $_SESSION["id_administrador"];
-            $senha_antiga = $_POST["senha_antiga"];
-            $senha_nova = $_POST["senha_nova"];
-    
-            $administrador_dao = new AdministradorDao();
-            $retorno_senha_antiga = $administrador_dao->ListarPorIDSenha($id_administrador, $senha_antiga);
-            
-            if($retorno_senha_antiga){
-
-                $retorno_sucesso = $administrador_dao->AlterarSenha($id_administrador, $senha_nova);
-                if($retorno_sucesso){
-                    echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Senha alterada com sucesso  <b> </font>";
-                }else{
-                    echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao alterar senha  <b> </font>";
-                }
-
-            }else{
-
-                echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro!... senha antiga incorreta  <b> </font>";
-            
-            }      
-        }
+    function EliminarConta($dados_enviados){
+        $administrador_dao = new AdministradorDao();
+        $retorno_sucesso = $administrador_dao->Eliminar( $dados_enviados["id_administrador"] );
+        RetornarSucessoEliminarConta($retorno_sucesso);
     }
 
+    function RetornarSucessoEliminarConta($retorno_sucesso){
+        if($retorno_sucesso){
+            echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Conta eliminada com sucesso  <b> </font>";
+            session_destroy();
+            ProcessarEncaminharParaInicio();
+        }else{
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao tentar eliminar conta  <b> </font>";
+        } 
+    }
+
+    function ProcessarEncaminharParaInicio(){
+        ?>
+            Encaminhado para Inicio... <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            <script>
+                setInterval(() => {
+                    window.location = "../inicio";
+                }, 3000);
+            </script>
+        <?php
+    }
+
+    function VerificarSenhaAntiga($dados_enviados){
+        $administrador_dao = new AdministradorDao();
+        $retorno_senha_antiga = $administrador_dao->ListarPorIDSenha($dados_enviados["id_administrador"], $dados_enviados["senha_antiga"]);
+        if($retorno_senha_antiga){
+            $retorno_sucesso = $administrador_dao->AlterarSenha($dados_enviados["id_administrador"], $dados_enviados["senha_nova"]);
+            RetornarSucessoAlterarSenha($retorno_sucesso);
+        }else{
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro!... senha antiga incorreta  <b> </font>";
+        } 
+    }
+
+    function RetornarSucessoAlterarSenha($retorno_sucesso){
+        if($retorno_sucesso){
+            echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Senha alterada com sucesso  <b> </font>";
+        }else{
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao alterar senha  <b> </font>";
+        }
+    }
     
 
     function Autenticar(){
