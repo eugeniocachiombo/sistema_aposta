@@ -122,6 +122,16 @@
         if($retorno_listagem){
             echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe um utilizador com este número de BI  <b> </font>";
         } else{
+            VerificarExistenciaEmail($apostador);
+        }
+    }
+
+    function VerificarExistenciaEmail($apostador){
+        $apostador_dao = new ApostadorDao();
+        $retorno_listagem = $apostador_dao->ListarPorEmail($apostador->GetEmail());
+        if($retorno_listagem){
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe um utilizador com este email  <b> </font>";
+        } else{
             Cadastrar($apostador);
         }
     }

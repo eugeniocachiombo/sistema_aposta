@@ -66,7 +66,7 @@ class ApostadorDao implements Crud {
 
     function ListarPorEmail($email){
         $con = GetConexao();
-        $sql = "select * from apostador where email_apostador = ?;";
+        $sql = "select * from apostador where email_apostador = ?";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $email);
         $stmt->execute();

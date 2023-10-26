@@ -122,6 +122,16 @@
         if($retorno_listagem){
             echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe um utilizador com este número de BI  <b> </font>";
         } else{
+            VerificarExistenciaEmail($administrador);
+        }
+    }
+
+    function VerificarExistenciaEmail($administrador){
+        $administrador_dao = new AdministradorDao();
+        $retorno_listagem = $administrador_dao->ListarPorEmail($administrador->GetEmail());
+        if($retorno_listagem){
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe um utilizador com este email  <b> </font>";
+        } else{
             Cadastrar($administrador);
         }
     }
