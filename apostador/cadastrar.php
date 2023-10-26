@@ -72,7 +72,7 @@ VerificarUtilizadorLogado();
 
                         <div class="col pe-4">
                             <label class="w-100 text-start pt-3" for="n_bi">Nº BI</label> <br>
-                            <input type="text" required class="form-control" name="n_bi" id="n_bi" value="<?php echo isset($_POST["nascimento"]) ? $_POST["nascimento"] : "" ?>">
+                            <input type="text" required class="form-control" name="n_bi" id="n_bi" value="<?php echo isset($_POST["n_bi"]) ? $_POST["n_bi"] : "" ?>">
 
                             <label class="w-100 text-start pt-3" for="acesso">Tipo de Acesso</label> <br>
                             <select class="form-control" disabled name="acesso" id="acesso"
