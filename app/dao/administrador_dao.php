@@ -64,6 +64,15 @@ class AdministradorDao implements Crud {
         return $stmt->fetch();
     }
 
+    function ListarPorEmail($email){
+        $con = GetConexao();
+        $sql = "select * from administrador where email_administrador = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $email);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
     function ListarPorBISenha($n_bi, $senha){
         $con = GetConexao();
         $sql = "select * from administrador where n_bi_administrador = ? and senha_administrador = md5(?)";

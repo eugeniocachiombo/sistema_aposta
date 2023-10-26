@@ -64,6 +64,15 @@ class GestorDao implements Crud {
         return $stmt->fetch();
     }
 
+    function ListarPorEmail($email){
+        $con = GetConexao();
+        $sql = "select * from gestor where email_gestor = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $email);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
     function ListarPorBISenha($n_bi, $senha){
         $con = GetConexao();
         $sql = "select * from gestor where n_bi_gestor = ? and senha_gestor = md5(?)";

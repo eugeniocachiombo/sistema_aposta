@@ -64,6 +64,15 @@ class PublicadorDao implements Crud {
         return $stmt->fetch();
     }
 
+    function ListarPorEmail($email){
+        $con = GetConexao();
+        $sql = "select * from publicador where email_publicador = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $email);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
     function ListarPorBISenha($n_bi, $senha){
         $con = GetConexao();
         $sql = "select * from publicador where n_bi_publicador = ? and senha_publicador = md5(?)";
