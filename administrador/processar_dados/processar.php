@@ -109,6 +109,7 @@
         $administrador->SetNome( $dados_enviados["nome"] );
         $administrador->SetSobrenome( $dados_enviados["sobrenome"] );
         $administrador->SetEmail( $dados_enviados["email"] );
+        $administrador->SetSenha( $dados_enviados["senha"] );
         $administrador->SetNascimento( $dados_enviados["nascimento"] );
         $administrador->SetGenero( $dados_enviados["genero"] );
         $administrador->SetN_bi( $dados_enviados["n_bi"] );

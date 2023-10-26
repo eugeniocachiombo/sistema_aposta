@@ -109,6 +109,7 @@
         $apostador->SetNome( $dados_enviados["nome"] );
         $apostador->SetSobrenome( $dados_enviados["sobrenome"] );
         $apostador->SetEmail( $dados_enviados["email"] );
+        $apostador->SetSenha( $dados_enviados["senha"] );
         $apostador->SetNascimento( $dados_enviados["nascimento"] );
         $apostador->SetGenero( $dados_enviados["genero"] );
         $apostador->SetN_bi( $dados_enviados["n_bi"] );

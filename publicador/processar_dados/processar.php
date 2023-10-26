@@ -109,6 +109,7 @@
         $publicador->SetNome( $dados_enviados["nome"] );
         $publicador->SetSobrenome( $dados_enviados["sobrenome"] );
         $publicador->SetEmail( $dados_enviados["email"] );
+        $publicador->SetSenha( $dados_enviados["senha"] );
         $publicador->SetNascimento( $dados_enviados["nascimento"] );
         $publicador->SetGenero( $dados_enviados["genero"] );
         $publicador->SetN_bi( $dados_enviados["n_bi"] );
