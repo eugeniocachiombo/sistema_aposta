@@ -32,37 +32,47 @@ VerificarUtilizadorLogado();
                     <div class="col d-table d-md-flex">
                         <div class="col pe-4">
                             <label class="w-100 text-start pt-3" for="nome">Nome: </label> <br>
-                            <input type="text" required class="form-control " name="nome" id="nome">
+                            <input type="text" required class="form-control " name="nome" id="nome" value="<?php echo isset($_POST["nome"]) ? $_POST["nome"] : "" ?>" >
 
                             <label class="w-100 text-start pt-3" for="sobrenome">Sobrenome: </label> <br>
-                            <input type="text" required class="form-control" name="sobrenome" id="sobrenome">
+                            <input type="text" required class="form-control" name="sobrenome" id="sobrenome" value="<?php echo isset($_POST["sobrenome"]) ? $_POST["sobrenome"] : "" ?>" >
                         </div>
 
                         <div class="col pe-4">
                             <label class="w-100 text-start pt-3" for="email">E-mail</label> <br>
-                            <input type="email" required class="form-control" name="email" id="email">
+                            <input type="email" required class="form-control" name="email" id="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : "" ?>" >
 
                             <label class="w-100 text-start pt-3" for="n_bi">Senha</label> <br>
-                            <input type="password" required class="form-control" name="senha" id="senha">
+                            <input type="password" required class="form-control" name="senha" id="senha" value="<?php echo isset($_POST["senha"]) ? $_POST["senha"] : "" ?>" >
                         </div>
 
                         <div class="col pe-4 ">
                             <label class="w-100 text-start pt-3" for="nascimento">Data de Nascimento</label> <br>
                             <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                name="nascimento" id="nascimento" placeholder="dd-mm-yyyy">
+                                name="nascimento" id="nascimento" placeholder="dd-mm-yyyy" value="<?php echo isset($_POST["nascimento"]) ? $_POST["nascimento"] : "" ?>">
 
                             <label class="w-100 text-start pt-3" for="genero">Gênero</label> <br>
                             <select class="form-control" required name="genero" id="genero"
                                 style="width: 205px; border: 2px solid cadetblue;">
                                 <option value="">Selecione...</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Femenino</option>
+                                <?php
+                                    if($_POST["genero"] == "M"){ ?>
+                                        <option value="M" selected>Masculino</option>
+                                        <option value="F">Femenino</option> <?php
+                                    } else if($_POST["genero"] == "F"){ ?>
+                                        <option value="M">Masculino</option>
+                                        <option value="F" selected>Femenino</option> <?php
+                                    } else { ?>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Femenino</option> <?php
+                                    }
+                                ?>
                             </select>
                         </div>
 
                         <div class="col pe-4">
                             <label class="w-100 text-start pt-3" for="n_bi">Nº BI</label> <br>
-                            <input type="text" required class="form-control" name="n_bi" id="n_bi">
+                            <input type="text" required class="form-control" name="n_bi" id="n_bi" value="<?php echo isset($_POST["nascimento"]) ? $_POST["nascimento"] : "" ?>">
 
                             <label class="w-100 text-start pt-3" for="acesso">Tipo de Acesso</label> <br>
                             <select class="form-control" disabled name="acesso" id="acesso"
