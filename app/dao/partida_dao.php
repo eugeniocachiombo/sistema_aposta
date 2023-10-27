@@ -45,7 +45,7 @@ class PartidaDao implements Crud {
         return $stmt->fetchAll();
     }
 
-    function ListarPorEuipas($equipaA, $equipaB){
+    function ListarPorEquipas($equipaA, $equipaB){
         $con = GetConexao();
         $sql = "select * from partida
         where id_equipaA = ? and id_equipaB = ? or id_equipaB = ? and id_equipaA = ?";
