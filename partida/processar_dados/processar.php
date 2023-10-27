@@ -8,9 +8,7 @@
         if(isset($_POST["btn_cadastrar"])){
             $equipaA = new Equipa( $_POST["equipaA"], "default");
             $equipaB = new Equipa( $_POST["equipaB"], "default");
-            $gestor = ObjectoGestor();
-            $partida = new Partida(0, $equipaA, $equipaB, $gestor);
-            ListarPorEquipasCadastrar($partida);
+            VerificarDifirencaEquipa($equipaA, $equipaB);
         }
     }
 
@@ -46,6 +44,16 @@
         $gestor->SetGenero($_SESSION["genero_gestor"]);
         $gestor->SetN_bi($_SESSION["n_bi_gestor"]);
         return $gestor;
+    }
+
+    function VerificarDifirencaEquipa($equipaA, $equipaB){
+        if($equipaA == $equipaB){
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> As equipas não podem ser iguais <b> </font>";
+        }else{
+            $gestor = ObjectoGestor();
+            $partida = new Partida(0, $equipaA, $equipaB, $gestor);
+            ListarPorEquipasCadastrar($partida);
+        }
     }
 
     function ListarPorEquipasCadastrar($partida){
