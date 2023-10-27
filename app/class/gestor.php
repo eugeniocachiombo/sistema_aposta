@@ -9,31 +9,12 @@ class Gestor extends Pessoa
     }
 
     function ActualizarEquipa($equipa){
-        $retorno_consulta_nome = $this->ListarEquipaPeloNome($equipa);
-        $this->VerificarExistenciaNomeEquipaActualizar($retorno_consulta_nome, $equipa);
+        $equipa_dao = new EquipaDao();
+        $retorno_cadastro = $equipa_dao->Actualizar($equipa);
+        $this->RetornarSucessoActualizar($retorno_cadastro);
     }
 
     function EliminarEquipa($equipa){
-        $this->TentarEliminarEquipa($equipa);
-    }
-
-   
-    
-    function VerificarExistenciaNomeEquipaActualizar($retorno_consulta_nome, $equipa){
-        if($retorno_consulta_nome){
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe equipa com este nome  <b> </font>";
-        }else{
-            $this->TentarActualizarEquipa($equipa);
-        }
-    }
-
-    function TentarActualizarEquipa($equipa){
-        $equipa_dao = new EquipaDao();
-        $retorno_actualizar = $equipa_dao->Actualizar($equipa);
-        $this->RetornarSucessoActualizar($retorno_actualizar);
-    }
-
-    function TentarEliminarEquipa($equipa){
         $id_equipa = $equipa->GetId();
         $equipa_dao = new EquipaDao();
         $retorno_eliminar = $equipa_dao->Eliminar($id_equipa);

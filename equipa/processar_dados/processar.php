@@ -7,11 +7,20 @@
         if(isset($_POST["btn_cadastrar"])){
             $nome = $_POST["nome"];
             $equipa = new Equipa(0, $nome);
-            ListarEquipaPeloNomeECadastrar($equipa);
+            ListarEquipaPeloNomeCadastrar($equipa);
         }
     }
 
-    function ListarEquipaPeloNomeECadastrar($equipa){
+    function CliqueNoBotaoActualizar(){
+        if(isset($_POST["btn_actualizar"])){
+            $id = $_POST["id"];
+            $nome = $_POST["nome"];
+            $equipa = new Equipa($id, $nome);
+            ListarEquipaPeloNomeActualizar($equipa);
+        }
+    }
+
+    function ListarEquipaPeloNomeCadastrar($equipa){
         $nome_equipa = $equipa->GetNome();
         $equipa_dao = new EquipaDao();
         $retorno_consulta_nome = $equipa_dao->ListarPorNome($nome_equipa);
@@ -31,13 +40,24 @@
         $gestor->CadastrarEquipa($equipa);
     }
 
-    function CliqueNoBotaoActualizar(){
-        if(isset($_POST["btn_actualizar"])){
-            $id = $_POST["id"];
-            $nome = $_POST["nome"];
-            $equipa = new Equipa($id, $nome);
+    function ListarEquipaPeloNomeActualizar($equipa){
+        $nome_equipa = $equipa->GetNome();
+        $equipa_dao = new EquipaDao();
+        $retorno_consulta_nome = $equipa_dao->ListarPorNome($nome_equipa);
+        VerificarExistenciaNomeEquipaActualizar($retorno_consulta_nome, $equipa);
+    }
+
+    function VerificarExistenciaNomeEquipaActualizar($retorno_consulta_nome, $equipa){
+        if($retorno_consulta_nome){
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe equipa com este nome  <b> </font>";
+        }else{
             Actualizar($equipa);
         }
+    }
+
+    function Actualizar($equipa){
+        $gestor = new Gestor();
+        $gestor->ActualizarEquipa($equipa);
     }
 
     function CliqueNoBotaoEliminar(){
@@ -47,11 +67,6 @@
             $equipa = new Equipa($id, $nome);
             Eliminar($equipa);
         }
-    }
-
-    function Actualizar($equipa){
-        $gestor = new Gestor();
-        $gestor->ActualizarEquipa($equipa);
     }
 
     function Eliminar($equipa){
