@@ -9,21 +9,8 @@
 
 
 <?php
-    if(empty($_SESSION["id_gestor"]) && empty($_SESSION["id_administrador"])){  
-        if(isset($_SESSION["id_logado"])){ 
-            ?>
-                <script>
-                        window.location = "../" + "<?php echo $_SESSION["tipo_acesso_logado"]; ?>";
-                </script>
-            <?php
-        }else{
-        ?>
-            <script>
-                    window.location = "../gestor/autenticar.php";
-            </script>
-        <?php
-        }
-    }
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarGeral();
 ?>
 
 

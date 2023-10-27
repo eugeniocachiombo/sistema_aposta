@@ -8,14 +8,10 @@
 <title>Lista de Partidas</title>
 
 <?php
-if(empty($_SESSION["id_logado"])){ 
-    ?>
-        <script>
-                window.location = "../inicio";
-        </script>
-    <?php
-}
+include "processar_dados/verificar_acesso_a_pagina.php";
+SeNaoUtilizadorLogado();
 ?>
+
 <main class="mb-4 mt-4">
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
