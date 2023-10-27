@@ -13,7 +13,6 @@ VerificarGeral();
 ?>
 
 <main class="mt-4 mb-4 " data-bs-theme="dark">
-
     <div class="container ">
         <div class="row pt-2" style="background: khaki">
             <h3> <i class="fas fa-futbol"></i> Registo de Equipas</h3>
@@ -25,7 +24,6 @@ VerificarGeral();
             </div>
         </div>
 
-        
         <form action="" method="post" class="d-flex align-items-center needs-validation" style="min-height: 60vh">
             <div class="container d-flex justify-content-center">
                 <div class="row d-table d-md-flex">
@@ -57,11 +55,9 @@ VerificarGeral();
 
                         </div>
                     </div>
-
                 </div>
             </div>
         </form>
-        
 
         <div class="row mt-4 pt-2" style="background: khaki">
             <h3> <i class="fas fa-futbol"></i> .... </h3>

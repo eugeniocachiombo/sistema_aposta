@@ -25,7 +25,6 @@ VerificarGeral();
         </div>
 
         <form action="" method="post" class="d-flex align-items-center needs-validation" style="min-height: 60vh">
-
             <div class="container d-flex justify-content-center">
                 <div class="row d-table d-md-flex">
                     <div class="col-md-4 pe-4 justify-content-center d-flex align-items-center"
@@ -55,10 +54,7 @@ VerificarGeral();
 
                                 <label class="w-100 text-start pt-3" for="nome">Nome: </label> <br>
                                 <input type="text" required class="form-control " name="nome" id="nome">
-
-                            
                             </div>
-
                         </div>
 
                         <hr class="d-none d-md-block">
@@ -68,13 +64,12 @@ VerificarGeral();
                                 <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
                                     aria-hidden="true"></span>
                             </button>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </form>
+        
         <div class="row mt-4 pt-2" style="background: khaki">
             <h3> <i class="fas fa-futbol"></i> .... </h3>
         </div>

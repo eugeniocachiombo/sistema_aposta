@@ -26,14 +26,14 @@ SeNaoUtilizadorLogado();
                     </tr>
 
                     <?php 
-                            $equipa_dao = new EquipaDao();
-                            $retorno = $equipa_dao->Listar();
-                            foreach ($retorno as $value) {
-                               echo "<tr style='border: none;'>";
-                               echo "<td style='border: none;'>" . $value['nome_equipa'] . "</td>";
-                               echo "</tr>";
-                            }
-                        ?>
+                        $equipa_dao = new EquipaDao();
+                        $retorno = $equipa_dao->Listar();
+                        foreach ($retorno as $value) {
+                           echo "<tr style='border: none;'>";
+                           echo "<td style='border: none;'>" . $value['nome_equipa'] . "</td>";
+                           echo "</tr>";
+                        }
+                    ?>
                 </table>
             </div>
         </div>
