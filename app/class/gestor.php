@@ -3,8 +3,9 @@
 class Gestor extends Pessoa 
 {
     function CadastrarEquipa($equipa){
-        $retorno_consulta_nome = $this->ListarEquipaPeloNome($equipa);
-        $this->VerificarExistenciaNomeEquipaCadastrar($retorno_consulta_nome, $equipa);
+        $equipa_dao = new EquipaDao();
+        $retorno_cadastro = $equipa_dao->Cadastrar($equipa);
+        $this->RetornarSucessoCadastro($retorno_cadastro);
     }
 
     function ActualizarEquipa($equipa){
@@ -16,25 +17,7 @@ class Gestor extends Pessoa
         $this->TentarEliminarEquipa($equipa);
     }
 
-    function ListarEquipaPeloNome($equipa){
-        $nome_equipa = $equipa->GetNome();
-        $equipa_dao = new EquipaDao();
-        return $equipa_dao->ListarPorNome($nome_equipa);
-    }
-
-    function VerificarExistenciaNomeEquipaCadastrar($retorno_consulta_nome, $equipa){
-        if($retorno_consulta_nome){
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe equipa com este nome  <b> </font>";
-        }else{
-            $this->TentarCadastrarEquipa($equipa);
-        }
-    }
-
-    function TentarCadastrarEquipa($equipa){
-        $equipa_dao = new EquipaDao();
-        $retorno_cadastro = $equipa_dao->Cadastrar($equipa);
-        $this->RetornarSucessoCadastro($retorno_cadastro);
-    }
+   
     
     function VerificarExistenciaNomeEquipaActualizar($retorno_consulta_nome, $equipa){
         if($retorno_consulta_nome){
