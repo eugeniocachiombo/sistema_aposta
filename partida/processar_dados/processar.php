@@ -14,6 +14,28 @@
         }
     }
 
+    function ClicarBotaoActualizar(){
+        if(isset($_POST["btn_actualizar"])){
+            $id_partida = $_POST["id"];
+            $gestor = ObjectoGestor();
+            $equipaA = new Equipa($_POST["equipaA"], "default");
+            $equipaB = new Equipa($_POST["equipaB"], "default");
+            $partida = new Partida($id_partida, $equipaA, $equipaB, $gestor);
+            ListarPorEquipasActualizar($partida);
+        }
+    }
+
+    function ClicarBotaoEliminar(){
+        if(isset($_POST["btn_eliminar"])){
+            $id = $_POST["id"];
+            $equipaA = new Equipa(0, "default");
+            $equipaB = new Equipa(0, "default");
+            $gestor = ObjectoGestor();
+            $partida = new Partida($id, $equipaA, $equipaB, $gestor);
+            Eliminar($partida);
+        }
+    }
+
     function ObjectoGestor(){
         $gestor = new Gestor();
         $gestor->SetId($_SESSION["id_gestor"]);
@@ -47,17 +69,6 @@
         $gestor->CadastrarPartida($partida);
     }
 
-    function ClicarBotaoActualizar(){
-        if(isset($_POST["btn_actualizar"])){
-            $id_partida = $_POST["id"];
-            $gestor = ObjectoGestor();
-            $equipaA = new Equipa($_POST["equipaA"], "default");
-            $equipaB = new Equipa($_POST["equipaB"], "default");
-            $partida = new Partida($id_partida, $equipaA, $equipaB, $gestor);
-            ListarPorEquipasActualizar($partida);
-        }
-    }
-
     function ListarPorEquipasActualizar($partida){
         $id_equipaA = $partida->GetEquipaA()->GetId();
         $id_equipaB = $partida->GetEquipaB()->GetId();
@@ -81,24 +92,9 @@
         $gestor->ActualizarPartida($partida);
     }
 
-    function ClicarBotaoEliminar(){
-        if(isset($_POST["btn_eliminar"])){
-
-            $gestor = new Gestor();
-            $gestor->SetId($_SESSION["id_gestor"]);
-            $gestor->SetNome($_SESSION["nome_gestor"]);
-            $gestor->SetSobrenome($_SESSION["sobrenome_gestor"]);
-            $gestor->SetEmail($_SESSION["email_gestor"]);
-            $gestor->SetNascimento($_SESSION["nascimento_gestor"]);
-            $gestor->SetGenero($_SESSION["genero_gestor"]);
-            $gestor->SetN_bi($_SESSION["n_bi_gestor"]);
-            
-            $id = $_POST["id"];
-            $equipaA = new Equipa(0, "default");
-            $equipaB = new Equipa(0, "default");
-            $partida = new Partida($id, $equipaA, $equipaB, $gestor);
-            $gestor->EliminarPartida($partida);
-        }
+    function Eliminar($partida){
+        $gestor = new Gestor();
+        $gestor->EliminarPartida($partida);
     }
     
 ?>

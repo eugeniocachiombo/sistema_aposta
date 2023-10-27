@@ -70,16 +70,12 @@ class Gestor extends Pessoa
     }
 
     function EliminarPartida($partida){
-        $this->TentarEliminarPartida($partida);
-    }
-
-    function TentarEliminarPartida($partida){
         $id_partida = $partida->GetId();
         $partida_dao = new PartidaDao();
         $retorno_eliminar = $partida_dao->Eliminar($id_partida);
         $this->RetornarSucessoEliminar($retorno_eliminar);
     }
-
+    
     function RetornarSucessoCadastro($retorno_cadastro){
         if($retorno_cadastro){
             echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Cadastrado com sucesso  <b> </font>";
