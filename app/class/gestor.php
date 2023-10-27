@@ -58,57 +58,19 @@ class Gestor extends Pessoa
     }
 
     function CadastrarPartida($partida){
-        $equipaA = $partida->GetEquipaA()->GetId();
-        $equipaB = $partida->GetEquipaB()->GetId();
-        $retorno_consulta_equipas = $this->ListarPelasEquipas($equipaA, $equipaB);
-        $this->VerificarExistenciaPartidaCadastrar($retorno_consulta_equipas, $partida);
-    }
-
-    function ActualizarPartida($partida){
-        $equipaA = $partida->GetEquipaA()->GetId();
-        $equipaB = $partida->GetEquipaB()->GetId();
-        $retorno_consulta_equipas = $this->ListarPelasEquipas($equipaA, $equipaB);
-        $id_consulta = $retorno_consulta_equipas["id_partida"];
-        $this->VerificarIdsEntrePartidas($id_consulta, $partida);
-    }
-
-    function EliminarPartida($partida){
-        $this->TentarEliminarPartida($partida);
-    }
-    
-    function ListarPelasEquipas($equipaA, $equipaB){
-        $partida_dao = new PartidaDao();
-        $retorno_consulta_equipas = $partida_dao->ListarPorEquipas($equipaA, $equipaB);
-        return $retorno_consulta_equipas;
-    }
-
-    function VerificarExistenciaPartidaCadastrar($retorno_consulta_equipas, $partida){
-        if($retorno_consulta_equipas){
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe partida com estas equipas  <b> </font>";
-        }else{
-            $this->TentarCadastrarPartida($partida);
-        }
-    }
-
-    function TentarCadastrarPartida($partida){
         $partida_dao = new PartidaDao();
         $retorno_cadastro = $partida_dao->Cadastrar($partida);
         $this->RetornarSucessoCadastro($retorno_cadastro);
     }
 
-    function VerificarIdsEntrePartidas($id_consulta, $partida){
-        $id_partida = $partida->GetId();
-        if( $id_consulta == $id_partida){
-            $this->TentarActualizarPartida($partida);
-        }else{
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Impossível actualizar a partida  <b> </font>";
-        }
-    }
-
-    function TentarActualizarPartida($partida){
+    function ActualizarPartida($partida){
         $partida_dao = new PartidaDao();
         $retorno_actualizar = $partida_dao->Actualizar($partida);
         $this->RetornarSucessoActualizar($retorno_actualizar);
+    }
+
+    function EliminarPartida($partida){
+        $this->TentarEliminarPartida($partida);
     }
 
     function TentarEliminarPartida($partida){
