@@ -141,9 +141,21 @@
         $retorno_sucesso = $administrador_dao->Cadastrar($administrador);
         if($retorno_sucesso){
             echo "<font class='bg-success text-white text-center p-2 mb-2'> <b> Cadastrado com sucesso  <b> </font>";
+            LimparCampos();
         }else{
             echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Erro ao cadastrar  <b> </font>";
         }
+    }
+
+    function LimparCampos(){
+        $_POST["id"] = "";
+        $_POST["nome"] = "";
+        $_POST["sobrenome"] = "";
+        $_POST["email"] = "";
+        $_POST["senha"] = "";
+        $_POST["nascimento"] = "";
+        $_POST["genero"] = "";
+        $_POST["n_bi"] = "";
     }
 
     function VerificarIgualdadeBI($administrador){
