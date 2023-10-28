@@ -98,20 +98,15 @@
 
     function ClicarBotaoEliminar(){
         if(isset($_POST["btn_eliminar"])){
-            $id = $_POST["id"];
-            $equipaA = new Equipa(0, "default");
-            $equipaB = new Equipa(0, "default");
-            $publicador = Objectopublicador();
-            $partida_publlicada = new Partida($id, $equipaA, $equipaB, $publicador);
-            Eliminar($partida_publlicada);
+            $retorno_partida_publicada = ProcurarPartidaActualizar($_POST["partida_publicada"]);
+            $id_partida_publicada = $_POST["partida_publicada"];
+            Eliminar($id_partida_publicada);
         }
     }
 
-    
-
-    function Eliminar($partida_publlicada){
+    function Eliminar($id_partida_publicada){
         $publicador = new Publicador();
-        $publicador->EliminarPartida($partida_publlicada);
+        $publicador->EliminarPartidaPublicada($id_partida_publicada);
     }
     
 ?>

@@ -7,7 +7,7 @@
 <?php include "../app/class/partida_publicada.php"; ?>
 <?php include "../app/class/resultado_publicado.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Actualizar Partida Publicada</title>
+<title>Eliminar Partida Publicada</title>
 
 <?php
 include "processar_dados/verificar_acesso_a_pagina.php";
@@ -54,33 +54,12 @@ VerificarGeral();
                                     ?>
                                 </select>
                              </div>
-
-                            <div class="col pe-4 ">
-                                <label class="w-100 text-start pt-3" for="data_partida">Data da Partida</label> <br>
-                                <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                    name="data_partida" id="data_partida" placeholder="dd-mm-yyyy" value="<?php echo isset($_POST["data_partida"]) ? $_POST["data_partida"] : "" ?>">
-
-                                <label class="w-100 text-start pt-3" for="hora_partida">Hora da Partida</label> <br>
-                                <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                    name="hora_partida" id="hora_partida" placeholder="00:00" value="<?php echo isset($_POST["hora_partida"]) ? $_POST["hora_partida"] : "" ?>">
-                            </div>
-                            
-                            <div class="col pe-4 d-none">
-                                <?php date_default_timezone_set("Africa/Luanda"); ?>
-                                <label class="w-100 text-start pt-3" for="data_publicada">Data da Publicada</label> <br>
-                                <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                    name="data_publicada" id="data_publicada" placeholder="dd-mm-yyyy" value="<?php echo Date("d-m-Y"); ?>" readonly>
-
-                                <label class="w-100 text-start pt-3" for="hora_publicada">Hora Publicada</label> <br>
-                                <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                    name="hora_publicada" id="hora_publicada" placeholder="00:00" value="<?php echo Date("H:i"); ?>" readonly>
-                            </div>
                         </div>
 
                         <hr class="d-none d-md-block">
                         <div class="col col-md-2 mt-4 pe-4">
-                            <button type="submit" class="form-control button" name="btn_actualizar" id="btn_actualizar">
-                                <span id="texto_actualizar">Actualizar</span>
+                            <button type="submit" class="form-control button" name="btn_eliminar" id="btn_eliminar">
+                                <span id="texto_eliminar">Eliminar</span>
                                 <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
                                     aria-hidden="true"></span>
                             </button>
@@ -96,8 +75,7 @@ VerificarGeral();
     </div>
 </main>
 
-<script src="../assets/js/validacao_partida_publicada_actualizar.js"></script>
-<script src="../assets/js/escolher_data_jogo.js"></script>
+<script src="../assets/js/validacao_partida_publicada_eliminar.js"></script>
 
 <?php include "../inc/footer.html"; ?>
 <?php include "../inc/footHTML.html"; ?>

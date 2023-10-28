@@ -14,6 +14,12 @@ class Publicador extends Pessoa
         $this->RetornarSucessoActualizar($retorno_cadastro);
     }
 
+    function EliminarPartidaPublicada($partida_publicada){
+        $partida_publicada_dao = new PartidaPublicadaDao();
+        $retorno_cadastro = $partida_publicada_dao->Eliminar($partida_publicada);
+        $this->RetornarSucessoEliminar($retorno_cadastro);
+    }
+
     function PublicarResultado($resultado_publicado){
         $resultado_publicado_dao = new ResultadoPublicadoDao();
         $resultado_publicado_dao->Cadastrar($resultado_publicado);

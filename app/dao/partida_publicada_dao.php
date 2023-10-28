@@ -30,9 +30,9 @@ class PartidaPublicadaDao implements Crud {
 
     function Eliminar($id){
         $con = GetConexao();
-        $sql = "delete from partida_publicada where id_partida_publicada = ?";
+        $sql = "delete from partida_publicada where id_partida_pub = ?";
         $stmt = $con->prepare($sql);
-        $stmt->bindValue( 1, $partida_publicada->GetId());
+        $stmt->bindValue( 1, $id);
         return $stmt->execute();
     }
 
