@@ -6,20 +6,69 @@
 
     function ClicarBotaoCadastrar(){
         if(isset($_POST["btn_cadastrar"])){
-            $equipaA = new Equipa( $_POST["equipaA"], "default");
-            $equipaB = new Equipa( $_POST["equipaB"], "default");
-            VerificarDifirencaEquipa($equipaA, $equipaB);
+            $dados_enviados = Array (
+                "id_partida_publicada" => 0,
+                "id_partida" => $_POST["partida"],
+                "data_partida" => TratarData($_POST["data_partida"]),
+                "hora_partida" => $_POST["hora_partida"],
+                "data_publicada" => TratarData($_POST["data_partida"]),
+                "hora_publicada" => $_POST["hora_publicada"]
+            );
+            VerificarSePartidaExiste($dados_enviados);
         }
+    }
+
+    function TratarData($data){
+        $repartir_data = explode("-", $data);
+        $data_tratada = $repartir_data[2] . "-" . $repartir_data[1] . "-" . $repartir_data[0];
+        return $data_tratada;
+    }
+
+    function ObjectoPublicador(){
+        $publicador = new Publicador();
+        $publicador->SetId($_SESSION["id_publicador"]);
+        $publicador->SetNome($_SESSION["nome_publicador"]);
+        $publicador->SetSobrenome($_SESSION["sobrenome_publicador"]);
+        $publicador->SetEmail($_SESSION["email_publicador"]);
+        $publicador->SetNascimento($_SESSION["nascimento_publicador"]);
+        $publicador->SetGenero($_SESSION["genero_publicador"]);
+        $publicador->SetN_bi($_SESSION["n_bi_publicador"]);
+        return $publicador;
+    }
+
+    function VerificarSePartidaExiste($dados_enviados){
+        $partida_publicada_dao = new PartidaPublicadaDao();
+        $retorno_listagem = $partida_publicada_dao->ListarPorIdPartida($dados_enviados["id_partida"]);
+        if($retorno_listagem){
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Esta partida já foi publicada  <b> </font>";
+        } else{
+            Cadastrar($dados_enviados);
+        }
+    }
+
+    function Cadastrar($dados_enviados){
+        $publicador = ObjectoPublicador();
+        $partida = new Partida($dados_enviados["id_partida"], "", "", "");
+        $partida_publicada = new PartidaPublicada(
+            $dados_enviados["id_partida_publicada"], 
+            $partida, 
+            $dados_enviados["data_partida"], 
+            $dados_enviados["hora_partida"], 
+            $dados_enviados["data_publicada"], 
+            $dados_enviados["hora_publicada"], 
+            $publicador
+        );
+        $publicador->PublicarPartida($partida_publicada);
     }
 
     function ClicarBotaoActualizar(){
         if(isset($_POST["btn_actualizar"])){
             $id_partida = $_POST["id"];
-            $gestor = ObjectoGestor();
+            $publicador = Objectopublicador();
             $equipaA = new Equipa($_POST["equipaA"], "default");
             $equipaB = new Equipa($_POST["equipaB"], "default");
-            $partida = new Partida($id_partida, $equipaA, $equipaB, $gestor);
-            ListarPorEquipasActualizar($partida);
+            $partida_publlicada = new Partida($id_partida, $equipaA, $equipaB, $publicador);
+            ListarPorEquipasActualizar($partida_publlicada);
         }
     }
 
@@ -28,81 +77,22 @@
             $id = $_POST["id"];
             $equipaA = new Equipa(0, "default");
             $equipaB = new Equipa(0, "default");
-            $gestor = ObjectoGestor();
-            $partida = new Partida($id, $equipaA, $equipaB, $gestor);
-            Eliminar($partida);
+            $publicador = Objectopublicador();
+            $partida_publlicada = new Partida($id, $equipaA, $equipaB, $publicador);
+            Eliminar($partida_publlicada);
         }
     }
 
-    function ObjectoGestor(){
-        $gestor = new Gestor();
-        $gestor->SetId($_SESSION["id_gestor"]);
-        $gestor->SetNome($_SESSION["nome_gestor"]);
-        $gestor->SetSobrenome($_SESSION["sobrenome_gestor"]);
-        $gestor->SetEmail($_SESSION["email_gestor"]);
-        $gestor->SetNascimento($_SESSION["nascimento_gestor"]);
-        $gestor->SetGenero($_SESSION["genero_gestor"]);
-        $gestor->SetN_bi($_SESSION["n_bi_gestor"]);
-        return $gestor;
+    
+
+    function Actualizar($partida_publlicada){
+        $publicador = new Publicador();
+        $publicador->ActualizarPartida($partida_publlicada);
     }
 
-    function VerificarDifirencaEquipa($equipaA, $equipaB){
-        if($equipaA == $equipaB){
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> As equipas não podem ser iguais <b> </font>";
-        }else{
-            $gestor = ObjectoGestor();
-            $partida = new Partida(0, $equipaA, $equipaB, $gestor);
-            ListarPorEquipasCadastrar($partida);
-        }
-    }
-
-    function ListarPorEquipasCadastrar($partida){
-        $id_equipaA = $partida->GetEquipaA()->GetId();
-        $id_equipaB = $partida->GetEquipaB()->GetId();
-        $partida_dao = new PartidaDao();
-        $retorno_consulta_equipas = $partida_dao->ListarPorEquipas($id_equipaA, $id_equipaB);
-        VerificarExistenciaPartidaCadastrar($retorno_consulta_equipas, $partida);
-    }
-
-    function VerificarExistenciaPartidaCadastrar($retorno_consulta_equipas, $partida){
-        if($retorno_consulta_equipas){
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Já existe partida com estas equipas  <b> </font>";
-        }else{
-            Cadastrar($partida);
-        }
-    }
-
-    function Cadastrar($partida){
-        $gestor = new Gestor();
-        $gestor->CadastrarPartida($partida);
-    }
-
-    function ListarPorEquipasActualizar($partida){
-        $id_equipaA = $partida->GetEquipaA()->GetId();
-        $id_equipaB = $partida->GetEquipaB()->GetId();
-        $partida_dao = new PartidaDao();
-        $retorno_consulta = $partida_dao->ListarPorEquipas($id_equipaA, $id_equipaB);
-        $id_consulta = $retorno_consulta["id_partida"] ?? "";
-        VerificarIdsEntrePartidas($id_consulta, $partida);
-    }
-
-    function VerificarIdsEntrePartidas($id_consulta, $partida){
-        $id_partida = $partida->GetId();
-        if( $id_consulta == $id_partida ){
-            Actualizar($partida);
-        }else{
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Impossível actualizar a partida  <b> </font>";
-        }
-    }
-
-    function Actualizar($partida){
-        $gestor = new Gestor();
-        $gestor->ActualizarPartida($partida);
-    }
-
-    function Eliminar($partida){
-        $gestor = new Gestor();
-        $gestor->EliminarPartida($partida);
+    function Eliminar($partida_publlicada){
+        $publicador = new Publicador();
+        $publicador->EliminarPartida($partida_publlicada);
     }
     
 ?>

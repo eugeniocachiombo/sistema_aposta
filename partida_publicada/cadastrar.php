@@ -4,8 +4,10 @@
 <?php include "../config/db/conexao.php"; ?>
 <?php include "../app/dao/partida_publicada_dao.php"; ?>
 <?php include "../app/dao/resultado_publicado_dao.php"; ?>
+<?php include "../app/class/partida_publicada.php"; ?>
+<?php include "../app/class/resultado_publicado.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Cadastro de Partida Publicada</title>
+<title>Publicar Partida</title>
 
 <?php
 include "processar_dados/verificar_acesso_a_pagina.php";
