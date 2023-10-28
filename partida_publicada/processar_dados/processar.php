@@ -63,13 +63,37 @@
 
     function ClicarBotaoActualizar(){
         if(isset($_POST["btn_actualizar"])){
-            $id_partida = $_POST["id"];
-            $publicador = Objectopublicador();
-            $equipaA = new Equipa($_POST["equipaA"], "default");
-            $equipaB = new Equipa($_POST["equipaB"], "default");
-            $partida_publlicada = new Partida($id_partida, $equipaA, $equipaB, $publicador);
-            ListarPorEquipasActualizar($partida_publlicada);
+            $retorno_partida_publicada = ProcurarPartidaActualizar($_POST["partida_publicada"]);
+            $dados_enviados = Array (
+                "id_partida_publicada" => $_POST["partida_publicada"],
+                "id_partida" =>  $retorno_partida_publicada["id_partida"],
+                "data_partida" => TratarData($_POST["data_partida"]),
+                "hora_partida" => $_POST["hora_partida"],
+                "data_publicada" => TratarData($_POST["data_partida"]),
+                "hora_publicada" => $_POST["hora_publicada"]
+            );
+            Actualizar($dados_enviados);
         }
+    }
+
+    function ProcurarPartidaActualizar($id_partida_publicada){
+        $partida_publicada_dao = new PartidaPublicadaDao();
+        return $partida_publicada_dao->ListarPorId($id_partida_publicada);
+    }
+
+    function Actualizar($dados_enviados){
+        $publicador = ObjectoPublicador();
+        $partida = new Partida($dados_enviados["id_partida"], "", "", "");
+        $partida_publicada = new PartidaPublicada(
+            $dados_enviados["id_partida_publicada"], 
+            $partida,
+            $dados_enviados["data_partida"], 
+            $dados_enviados["hora_partida"], 
+            $dados_enviados["data_publicada"], 
+            $dados_enviados["hora_publicada"], 
+            $publicador
+        );
+        $publicador->ActualizarPartidaPublicada($partida_publicada);
     }
 
     function ClicarBotaoEliminar(){
@@ -84,11 +108,6 @@
     }
 
     
-
-    function Actualizar($partida_publlicada){
-        $publicador = new Publicador();
-        $publicador->ActualizarPartida($partida_publlicada);
-    }
 
     function Eliminar($partida_publlicada){
         $publicador = new Publicador();
