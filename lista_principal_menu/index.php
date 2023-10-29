@@ -62,10 +62,10 @@
         <?php if( $acesso == "apostador"  ){ ?>
             <li><a class="dropdown-item" href="../aposta/cadastrar.php">Apostar</a></li>
             <li><a class="dropdown-item" href="../aposta/minhas_apostas.php">Minhas Apostas</a></li>
+            <li><a class="dropdown-item" href="../aposta/eliminar.php">Eliminar</a></li>
         <?php } ?>
 
         <?php if( $acesso == "administrador" ){ ?>
-            <li><a class="dropdown-item" href="../aposta/eliminar.php">Eliminar</a></li>
             <li><a class="dropdown-item" href="../aposta/listar.php">Listar</a></li>
         <?php } ?>
     </ul>
