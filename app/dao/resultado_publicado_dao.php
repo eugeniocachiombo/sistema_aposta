@@ -17,7 +17,7 @@ class ResultadoPublicadoDao implements Crud {
 
     function Actualizar($resultado_publicado){
         $con = GetConexao();
-        $sql = "update resultado_publicado id_partida_pub = ?, golos_equipaA = ?, golos_equipaB = ?, data_publicada = ?, hora_publicada = ?, id_publicador = ? where id_resultado_pub = ?;";
+        $sql = "update resultado_publicado set id_partida_pub = ?, golos_equipaA = ?, golos_equipaB = ?, data_publicada = ?, hora_publicada = ?, id_publicador = ? where id_resultado_pub = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $resultado_publicado->GetPartida_pub()->GetId());
         $stmt->bindValue( 2, $resultado_publicado->GetGolos_equipaA());
@@ -25,6 +25,7 @@ class ResultadoPublicadoDao implements Crud {
         $stmt->bindValue( 4, $resultado_publicado->GetData_publicada());
         $stmt->bindValue( 5, $resultado_publicado->GetHora_publicada());
         $stmt->bindValue( 6, $resultado_publicado->GetPublicador()->GetId());
+        $stmt->bindValue( 7, $resultado_publicado->GetId());
         return $stmt->execute();
     }
 
@@ -63,11 +64,11 @@ class ResultadoPublicadoDao implements Crud {
         on equipaA.id_equipa = partida.id_equipaA
         left outer join equipa as equipaB
         on equipaB.id_equipa = partida.id_equipaB
-        where id_resultado_publicado = ?;";
+        where id_resultado_pub = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetch();
     }
 
     function ListarPorIdPartidaPublicada($id_partida_publicada){

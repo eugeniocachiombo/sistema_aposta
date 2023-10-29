@@ -69,10 +69,10 @@
 
     function ClicarBotaoActualizar(){
         if(isset($_POST["btn_actualizar"])){
-            $retorno_resultado_publicado = ProcurarPartida_publicadaActualizar($_POST["resultado_publicado"]);
+            $retorno_resultado_publicado = ProcurarPartidaPublicadaActualizar($_POST["resultado_publicado"]);
             $dados_enviados = Array (
                 "id_resultado_publicado" => $_POST["resultado_publicado"],
-                "id_partida_publicada" =>  $retorno_resultado_publicado["id_partida_publicada"],
+                "id_partida_publicada" =>  $retorno_resultado_publicado["id_partida_pub"],
                 "golos_equipaA" => $_POST["golos_equipaA"],
                 "golos_equipaB" => $_POST["golos_equipaB"],
                 "data_publicada" => TratarData($_POST["data_publicada"]),
@@ -82,7 +82,7 @@
         }
     }
 
-    function ProcurarPartida_publicadaActualizar($id_resultado_publicado){
+    function ProcurarPartidaPublicadaActualizar($id_resultado_publicado){
         $resultado_publicado_dao = new ResultadoPublicadoDao();
         return $resultado_publicado_dao->ListarPorId($id_resultado_publicado);
     }
@@ -105,7 +105,7 @@
 
     function ClicarBotaoEliminar(){
         if(isset($_POST["btn_eliminar"])){
-            $retorno_resultado_publicado = ProcurarPartida_publicadaActualizar($_POST["resultado_publicado"]);
+            $retorno_resultado_publicado = ProcurarPartidaPublicadaActualizar($_POST["resultado_publicado"]);
             $id_resultado_publicado = $_POST["resultado_publicado"];
             Eliminar($id_resultado_publicado);
         }
