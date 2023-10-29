@@ -60,10 +60,14 @@
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if( $acesso == "apostador"  ){ ?>
-        <li><a class="dropdown-item" href="../aposta/cadastrar.php">Apostar</a></li>
-        <li><a class="dropdown-item" href="../aposta/eliminar.php">Eliminar</a></li>
+            <li><a class="dropdown-item" href="../aposta/cadastrar.php">Apostar</a></li>
+            <li><a class="dropdown-item" href="../aposta/minhas_apostas.php">Minhas Apostas</a></li>
         <?php } ?>
-        <li><a class="dropdown-item" href="../aposta/listar.php">Listar</a></li>
+
+        <?php if( $acesso == "administrador" ){ ?>
+            <li><a class="dropdown-item" href="../aposta/eliminar.php">Eliminar</a></li>
+            <li><a class="dropdown-item" href="../aposta/listar.php">Listar</a></li>
+        <?php } ?>
     </ul>
 </li>
 <?php } ?>
@@ -76,9 +80,9 @@
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if( $acesso == "publicador" || $acesso == "administrador" ){ ?>
-        <li><a class="dropdown-item" href="../resultado_publicado/cadastrar.php">Publicar</a></li>
-        <li><a class="dropdown-item" href="../resultado_publicado/actualizar.php">Actualizar</a></li>
-        <li><a class="dropdown-item" href="../resultado_publicado/eliminar.php">Eliminar</a></li>
+                <li><a class="dropdown-item" href="../resultado_publicado/cadastrar.php">Publicar</a></li>
+                <li><a class="dropdown-item" href="../resultado_publicado/actualizar.php">Actualizar</a></li>
+                <li><a class="dropdown-item" href="../resultado_publicado/eliminar.php">Eliminar</a></li>
         <?php } ?>
         <li><a class="dropdown-item" href="../resultado_publicado/listar.php">Listar</a></li>
     </ul>

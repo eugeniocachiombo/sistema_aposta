@@ -215,25 +215,28 @@
                             </tr>
 
                             <?php 
-                                $aposta_dao = new ApostaDao();
-                                $retorno = $aposta_dao->Listar();
-                                foreach ($retorno as $value) {
+                                /*
+                                    $aposta_dao = new ApostaDao();
+                                    $retorno_aposta = $aposta_dao->ListarPorApostador($_SESSION['id_apostador']);
+                                    $retorno_dados_aposta = $aposta_dao->ListarPorId($retorno_aposta['id_aposta']);
+                                    foreach ($retorno_dados_aposta as $value) {
 
-                                    $data_aposta = explode("-", $value['data_aposta']);
-                                    $data_aposta = $data_aposta[2] . "/" . $data_aposta[1] . "/" . $data_aposta[0];
+                                        $data_aposta = explode("-", $value['data_aposta']);
+                                        $data_aposta = $data_aposta[2] . "/" . $data_aposta[1] . "/" . $data_aposta[0];
 
-                                    $hora_aposta = str_split(strval($value['hora_aposta']), 5);
-                                    $hora_aposta = $hora_aposta[0];
+                                        $hora_aposta = str_split(strval($value['hora_aposta']), 5);
+                                        $hora_aposta = $hora_aposta[0];
 
-                                echo "<tr style='border: none;'>" .
-                                            "<td style='border: none;text-align:left'> " 
-                                                . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
-                                                "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
-                                                "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
-                                                "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
-                                            "</td>" .
-                                        "</tr>";
-                                }
+                                    echo "<tr style='border: none;'>" .
+                                                "<td style='border: none;text-align:left'> " 
+                                                    . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
+                                                    "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
+                                                    "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
+                                                    "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
+                                                "</td>" .
+                                            "</tr>";
+                                    } 
+                                */
                             ?>
                         </table>
                     </div>

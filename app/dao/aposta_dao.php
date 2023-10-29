@@ -58,12 +58,22 @@ class ApostaDao implements Crud {
         left outer join equipa as equipaA
         on equipaA.id_equipa = partida.id_equipaA
         left outer join equipa as equipaB
-        on equipaB.id_equipa = partida.id_equipaB;
+        on equipaB.id_equipa = partida.id_equipaB
         where id_aposta = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetchAll();
+    }
+
+    function ListarPorApostador($id_apostador){
+        $con = GetConexao();
+        $sql = "select * from aposta
+        where id_apostador = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $id_apostador);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
     function ListarPorIdPartidaPublicada($id_partida_publicada){
