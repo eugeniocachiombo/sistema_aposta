@@ -10,20 +10,32 @@ class Publicador extends Pessoa
 
     function ActualizarPartidaPublicada($partida_publicada){
         $partida_publicada_dao = new PartidaPublicadaDao();
-        $retorno_cadastro = $partida_publicada_dao->Actualizar($partida_publicada);
-        $this->RetornarSucessoActualizar($retorno_cadastro);
+        $retorno_actualizar = $partida_publicada_dao->Actualizar($partida_publicada);
+        $this->RetornarSucessoActualizar($retorno_actualizar);
     }
 
-    function EliminarPartidaPublicada($partida_publicada){
+    function EliminarPartidaPublicada($id_partida_publicada){
         $partida_publicada_dao = new PartidaPublicadaDao();
-        $retorno_cadastro = $partida_publicada_dao->Eliminar($partida_publicada);
-        $this->RetornarSucessoEliminar($retorno_cadastro);
+        $retorno_eliminar = $partida_publicada_dao->Eliminar($id_partida_publicada);
+        $this->RetornarSucessoEliminar($retorno_eliminar);
     }
 
     function PublicarResultado($resultado_publicado){
         $resultado_publicado_dao = new ResultadoPublicadoDao();
-        $resultado_publicado_dao->Cadastrar($resultado_publicado);
-        
+        $retorno_cadastro = $resultado_publicado_dao->Cadastrar($resultado_publicado);
+        $this->RetornarSucessoCadastro($retorno_cadastro);
+    }
+
+    function ActualizarResultado($resultado_publicado){
+        $resultado_publicado_dao = new ResultadoPublicadoDao();
+        $retorno_actualizar = $resultado_publicado_dao->Actualizar($resultado_publicado);
+        $this->RetornarSucessoActualizar($retorno_actualizar);
+    }
+
+    function EliminarResultado($resultado_publicado){
+        $resultado_publicado_dao = new ResultadoPublicadoDao();
+        $retorno_eliminar = $resultado_publicado_dao->Actualizar($resultado_publicado);
+        $this->RetornarSucessoActualizar($retorno_eliminar);
     }
 
     function RetornarSucessoCadastro($retorno_cadastro){

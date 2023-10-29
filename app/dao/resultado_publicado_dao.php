@@ -3,11 +3,29 @@
 class ResultadoPublicadoDao implements Crud {
     
     function Cadastrar($resultado_publicado){
-
+        $con = GetConexao();
+        $sql = "insert into resultado_publicado (id_partida_pub, golos_equipaA, golos_equipaB, data_publicada, hora_publicada, id_publicador) values (?, ?, ?, ?, ?, ?);";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $resultado_publicado->GetPartida_pub()->GetId());
+        $stmt->bindValue( 2, $resultado_publicado->GetGolos_equipaA());
+        $stmt->bindValue( 3, $resultado_publicado->GetGolos_equipaB());
+        $stmt->bindValue( 4, $resultado_publicado->GetData_publicada());
+        $stmt->bindValue( 5, $resultado_publicado->GetHora_publicada());
+        $stmt->bindValue( 6, $resultado_publicado->GetPublicador()->GetId());
+        return $stmt->execute();
     }
 
     function Actualizar($resultado_publicado){
-
+        $con = GetConexao();
+        $sql = "update resultado_publicado id_partida_pub = ?, golos_equipaA = ?, golos_equipaB = ?, data_publicada = ?, hora_publicada = ?, id_publicador = ? where id_resultado_pub = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $resultado_publicado->GetPartida_pub()->GetId());
+        $stmt->bindValue( 2, $resultado_publicado->GetGolos_equipaA());
+        $stmt->bindValue( 3, $resultado_publicado->GetGolos_equipaB());
+        $stmt->bindValue( 4, $resultado_publicado->GetData_publicada());
+        $stmt->bindValue( 5, $resultado_publicado->GetHora_publicada());
+        $stmt->bindValue( 6, $resultado_publicado->GetPublicador()->GetId());
+        return $stmt->execute();
     }
 
     function Eliminar($id){
