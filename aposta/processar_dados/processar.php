@@ -14,7 +14,7 @@
                 "hora_aposta" => $_POST["hora_aposta"],
                 "valor_apostado" => $_POST["valor_apostado"]
             );
-            VerificarSePartidaPublicadaExiste($dados_enviados);
+            VerificarSeApostaExiste($dados_enviados);
         }
     }
 
@@ -36,14 +36,14 @@
         return $apostador;
     }
 
-    function VerificarSePartidaPublicadaExiste($dados_enviados){
-        /*$aposta_dao = new ApostaDao();
+    function VerificarSeApostaExiste($dados_enviados){
+        $aposta_dao = new ApostaDao();
         $retorno_listagem = $aposta_dao->ListarPorIdPartidaPublicada($dados_enviados["id_partida_publicada"]);
         if($retorno_listagem){
             echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Esta aposta já foi feita  <b> </font>";
-        } else{*/
+        } else{
             Cadastrar($dados_enviados);
-        //}
+        }
     }
 
     function Cadastrar($dados_enviados){

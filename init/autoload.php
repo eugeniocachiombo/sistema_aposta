@@ -6,7 +6,6 @@
         $dao = "../app/dao/" . explode("dao", strtolower($class))[0] ."_dao.php";
         $crud = "../app/interface/" . strtolower($class) .".php";
         
-
         if(file_exists($model)){
             include $model;
         }

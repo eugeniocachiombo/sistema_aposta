@@ -3,14 +3,18 @@
 class Apostador extends Pessoa 
 {
     function CadastrarApostar($aposta){
+
+        echo "<pre>";
+        //var_dump($aposta);
+        echo "</pre>";
+
         $aposta_dao = new ApostaDao();
         $retorno_cadastro = $aposta_dao->Cadastrar($aposta);
         $this->RetornarSucessoCadastro($retorno_cadastro);
     }
 
     function EliminarAposta($aposta){
-        $aposta_dao = new ApostaDao();
-        $retorno_eliminar = $aposta_dao->Eliminar($aposta);
+        $retorno_eliminar = $this->aposta_dao->Eliminar($aposta);
         $this->RetornarSucessoEliminar($retorno_eliminar);
     }
 

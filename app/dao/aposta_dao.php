@@ -83,7 +83,7 @@ class ApostaDao implements Crud {
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id_partida_publicada);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetch();
     }
 
 }
