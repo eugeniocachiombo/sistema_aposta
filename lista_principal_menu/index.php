@@ -92,15 +92,20 @@
 <li class="nav-item dropdown" >
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
-        Minhas Vitórias
+        Vitórias
     </a>
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="../aposta/minhas_vitorias.php">Listar</a></li>
+        <?php if( $acesso == "apostador"  ){ ?>
+            <li><a class="dropdown-item" href="../apostador/minhas_vitorias.php">Minhas vitórias</a></li>
+        <?php } ?>
+
+        <?php if( $acesso == "administrador" ){ ?>
+            <li><a class="dropdown-item" href="../administrador/vencedores.php">Vencedores</a></li>
+        <?php } ?>
     </ul>
 </li>
 <?php } ?>
-
 
 <li class="nav-item" style="min-width: 160px">
     <a class="nav-link" href="../terminar_sessao">Terminar Sessão</a>

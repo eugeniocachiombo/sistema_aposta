@@ -47,7 +47,8 @@ VerificarGeral();
                                     $aposta_dao = new ApostaDao();
                                     $retorno = $aposta_dao->Listar();
                                     foreach ($retorno as $value) {
-                                       echo "<option value='" . $value['id_aposta'] . "'>" . $value['nome_equipaA'] . " x " . $value['nome_equipaB'] . "</option>";
+                                       $data_tratada = explode("-", $value['data_aposta']);
+                                       echo "<option value='" . $value['id_aposta'] . "'>" . "<br> <strong>" . $value['nome_apostador'] ." " . $value['sobrenome_apostador'] .":</strong> " . $value['nome_equipaA'] . " x " . $value['nome_equipaB'] . "------ </option>";
                                     }
                                     ?>
                                 </select>
