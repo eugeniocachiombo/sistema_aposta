@@ -32,7 +32,7 @@ if(empty($_SESSION["id_logado"])){
 
                             <?php 
                                 $aposta_dao = new ApostaDao();
-                                $retorno_aposta = $aposta_dao->ListarPorApostador($_SESSION['id_apostador']);
+                                $retorno_aposta = $aposta_dao->Listar();
                                 
                                 foreach ($retorno_aposta as $value) {
                                     $id_apostador = $value["id_apostador"];
@@ -53,13 +53,14 @@ if(empty($_SESSION["id_logado"])){
                                             $golos_equipaA == $value["golos_equipaA"] && 
                                             $golos_equipaB == $value["golos_equipaB"]
                                         ){
+                                            $nome_completo = $value['nome_apostador'] . " " . $value['sobrenome_apostador'];
                                             echo "<tr style='border: none;'>" .
                                                         "<td style='border: none;text-align:left'> " 
-                                                            . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
+                                                            . "Apostador: <b>" . $nome_completo . 
                                                             "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
                                                             "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
                                                             "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
-                                                            "<h2 class='text-success'> Você Venceu esta aposta, sua recompensa é de " . ( $value['valor_apostado'] * 2) . ",00KZ </h2>" .
+                                                            "<h3 class='text-success'>" . $nome_completo . " venceu esta aposta, a recompensa é de " . ( $value['valor_apostado'] * 2) . ",00KZ </h3>" .
                                                         "</td>" .
                                                 "</tr>";
                                         }
