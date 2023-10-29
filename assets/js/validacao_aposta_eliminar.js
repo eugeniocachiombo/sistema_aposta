@@ -2,17 +2,17 @@ let form = document.querySelector(".needs-validation");
 let select = document.querySelector("select");
 let input_submit = document.querySelector("button[type='submit']");
 let spinner = document.querySelector("#spinner");
-let texto_cadastrar = document.querySelector("#texto_cadastrar");
+let texto_eliminar = document.querySelector("#texto_eliminar");
 spinner.style = "display: none";
-texto_cadastrar.innerText = "Cadastrar";
+texto_eliminar.innerText = "Eliminar";
 
 input_submit.addEventListener("click", () => {
     spinner.style = "display: iniline";
-    texto_cadastrar.innerText = "Carregando...";
+    texto_eliminar.innerText = "Carregando...";
     setTimeout(() => {
         ValidarComClick();
         spinner.style = "display: none";
-        texto_cadastrar.innerText = "Cadastrar";
+        texto_eliminar.innerText = "Eliminar";
     }, 2000);
 });
 
