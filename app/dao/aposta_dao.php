@@ -86,4 +86,15 @@ class ApostaDao implements Crud {
         return $stmt->fetch();
     }
 
+    function ListarPorIdPartidaPublicadaApostador($id_partida_publicada, $id_apostador){
+        $con = GetConexao();
+        $sql = "select * from aposta
+        where id_partida_pub = ? and id_apostador = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $id_partida_publicada);
+        $stmt->bindValue( 2, $id_apostador);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
 }

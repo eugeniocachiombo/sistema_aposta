@@ -38,7 +38,9 @@
 
     function VerificarSeApostaExiste($dados_enviados){
         $aposta_dao = new ApostaDao();
-        $retorno_listagem = $aposta_dao->ListarPorIdPartidaPublicada($dados_enviados["id_partida_publicada"]);
+        $id_apostador = $_SESSION['id_apostador'];
+        $id_partida_publicada = $dados_enviados["id_partida_publicada"];
+        $retorno_listagem = $aposta_dao->ListarPorIdPartidaPublicadaApostador($id_partida_publicada, $id_apostador);
         if($retorno_listagem){
             echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Esta aposta já foi feita  <b> </font>";
         } else{
@@ -64,8 +66,12 @@
     }
 
     function LimparCampos(){
+        $_POST["partida_publicada"] = "";
         $_POST["golos_equipaA"] = "";
-        $_POST["golos_equipaB"] = ""; 
+        $_POST["golos_equipaB"] = "";
+        $_POST["data_aposta"] = "";
+        $_POST["hora_aposta"] = "";
+        $_POST["valor_apostado"] = "";
     }
 
     function ClicarBotaoEliminar(){
