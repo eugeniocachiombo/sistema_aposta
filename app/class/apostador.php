@@ -9,7 +9,8 @@ class Apostador extends Pessoa
     }
 
     function EliminarAposta($aposta){
-        $retorno_eliminar = $this->aposta_dao->Eliminar($aposta);
+        $aposta_dao = new ApostaDao();
+        $retorno_eliminar = $aposta_dao->Eliminar($aposta);
         $this->RetornarSucessoEliminar($retorno_eliminar);
     }
 

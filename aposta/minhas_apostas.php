@@ -47,7 +47,7 @@ if(empty($_SESSION["id_logado"])){
                                                 "<td style='border: none;text-align:left'> " 
                                                     . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
                                                     "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
-                                                    "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
+                                                    "</b><br>  Data da aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
                                                     "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
                                                 "</td>" .
                                             "</tr>";
