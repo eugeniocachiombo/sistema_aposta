@@ -32,7 +32,7 @@ VerificarGeral();
                     <div class="col-md-4 pe-4 justify-content-center d-flex align-items-center"
                         style="background: khaki">
                         <center>
-                            <i class="fas fa-futbol pt-4" style="font-size: 40px"></i>
+                            <i class="fas fa-flag-checkered pt-4" style="font-size: 40px"></i>
                             <br>
                             <h3><b>Publicar Resultado</b></h3>
                         <center>

@@ -11,7 +11,7 @@
         <li><a class="dropdown-item" href="../administrador/meus_dados.php"><i class="fas fa-user-tie"></i> Meus Dados</a></li>
         <li><a class="dropdown-item" href="../administrador/editar_dados.php"><i class="fas fa-user-pen"></i> Editar Dados</a></li>
         <li><a class="dropdown-item" href="../administrador/alterar_senha.php"><i class="fas fa-key"></i> Alterar Senha</a></li>
-        <li><a class="dropdown-item" href="../administrador/eliminar_conta.php"><i class="fas fa-trash"></i> Eliminar Conta</a></li>
+        <li><a class="dropdown-item" href="../administrador/eliminar_conta.php"><i class="fas fa-user-xmark"></i> Eliminar Conta</a></li>
     </ul>
 </li>
 
