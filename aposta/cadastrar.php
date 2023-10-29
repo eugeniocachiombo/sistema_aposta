@@ -2,10 +2,10 @@
 <?php include "../inc/header.php"; ?>
 <?php include "../init/autoload.php"; ?>
 <?php include "../config/db/conexao.php"; ?>
-<?php include "../app/dao/resultado_publicado_dao.php"; ?>
-<?php include "../app/class/resultado_publicado.php"; ?>
 <?php include "../app/dao/partida_publicada_dao.php"; ?>
 <?php include "../app/class/partida_publicada.php"; ?>
+<?php include "../app/dao/resultado_publicado_dao.php"; ?>
+<?php include "../app/class/resultado_publicado.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
 <title>Apostar</title>
 
@@ -77,13 +77,13 @@ VerificarSeApostador();
                             
                             <div class="col pe-4 d-none">
                                 <?php date_default_timezone_set("Africa/Luanda"); ?>
-                                <label class="w-100 text-start pt-3" for="data_publicada">Data da Publicada</label> <br>
+                                <label class="w-100 text-start pt-3" for="data_aposta">Data da Publicada</label> <br>
                                 <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                    name="data_publicada" id="data_publicada" placeholder="dd-mm-yyyy" value="<?php echo Date("d-m-Y"); ?>" readonly>
+                                    name="data_aposta" id="data_aposta" placeholder="dd-mm-yyyy" value="<?php echo Date("d-m-Y"); ?>" readonly>
 
-                                <label class="w-100 text-start pt-3" for="hora_publicada">Hora Publicada</label> <br>
+                                <label class="w-100 text-start pt-3" for="hora_aposta">Hora Publicada</label> <br>
                                 <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                    name="hora_publicada" id="hora_publicada" placeholder="00:00" value="<?php echo Date("H:i"); ?>" readonly>
+                                    name="hora_aposta" id="hora_aposta" placeholder="00:00" value="<?php echo Date("H:i"); ?>" readonly>
                             </div>
                         </div>
 

@@ -1,18 +1,18 @@
 <?php
     
     ClicarBotaoCadastrar();
-    ClicarBotaoActualizar();
     ClicarBotaoEliminar();
 
     function ClicarBotaoCadastrar(){
         if(isset($_POST["btn_cadastrar"])){
             $dados_enviados = Array (
-                "id_resultado_publicado" => 0,
+                "id_aposta" => 0,
                 "id_partida_publicada" => $_POST["partida_publicada"],
                 "golos_equipaA" => $_POST["golos_equipaA"],
                 "golos_equipaB" => $_POST["golos_equipaB"],
-                "data_publicada" => TratarData($_POST["data_publicada"]),
-                "hora_publicada" => $_POST["hora_publicada"]
+                "data_aposta" => TratarData($_POST["data_aposta"]),
+                "hora_aposta" => $_POST["hora_aposta"],
+                "valor_apostado" => $_POST["valor_apostado"]
             );
             VerificarSePartidaPublicadaExiste($dados_enviados);
         }
@@ -24,41 +24,42 @@
         return $data_tratada;
     }
 
-    function ObjectoPublicador(){
-        $publicador = new Publicador();
-        $publicador->SetId($_SESSION["id_logado"]);
-        $publicador->SetNome($_SESSION["nome_logado"]);
-        $publicador->SetSobrenome($_SESSION["sobrenome_logado"]);
-        $publicador->SetEmail($_SESSION["email_logado"]);
-        $publicador->SetNascimento($_SESSION["nascimento_logado"]);
-        $publicador->SetGenero($_SESSION["genero_logado"]);
-        $publicador->SetN_bi($_SESSION["n_bi_logado"]);
-        return $publicador;
+    function ObjectoApostador(){
+        $apostador = new Apostador();
+        $apostador->SetId($_SESSION["id_apostador"]);
+        $apostador->SetNome($_SESSION["nome_apostador"]);
+        $apostador->SetSobrenome($_SESSION["sobrenome_apostador"]);
+        $apostador->SetEmail($_SESSION["email_apostador"]);
+        $apostador->SetNascimento($_SESSION["nascimento_apostador"]);
+        $apostador->SetGenero($_SESSION["genero_apostador"]);
+        $apostador->SetN_bi($_SESSION["n_bi_apostador"]);
+        return $apostador;
     }
 
     function VerificarSePartidaPublicadaExiste($dados_enviados){
-        $resultado_publicado_dao = new ResultadoPublicadoDao();
-        $retorno_listagem = $resultado_publicado_dao->ListarPorIdPartidaPublicada($dados_enviados["id_partida_publicada"]);
+        $aposta_dao = new ApostaDao();
+        $retorno_listagem = $aposta_dao->ListarPorIdPartidaPublicada($dados_enviados["id_partida_publicada"]);
         if($retorno_listagem){
-            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Este resultado já foi publicado  <b> </font>";
+            echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Esta aposta já foi feita  <b> </font>";
         } else{
             Cadastrar($dados_enviados);
         }
     }
 
     function Cadastrar($dados_enviados){
-        $publicador = ObjectoPublicador();
-        $partida_publicada = new PartidaPublicada($dados_enviados["id_partida_publicada"], "", "", "", "", "", $publicador);
-        $resultado_publicado = new ResultadoPublicado(
-            $dados_enviados["id_resultado_publicado"], 
+        $apostador = ObjectoApostador();
+        $partida_publicada = new PartidaPublicada($dados_enviados["id_partida_publicada"], "", "", "", "", "", $apostador);
+        $aposta = new Aposta(
+            $dados_enviados["id_aposta"],
+            $apostador, 
             $partida_publicada, 
             $dados_enviados["golos_equipaA"], 
             $dados_enviados["golos_equipaB"], 
-            $dados_enviados["data_publicada"], 
-            $dados_enviados["hora_publicada"], 
-            $publicador
+            $dados_enviados["data_aposta"], 
+            $dados_enviados["hora_aposta"],
+            $dados_enviados["valor_apostado"]
         );
-        $publicador->PublicarResultado($resultado_publicado);
+        $apostador->CadastrarApostar($aposta);
         LimparCampos();
     }
 
@@ -67,53 +68,16 @@
         $_POST["golos_equipaB"] = ""; 
     }
 
-    function ClicarBotaoActualizar(){
-        if(isset($_POST["btn_actualizar"])){
-            $retorno_resultado_publicado = ProcurarPartidaPublicadaActualizar($_POST["resultado_publicado"]);
-            $dados_enviados = Array (
-                "id_resultado_publicado" => $_POST["resultado_publicado"],
-                "id_partida_publicada" =>  $retorno_resultado_publicado["id_partida_pub"],
-                "golos_equipaA" => $_POST["golos_equipaA"],
-                "golos_equipaB" => $_POST["golos_equipaB"],
-                "data_publicada" => TratarData($_POST["data_publicada"]),
-                "hora_publicada" => $_POST["hora_publicada"]
-            );
-            Actualizar($dados_enviados);
-        }
-    }
-
-    function ProcurarPartidaPublicadaActualizar($id_resultado_publicado){
-        $resultado_publicado_dao = new ResultadoPublicadoDao();
-        return $resultado_publicado_dao->ListarPorId($id_resultado_publicado);
-    }
-
-    function Actualizar($dados_enviados){
-        $publicador = ObjectoPublicador();
-        $partida_publicada = new PartidaPublicada($dados_enviados["id_partida_publicada"], "", "", "", "", "", $publicador);
-        $resultado_publicado = new ResultadoPublicado(
-            $dados_enviados["id_resultado_publicado"], 
-            $partida_publicada,
-            $dados_enviados["golos_equipaA"], 
-            $dados_enviados["golos_equipaB"], 
-            $dados_enviados["data_publicada"], 
-            $dados_enviados["hora_publicada"], 
-            $publicador
-        );
-        $publicador->ActualizarResultado($resultado_publicado);
-        LimparCampos();
-    }
-
     function ClicarBotaoEliminar(){
         if(isset($_POST["btn_eliminar"])){
-            $retorno_resultado_publicado = ProcurarPartidaPublicadaActualizar($_POST["resultado_publicado"]);
-            $id_resultado_publicado = $_POST["resultado_publicado"];
-            Eliminar($id_resultado_publicado);
+            $id_aposta = $_POST["aposta"];
+            Eliminar($id_aposta);
         }
     }
 
-    function Eliminar($id_resultado_publicado){
-        $publicador = new Publicador();
-        $publicador->EliminarResultado($id_resultado_publicado);
+    function Eliminar($id_aposta){
+        $apostador = new Apostador();
+        $apostador->EliminarAposta($id_aposta);
     }
     
 ?>

@@ -3,7 +3,17 @@
 class ApostaDao implements Crud {
     
     function Cadastrar($aposta){
-
+        $con = GetConexao();
+        $sql = "insert into aposta (id_apostador, id_partida_pub, golos_equipaA, golos_equipaB, data_aposta, hora_aposta, valor_apostado) values (?, ?, ?, ?, ?, ?, ?);";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $aposta->GetApostador()->GetId());
+        $stmt->bindValue( 2, $aposta->GetPartida_pub()->GetId());
+        $stmt->bindValue( 3, $aposta->GetGolos_equipaA());
+        $stmt->bindValue( 4, $aposta->GetGolos_equipaB());
+        $stmt->bindValue( 5, $aposta->GetData_aposta());
+        $stmt->bindValue( 6, $aposta->GetHora_aposta());
+        $stmt->bindValue( 7, $aposta->GetValor_apostado());
+        return $stmt->execute();
     }
 
     function Actualizar($aposta){
@@ -11,7 +21,11 @@ class ApostaDao implements Crud {
     }
 
     function Eliminar($id){
-
+        $con = GetConexao();
+        $sql = "delete from aposta where id_aposta = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $id);
+        return $stmt->execute();
     }
 
     function Listar(){
@@ -44,10 +58,20 @@ class ApostaDao implements Crud {
         left outer join equipa as equipaA
         on equipaA.id_equipa = partida.id_equipaA
         left outer join equipa as equipaB
-        on equipaB.id_equipa = partida.id_equipaB
-        where id_partida = ?;";
+        on equipaB.id_equipa = partida.id_equipaB;
+        where id_aposta = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    function ListarPorIdPartidaPublicada($id_partida_publicada){
+        $con = GetConexao();
+        $sql = "select * from aposta
+        where id_partida_pub = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $id_partida_publicada);
         $stmt->execute();
         return $stmt->fetchAll();
     }

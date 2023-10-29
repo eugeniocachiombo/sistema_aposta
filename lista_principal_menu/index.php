@@ -84,6 +84,7 @@
     </ul>
 </li>
 
+<?php if( $acesso == "apostador" || $acesso == "administrador" ){ ?>
 <li class="nav-item dropdown" >
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
@@ -91,14 +92,10 @@
     </a>
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <?php if( $acesso == "publicador" || $acesso == "administrador" ){ ?>
-        <li><a class="dropdown-item" href="../resultado_publicado/cadastrar.php">Publicar</a></li>
-        <li><a class="dropdown-item" href="../resultado_publicado/actualizar.php">Actualizar</a></li>
-        <li><a class="dropdown-item" href="../resultado_publicado/eliminar.php">Eliminar</a></li>
-        <?php } ?>
-        <li><a class="dropdown-item" href="../resultado_publicado/listar.php">Listar</a></li>
+        <li><a class="dropdown-item" href="../aposta/minhas_vitorias.php">Listar</a></li>
     </ul>
 </li>
+<?php } ?>
 
 
 <li class="nav-item" style="min-width: 160px">
