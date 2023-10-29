@@ -11,7 +11,7 @@
                 "id_partida" => $_POST["partida"],
                 "data_partida" => TratarData($_POST["data_partida"]),
                 "hora_partida" => $_POST["hora_partida"],
-                "data_publicada" => TratarData($_POST["data_publicada"]),
+                "data_publicada" => TratarData($_POST["data_partida"]),
                 "hora_publicada" => $_POST["hora_publicada"]
             );
             VerificarSePartidaExiste($dados_enviados);
@@ -59,12 +59,6 @@
             $publicador
         );
         $publicador->PublicarPartida($partida_publicada);
-        LimparCampos();
-    }
-
-    function LimparCampos(){
-        $_POST["data_partida"] = "";
-        $_POST["hora_partida"] = ""; 
     }
 
     function ClicarBotaoActualizar(){
@@ -75,7 +69,7 @@
                 "id_partida" =>  $retorno_partida_publicada["id_partida"],
                 "data_partida" => TratarData($_POST["data_partida"]),
                 "hora_partida" => $_POST["hora_partida"],
-                "data_publicada" => TratarData($_POST["data_publicada"]),
+                "data_publicada" => TratarData($_POST["data_partida"]),
                 "hora_publicada" => $_POST["hora_publicada"]
             );
             Actualizar($dados_enviados);
@@ -100,7 +94,6 @@
             $publicador
         );
         $publicador->ActualizarPartidaPublicada($partida_publicada);
-        LimparCampos();
     }
 
     function ClicarBotaoEliminar(){
