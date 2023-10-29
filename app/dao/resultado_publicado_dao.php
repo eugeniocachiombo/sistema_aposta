@@ -30,7 +30,11 @@ class ResultadoPublicadoDao implements Crud {
     }
 
     function Eliminar($id){
-
+        $con = GetConexao();
+        $sql = "delete from resultado_publicado where id_resultado_pub = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $id);
+        return $stmt->execute();
     }
 
     function Listar(){

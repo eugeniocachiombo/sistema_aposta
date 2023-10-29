@@ -7,7 +7,7 @@
 <?php include "../app/class/partida_publicada.php"; ?>
 <?php include "../app/class/resultado_publicado.php"; ?>
 <link rel="stylesheet" href="../assets/css/inputs.css">
-<title>Actualizar Resultado Publicado</title>
+<title>Eliminar Resultado Publicado</title>
 
 <?php
 include "processar_dados/verificar_acesso_a_pagina.php";
@@ -17,7 +17,7 @@ VerificarGeral();
 <main class="mt-4 mb-4 ">
     <div class="container ">
         <div class="row pt-2 mb-4" style="background: khaki">
-            <h3> <i class="fas fa-futbol"></i> Registo de Resultados Publicados</h3>
+            <h3> <i class="fas fa-futbol"></i> Registo de Resultados</h3>
         </div>
 
         <div class="container">
@@ -34,7 +34,7 @@ VerificarGeral();
                         <center>
                             <i class="fas fa-futbol pt-4" style="font-size: 40px"></i>
                             <br>
-                            <h3><b>Actualizar Resultado</b></h3>
+                            <h3><b>Resultado Publicado</b></h3>
                         <center>
                     </div>
 
@@ -54,33 +54,12 @@ VerificarGeral();
                                     ?>
                                 </select>
                              </div>
-
-                            <div class="col pe-4 ">
-                                <label class="w-100 text-start pt-3" for="golos_equipaA">Golos EquipaA</label> <br>
-                                <input type="text" required class="form-control"
-                                    name="golos_equipaA" id="golos_equipaA"  value="<?php echo isset($_POST["data_partida"]) ? $_POST["data_partida"] : "" ?>">
-
-                                <label class="w-100 text-start pt-3" for="golos_equipaB">Golos EquipaB</label> <br>
-                                <input type="text" required class="form-control"
-                                    name="golos_equipaB" id="golos_equipaB"  value="<?php echo isset($_POST["hora_partida"]) ? $_POST["hora_partida"] : "" ?>">
-                            </div>
-                            
-                            <div class="col pe-4 d-none">
-                                <?php date_default_timezone_set("Africa/Luanda"); ?>
-                                <label class="w-100 text-start pt-3" for="data_publicada">Data da Publicada</label> <br>
-                                <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                    name="data_publicada" id="data_publicada" placeholder="dd-mm-yyyy" value="<?php echo Date("d-m-Y"); ?>" readonly>
-
-                                <label class="w-100 text-start pt-3" for="hora_publicada">Hora Publicada</label> <br>
-                                <input patterns="[0-9]{2}-[0-9]{2}-[0-9]{4}" type="text" required class="form-control"
-                                    name="hora_publicada" id="hora_publicada" placeholder="00:00" value="<?php echo Date("H:i"); ?>" readonly>
-                            </div>
                         </div>
 
                         <hr class="d-none d-md-block">
                         <div class="col col-md-2 mt-4 pe-4">
-                            <button type="submit" class="form-control button" name="btn_actualizar" id="btn_actualizar">
-                                <span id="texto_actualizar">Actualizar</span>
+                            <button type="submit" class="form-control button" name="btn_eliminar" id="btn_eliminar">
+                                <span id="texto_eliminar">Eliminar</span>
                                 <span id="spinner" class="spinner-grow spinner-grow-sm" role="status"
                                     aria-hidden="true"></span>
                             </button>
@@ -96,7 +75,7 @@ VerificarGeral();
     </div>
 </main>
 
-<script src="../assets/js/validacao_resultado_publicado_actualizar.js"></script>
+<script src="../assets/js/validacao_resultado_publicado_eliminar.js"></script>
 
 <?php include "../inc/footer.html"; ?>
 <?php include "../inc/footHTML.html"; ?>

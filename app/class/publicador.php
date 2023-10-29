@@ -34,8 +34,8 @@ class Publicador extends Pessoa
 
     function EliminarResultado($resultado_publicado){
         $resultado_publicado_dao = new ResultadoPublicadoDao();
-        $retorno_eliminar = $resultado_publicado_dao->Actualizar($resultado_publicado);
-        $this->RetornarSucessoActualizar($retorno_eliminar);
+        $retorno_eliminar = $resultado_publicado_dao->Eliminar($resultado_publicado);
+        $this->RetornarSucessoEliminar($retorno_eliminar);
     }
 
     function RetornarSucessoCadastro($retorno_cadastro){
