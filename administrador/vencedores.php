@@ -35,34 +35,45 @@ if(empty($_SESSION["id_logado"])){
                                 $retorno_aposta = $aposta_dao->Listar();
                                 
                                 foreach ($retorno_aposta as $value) {
-                                    $id_apostador = $value["id_apostador"];
+                                    $id_publicador = $value["id_apostador"];
+                                    $id_partida_publicada = $value["id_partida_pub"];
                                     $golos_equipaA = $value["golos_equipaA"];
                                     $golos_equipaB = $value["golos_equipaB"];
 
-                                    $retorno_dados_aposta = $aposta_dao->Listar();
-                                    foreach ($retorno_dados_aposta as $value) {
-
-                                        $data_aposta = explode("-", $value['data_aposta']);
-                                        $data_aposta = $data_aposta[2] . "/" . $data_aposta[1] . "/" . $data_aposta[0];
-
-                                        $hora_aposta = str_split(strval($value['hora_aposta']), 5);
-                                        $hora_aposta = $hora_aposta[0];
+                                    $resultado_publicado_dao = new ResultadoPublicadoDao();
+                                    $retorno_resultados = $resultado_publicado_dao->Listar();
+                                    foreach ($retorno_resultados as $value) {
 
                                         if(
-                                            $id_apostador == $value["id_apostador"] && 
+                                            $id_partida_publicada == $value["id_partida_pub"] && 
                                             $golos_equipaA == $value["golos_equipaA"] && 
                                             $golos_equipaB == $value["golos_equipaB"]
                                         ){
-                                            $nome_completo = $value['nome_apostador'] . " " . $value['sobrenome_apostador'];
-                                            echo "<tr style='border: none;'>" .
-                                                        "<td style='border: none;text-align:left'> " 
-                                                            . "Apostador: <b>" . $nome_completo . 
-                                                            "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
-                                                            "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
-                                                            "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
-                                                            "<h3 class='text-success'>" . $nome_completo . " venceu esta aposta, a recompensa é de " . ( $value['valor_apostado'] * 2) . ",00KZ </h3>" .
-                                                        "</td>" .
-                                                "</tr>";
+                                            $retorno_apostas = $aposta_dao->Listar();
+                                            foreach ($retorno_apostas as $value) {
+                                                if(
+                                                    $id_publicador == $value["id_apostador"] && 
+                                                    $golos_equipaA == $value["golos_equipaA"] && 
+                                                    $golos_equipaB == $value["golos_equipaB"]
+                                                ){
+        
+                                                    $data_aposta = explode("-", $value['data_aposta']);
+                                                    $data_aposta = $data_aposta[2] . "/" . $data_aposta[1] . "/" . $data_aposta[0];
+        
+                                                    $hora_aposta = str_split(strval($value['hora_aposta']), 5);
+                                                    $hora_aposta = $hora_aposta[0];
+                                                    $nome_completo = $value['nome_apostador'] . " " . $value['sobrenome_apostador'];
+                                                    echo "<tr style='border: none;'>" .
+                                                                "<td style='border: none;text-align:left'> " 
+                                                                    . "Apostador: <b>" . $nome_completo . 
+                                                                    "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
+                                                                    "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
+                                                                    "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
+                                                                    "<h3 class='text-success'>" . $nome_completo . " venceu esta aposta, a recompensa é de " . ( $value['valor_apostado'] * 2) . ",00KZ </h3>" .
+                                                                "</td>" .
+                                                        "</tr>";
+                                                }
+                                            }
                                         }
                                     }
                                 }
