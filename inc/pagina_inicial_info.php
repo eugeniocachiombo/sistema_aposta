@@ -215,28 +215,41 @@
                             </tr>
 
                             <?php 
-                                /*
-                                    $aposta_dao = new ApostaDao();
-                                    $retorno_aposta = $aposta_dao->ListarPorApostador($_SESSION['id_apostador']);
-                                    $retorno_dados_aposta = $aposta_dao->ListarPorId($retorno_aposta['id_aposta']);
+                                $aposta_dao = new ApostaDao();
+                                $retorno_aposta = $aposta_dao->ListarPorApostador($_SESSION['id_apostador']);
+                                
+                                foreach ($retorno_aposta as $value) {
+                                    $id_apostador = $value["id_apostador"];
+                                    $golos_equipaA = $value["golos_equipaA"];
+                                    $golos_equipaB = $value["golos_equipaB"];
+
+                                    $retorno_dados_aposta = $aposta_dao->Listar();
                                     foreach ($retorno_dados_aposta as $value) {
 
-                                        $data_aposta = explode("-", $value['data_aposta']);
-                                        $data_aposta = $data_aposta[2] . "/" . $data_aposta[1] . "/" . $data_aposta[0];
+                                        if(
+                                            $id_apostador == $value["id_apostador"] && 
+                                            $golos_equipaA == $value["golos_equipaA"] && 
+                                            $golos_equipaB == $value["golos_equipaB"]
+                                        ){
 
-                                        $hora_aposta = str_split(strval($value['hora_aposta']), 5);
-                                        $hora_aposta = $hora_aposta[0];
+                                            $data_aposta = explode("-", $value['data_aposta']);
+                                            $data_aposta = $data_aposta[2] . "/" . $data_aposta[1] . "/" . $data_aposta[0];
 
-                                    echo "<tr style='border: none;'>" .
-                                                "<td style='border: none;text-align:left'> " 
-                                                    . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
-                                                    "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
-                                                    "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
-                                                    "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
-                                                "</td>" .
-                                            "</tr>";
-                                    } 
-                                */
+                                            $hora_aposta = str_split(strval($value['hora_aposta']), 5);
+                                            $hora_aposta = $hora_aposta[0];
+
+                                            echo "<tr style='border: none;'>" .
+                                                        "<td style='border: none;text-align:left'> " 
+                                                            . "Apostador: <b>" . $value['nome_apostador'] . " " . $value['sobrenome_apostador'] . 
+                                                            "</b> <br> Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] . 
+                                                            "</b><br>  Data de aposta: <b>". $data_aposta . " " . $hora_aposta . "</b>" .
+                                                            "</b> <br>  Quantia Apostada: <b>". $value['valor_apostado'] . " 00,KZ</b>" .
+                                                            "<h3 class='text-success'> Você venceu esta aposta, sua recompensa é de " . ( $value['valor_apostado'] * 2) . ",00KZ </h3>" .
+                                                        "</td>" .
+                                                "</tr>";
+                                        }
+                                    }
+                                }
                             ?>
                         </table>
                     </div>

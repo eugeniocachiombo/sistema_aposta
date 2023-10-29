@@ -15,7 +15,7 @@ VerificarGeral();
 <main class="mt-4 mb-4 ">
     <div class="container ">
         <div class="row pt-2 mb-4" style="background: khaki">
-            <h3> <i class="fas fa-futbol"></i> Registo de Resultados</h3>
+            <h3> <i class="fas fa-futbol"></i> Registo de Apostas</h3>
         </div>
 
         <div class="container">
@@ -45,10 +45,13 @@ VerificarGeral();
                                     <option value="">Selecione...</option>
                                     <?php 
                                     $aposta_dao = new ApostaDao();
-                                    $retorno = $aposta_dao->Listar();
-                                    foreach ($retorno as $value) {
-                                       $data_tratada = explode("-", $value['data_aposta']);
-                                       echo "<option value='" . $value['id_aposta'] . "'>" . "<br> <strong>" . $value['nome_apostador'] ." " . $value['sobrenome_apostador'] .":</strong> " . $value['nome_equipaA'] . " x " . $value['nome_equipaB'] . "------ </option>";
+                                    $retorno_apostador = $aposta_dao->ListarPorApostador($_SESSION["id_apostador"]);
+                                    foreach ($retorno_apostador as $value) {
+                                        $retorno_dados_aposta = $aposta_dao->ListarPorId($value['id_aposta']);
+                                        foreach ($retorno_dados_aposta as $value) {
+                                        $data_tratada = explode("-", $value['data_aposta']);
+                                        echo "<option value='" . $value['id_aposta'] . "'>" . $value['nome_equipaA'] . " x " . $value['nome_equipaB']  . " </option>";
+                                        }
                                     }
                                     ?>
                                 </select>

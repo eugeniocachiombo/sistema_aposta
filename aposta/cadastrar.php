@@ -17,7 +17,7 @@ VerificarSeApostador();
 <main class="mt-4 mb-4 ">
     <div class="container ">
         <div class="row pt-2 mb-4" style="background: khaki">
-            <h3> <i class="fas fa-futbol"></i> Registo des</h3>
+            <h3> <i class="fas fa-futbol"></i> Registo de Apostas</h3>
         </div>
 
         <div class="container">
