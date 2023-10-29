@@ -44,7 +44,7 @@ if(empty($_SESSION["id_logado"])){
                                 echo "<tr style='border: none; '>" .
                                             "<td style='border: none; text-align:left; padding-bottom: 30px'> " .
                                                 "Equivalência: <b>" . $value['nome_equipaA'] . " " . $value['golos_equipaA'] ." - " . " " . $value['golos_equipaB'] . " " . $value['nome_equipaB'] .
-                                                "</b><br> Publicadodor: <b>" . $value['nome_publicador'] . " " . $value['sobrenome_publicador'] . 
+                                                "</b><br> Publicador: <b>" . $value['nome_publicador'] . " " . $value['sobrenome_publicador'] . 
                                                 "</b><br>  Data publicada: <b>". $data_publicada . " " . $hora_publicada . "</b>" .
                                             "</td>" .
                                         "</tr>";

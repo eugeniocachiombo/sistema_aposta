@@ -36,13 +36,13 @@
 
     function ObjectoGestor(){
         $gestor = new Gestor();
-        $gestor->SetId($_SESSION["id_gestor"]);
-        $gestor->SetNome($_SESSION["nome_gestor"]);
-        $gestor->SetSobrenome($_SESSION["sobrenome_gestor"]);
-        $gestor->SetEmail($_SESSION["email_gestor"]);
-        $gestor->SetNascimento($_SESSION["nascimento_gestor"]);
-        $gestor->SetGenero($_SESSION["genero_gestor"]);
-        $gestor->SetN_bi($_SESSION["n_bi_gestor"]);
+        $gestor->SetId($_SESSION["id_logado"]);
+        $gestor->SetNome($_SESSION["nome_logado"]);
+        $gestor->SetSobrenome($_SESSION["sobrenome_logado"]);
+        $gestor->SetEmail($_SESSION["email_logado"]);
+        $gestor->SetNascimento($_SESSION["nascimento_logado"]);
+        $gestor->SetGenero($_SESSION["genero_logado"]);
+        $gestor->SetN_bi($_SESSION["n_bi_logado"]);
         return $gestor;
     }
 

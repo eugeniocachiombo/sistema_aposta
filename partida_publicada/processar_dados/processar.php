@@ -26,13 +26,13 @@
 
     function ObjectoPublicador(){
         $publicador = new Publicador();
-        $publicador->SetId($_SESSION["id_publicador"]);
-        $publicador->SetNome($_SESSION["nome_publicador"]);
-        $publicador->SetSobrenome($_SESSION["sobrenome_publicador"]);
-        $publicador->SetEmail($_SESSION["email_publicador"]);
-        $publicador->SetNascimento($_SESSION["nascimento_publicador"]);
-        $publicador->SetGenero($_SESSION["genero_publicador"]);
-        $publicador->SetN_bi($_SESSION["n_bi_publicador"]);
+        $publicador->SetId($_SESSION["id_logado"]);
+        $publicador->SetNome($_SESSION["nome_logado"]);
+        $publicador->SetSobrenome($_SESSION["sobrenome_logado"]);
+        $publicador->SetEmail($_SESSION["email_logado"]);
+        $publicador->SetNascimento($_SESSION["nascimento_logado"]);
+        $publicador->SetGenero($_SESSION["genero_logado"]);
+        $publicador->SetN_bi($_SESSION["n_bi_logado"]);
         return $publicador;
     }
 
