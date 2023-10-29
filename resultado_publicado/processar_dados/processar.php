@@ -38,7 +38,7 @@
 
     function VerificarSePartidaPublicadaExiste($dados_enviados){
         $resultado_publicado_dao = new ResultadoPublicadoDao();
-        $retorno_listagem = $resultado_publicado_dao->ListarPorId($dados_enviados["id_partida_publicada"]);
+        $retorno_listagem = $resultado_publicado_dao->ListarPorIdPartidaPublicada($dados_enviados["id_partida_publicada"]);
         if($retorno_listagem){
             echo "<font class='bg-danger text-white text-center p-2 mb-2'> <b> Este resultado já foi publicado  <b> </font>";
         } else{

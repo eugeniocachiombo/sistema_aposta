@@ -63,9 +63,19 @@ class ResultadoPublicadoDao implements Crud {
         on equipaA.id_equipa = partida.id_equipaA
         left outer join equipa as equipaB
         on equipaB.id_equipa = partida.id_equipaB
-        where id_partida = ?;";
+        where id_resultado_publicado = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function ListarPorIdPartidaPublicada($id_partida_publicada){
+        $con = GetConexao();
+        $sql = "select * from resultado_publicado
+        where id_partida_pub = ?;";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue( 1, $id_partida_publicada);
         $stmt->execute();
         return $stmt->fetchAll();
     }
