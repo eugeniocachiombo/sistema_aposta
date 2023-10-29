@@ -8,13 +8,8 @@
 <title>Lista de Apostas</title>
 
 <?php
-if(empty($_SESSION["id_logado"])){ 
-    ?>
-        <script>
-                window.location = "../inicio";
-        </script>
-    <?php
-}
+include "processar_dados/verificar_acesso_a_pagina.php";
+VerificarUtilizadorLogado();
 ?>
 
 <main class="mb-4 mt-4">

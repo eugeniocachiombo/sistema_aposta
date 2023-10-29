@@ -60,8 +60,7 @@
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if( $acesso == "apostador"  ){ ?>
-        <li><a class="dropdown-item" href="../aposta/cadastrar.php">Criar</a></li>
-        <li><a class="dropdown-item" href="../aposta/actualizar.php">Actualizar</a></li>
+        <li><a class="dropdown-item" href="../aposta/cadastrar.php">Apostar</a></li>
         <li><a class="dropdown-item" href="../aposta/eliminar.php">Eliminar</a></li>
         <?php } ?>
         <li><a class="dropdown-item" href="../aposta/listar.php">Listar</a></li>
@@ -73,6 +72,22 @@
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
         Resultados
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <?php if( $acesso == "publicador" || $acesso == "administrador" ){ ?>
+        <li><a class="dropdown-item" href="../resultado_publicado/cadastrar.php">Publicar</a></li>
+        <li><a class="dropdown-item" href="../resultado_publicado/actualizar.php">Actualizar</a></li>
+        <li><a class="dropdown-item" href="../resultado_publicado/eliminar.php">Eliminar</a></li>
+        <?php } ?>
+        <li><a class="dropdown-item" href="../resultado_publicado/listar.php">Listar</a></li>
+    </ul>
+</li>
+
+<li class="nav-item dropdown" >
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Minhas Vitórias
     </a>
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
