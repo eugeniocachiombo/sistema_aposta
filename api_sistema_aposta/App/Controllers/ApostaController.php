@@ -24,7 +24,6 @@ class ApostaController
         $apostador->setId( $id_apostador );
 
         $partida_pub = new PartidaPublicadaModel( $id_partida_pub, 0, '', '', '', '', 0 );
-
         $ApostaModel = new ApostaModel(
             $id,
             $apostador,
@@ -58,30 +57,16 @@ class ApostaController
         return $response->withJson( $resultado );
     }
 
-    function Actualizar ( Request $request, Response $response, array $args ) {
-        $data = $request->getParsedBody();
-        $id = $data[ 'id' ];
-        $nome = $data[ 'nome' ];
-
-        $ApostaModel = new ApostaModel( $id, $nome );
-        $ApostaDao = new ApostaDao();
-        $resultado = $ApostaDao->Actualizar( $ApostaModel );
-        return $response->withJson( [
-            'message' => $resultado == true ? 'Actualizado com sucesso' : $resultado,
-            'log' => "Dados Inseridos::  Id: {$id}, Nome: {$nome}"
-        ] );
-    }
-
     function Eliminar ( Request $request, Response $response, array $args ) {
         $data = $request->getParsedBody();
         $id = $data[ 'id' ];
 
-        $ApostaModel = new ApostaModel( $id, '' );
         $ApostaDao = new ApostaDao();
         $resultado = $ApostaDao->Eliminar( $id );
         return $response->withJson( [
             'message' => $resultado == true ? 'Eliminado com sucesso' : $resultado,
-            'log' => "Dados Inseridos::  Id: {$id}"
+            'log' => 
+            "Dados Inseridos:: id: {$id}"
         ] );
     }
 
@@ -89,17 +74,15 @@ class ApostaController
         $data = $request->getParsedBody();
         $id = $data[ 'id' ];
 
-        $ApostaModel = new ApostaModel( $id, '' );
         $ApostaDao = new ApostaDao();
         $resultado = $ApostaDao->ListarPorId( $id );
-        return $response->withJson( $resultado );
+        return $response->withJson( $resultado  );
     }
 
     function ListarPorApostador( Request $request, Response $response, array $args ) {
         $data = $request->getParsedBody();
         $id_apostador = $data[ 'id_apostador' ];
 
-        $ApostaModel = new ApostaModel( $id_apostador, '' );
         $ApostaDao = new ApostaDao();
         $resultado = $ApostaDao->ListarPorApostador( $id_apostador );
         return $response->withJson( $resultado );
@@ -109,7 +92,6 @@ class ApostaController
         $data = $request->getParsedBody();
         $id_partida_publicada = $data[ 'id_partida_publicada' ];
 
-        $ApostaModel = new ApostaModel( $id_partida_publicada, '' );
         $ApostaDao = new ApostaDao();
         $resultado = $ApostaDao->ListarPorIdPartidaPublicada( $id_partida_publicada );
         return $response->withJson( $resultado );
@@ -120,9 +102,8 @@ class ApostaController
         $id_partida_publicada = $data[ 'id_partida_publicada' ];
         $id_apostador = $data[ 'id_apostador' ];
 
-        $ApostaModel = new ApostaModel( $id_partida_publicada, '' );
         $ApostaDao = new ApostaDao();
-        $resultado = $ApostaDao->ListarPorIdPartidaPublicadaApostador( $id_partida_publicada );
+        $resultado = $ApostaDao->ListarPorIdPartidaPublicadaApostador( $id_partida_publicada, $id_apostador);
         return $response->withJson( $resultado );
     }
 }
