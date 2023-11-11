@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Dao;
+use App\Interfac\Crud;
+
 class AdministradorDao implements Crud {
     
     function Cadastrar($administrador){
@@ -66,7 +69,7 @@ class AdministradorDao implements Crud {
 
     function ListarPorEmail($email){
         $con = GetConexao();
-        $sql = "select * from administrador where email_administrador = ?;";
+        $sql = "select * from administrador where email_administrador = ?";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $email);
         $stmt->execute();
@@ -100,7 +103,5 @@ class AdministradorDao implements Crud {
         $stmt->bindValue( 1, $n_bi);
         $stmt->execute();
         return $stmt->fetch();
-    }
-    
-
+    }    
 }
