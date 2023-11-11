@@ -5,6 +5,7 @@ include "../../config/db/conexao.php";
 
 use App\Controllers\EquipaController;
 use App\Controllers\ApostaController;
+use App\Controllers\ApostadorController;
 
 $app = new Slim\App($configuration);
 
@@ -23,5 +24,15 @@ $app->post('/aposta/listar_por_id', 'App\Controllers\ApostaController:ListarPorI
 $app->post('/aposta/listar_por_apostador', 'App\Controllers\ApostaController:ListarPorApostador');
 $app->post('/aposta/listar_por_id_partida_publicada', 'App\Controllers\ApostaController:ListarPorIdPartidaPublicada');
 $app->post('/aposta/listar_por_id_partida_publicada_apostador', 'App\Controllers\ApostaController:ListarPorIdPartidaPublicadaApostador');
+
+$app->get('/apostador/listar', 'App\Controllers\ApostadorController:Listar');
+$app->post('/apostador/cadastrar', 'App\Controllers\ApostadorController:Cadastrar');
+$app->post('/apostador/actualizar', 'App\Controllers\ApostadorController:Actualizar');
+$app->post('/apostador/eliminar', 'App\Controllers\ApostadorController:Eliminar');
+$app->post('/apostador/alterar_senha', 'App\Controllers\ApostadorController:AlterarSenha');
+$app->post('/apostador/listar_por_email', 'App\Controllers\ApostadorController:ListarPorEmail');
+$app->post('/apostador/listar_por_bi_senha', 'App\Controllers\ApostadorController:ListarPorBISenha');
+$app->post('/apostador/listar_por_id_senha', 'App\Controllers\ApostadorController:ListarPorIDSenha');
+$app->post('/apostador/listar_por_bi', 'App\Controllers\ApostadorController:ListarPorBI');
 
 $app->run();

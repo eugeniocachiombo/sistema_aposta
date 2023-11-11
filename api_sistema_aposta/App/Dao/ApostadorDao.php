@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Dao;
+use App\Interfac\Crud;
+
 class ApostadorDao implements Crud {
     
     function Cadastrar($apostador){
@@ -100,7 +103,5 @@ class ApostadorDao implements Crud {
         $stmt->bindValue( 1, $n_bi);
         $stmt->execute();
         return $stmt->fetch();
-    }
-    
-
+    }    
 }
