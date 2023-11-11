@@ -111,11 +111,25 @@ class ApostadorController
     }
 
     function AlterarSenha( Request $request, Response $response, array $args ){
+        $data = $request->getParsedBody();
+        $id = $data[ 'id' ];
+        $senha_nova = $data["senha_nova"];
 
+        $apostadorDao = new ApostadorDao();
+        $resultado = $apostadorDao->AlterarSenha( $id, $senha_nova );
+        return $response->withJson( [
+            'message' => $resultado == true ? 'Senha alterada com sucesso' : $resultado,
+            'log' => "Dados Inseridos:: id: {$id}, senha_nova: {$senha_nova}"
+        ] );
     }
 
     function ListarPorEmail( Request $request, Response $response, array $args ){
+        $data = $request->getParsedBody();
+        $email = $data["email"];
 
+        $apostadorDao = new ApostadorDao();
+        $resultado = $apostadorDao->ListarPorEmail( $email );
+        return $response->withJson( $resultado );
     }
 
     function ListarPorBISenha( Request $request, Response $response, array $args ){
