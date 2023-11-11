@@ -2,13 +2,12 @@
 
 namespace App\Dao;
 
-use App\Dao\Conexao;
 use App\Interfac\Crud;
 
-class EquipaDao extends Conexao implements Crud {
+class EquipaDao implements Crud {
     
     function Cadastrar($equipa){
-        $con = $this->BuscarConexao();
+        $con = GetConexao();
         $sql = "insert into equipa (nome_equipa) values (?);";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $equipa->GetNome());
@@ -16,7 +15,7 @@ class EquipaDao extends Conexao implements Crud {
     }
 
     function Actualizar($equipa){
-        $con = $this->BuscarConexao();
+        $con = GetConexao();
         $sql = "update equipa set nome_equipa = ? where id_equipa = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $equipa->GetNome());
@@ -25,7 +24,7 @@ class EquipaDao extends Conexao implements Crud {
     }
 
     function Eliminar($id){
-        $con = $this->BuscarConexao();
+        $con = GetConexao();
         $sql = "delete from equipa where id_equipa = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id);
@@ -33,7 +32,7 @@ class EquipaDao extends Conexao implements Crud {
     }
 
     function Listar(){
-        $con = $this->BuscarConexao();
+        $con = GetConexao();
         $sql = "select * from equipa";
         $stmt = $con->prepare($sql);
         $stmt->execute();
@@ -41,7 +40,7 @@ class EquipaDao extends Conexao implements Crud {
     }
 
     function ListarPorId($id){
-        $con = $this->BuscarConexao();
+        $con = GetConexao();
         $sql = "select * from equipa where id_equipa = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $id);
@@ -50,7 +49,7 @@ class EquipaDao extends Conexao implements Crud {
     }
 
     function ListarPorNome($nome){
-        $con = $this->BuscarConexao();
+        $con = GetConexao();
         $sql = "select * from equipa where nome_equipa = ?;";
         $stmt = $con->prepare($sql);
         $stmt->bindValue( 1, $nome);
