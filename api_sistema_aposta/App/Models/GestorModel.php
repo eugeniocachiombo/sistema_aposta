@@ -1,6 +1,9 @@
 <?php
 
-class Gestor extends Pessoa 
+namespace App\Models;
+use App\Models\Pessoa;
+
+class GestorModel extends Pessoa 
 {
     function CadastrarEquipa($equipa){
         $equipa_dao = new EquipaDao();

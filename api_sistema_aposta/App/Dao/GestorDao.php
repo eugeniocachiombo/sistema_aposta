@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Dao;
+use App\Interfac\Crud;
+
 class GestorDao implements Crud {
     
     function Cadastrar($gestor){
@@ -101,6 +104,4 @@ class GestorDao implements Crud {
         $stmt->execute();
         return $stmt->fetch();
     }
-    
-
 }
