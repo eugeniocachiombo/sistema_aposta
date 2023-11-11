@@ -54,10 +54,22 @@ class EquipaController
     }
 
     function ListarPorId ( Request $request, Response $response, array $args ) {
-       
+        $data = $request->getParsedBody();
+        $id = $data['id'];
+        
+        $equipaModel = new EquipaModel($id, "");
+        $equipaDao = new EquipaDao();
+        $resultado = $equipaDao->ListarPorId( $id );
+        return $response->withJson( $resultado );
     }
 
     function ListarPorNome ( Request $request, Response $response, array $args ) {
-       
+        $data = $request->getParsedBody();
+        $nome = $data['nome'];
+        
+        $equipaModel = new EquipaModel($nome, "");
+        $equipaDao = new EquipaDao();
+        $resultado = $equipaDao->ListarPorNome( $nome );
+        return $response->withJson( $resultado );
     }
 }
