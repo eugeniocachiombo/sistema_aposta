@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Dao;
+use App\Interfac\Crud;
+
 class ApostaDao implements Crud {
     
     function Cadastrar($aposta){

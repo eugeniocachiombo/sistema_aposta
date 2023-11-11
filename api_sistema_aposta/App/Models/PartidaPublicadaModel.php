@@ -1,6 +1,8 @@
 <?php
 
-class PartidaPublicada {
+namespace App\Models;
+
+class PartidaPublicadaModel {
 
     private $id;
     private $partida;

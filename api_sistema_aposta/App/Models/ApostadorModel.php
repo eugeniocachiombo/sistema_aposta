@@ -1,6 +1,9 @@
 <?php
 
-class Apostador extends Pessoa 
+namespace App\Models;
+use App\Models\Pessoa;
+
+class ApostadorModel extends Pessoa 
 {
     function CadastrarApostar($aposta){
         $aposta_dao = new ApostaDao();

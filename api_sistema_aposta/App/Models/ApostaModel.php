@@ -1,6 +1,8 @@
 <?php
 
-class Aposta {
+namespace App\Models;
+
+class ApostaModel {
 
     private $id;
     private $apostador;
