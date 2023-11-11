@@ -133,14 +133,31 @@ class ApostadorController
     }
 
     function ListarPorBISenha( Request $request, Response $response, array $args ){
+        $data = $request->getParsedBody();
+        $n_bi = $data["n_bi"];
+        $senha = $data["senha"];
 
+        $apostadorDao = new ApostadorDao();
+        $resultado = $apostadorDao->ListarPorBISenha( $n_bi, $senha );
+        return $response->withJson( $resultado );
     }
 
     function ListarPorIDSenha( Request $request, Response $response, array $args ){
+        $data = $request->getParsedBody();
+        $id = $data["id"];
+        $senha = $data["senha"];
 
+        $apostadorDao = new ApostadorDao();
+        $resultado = $apostadorDao->ListarPorIDSenha( $id, $senha );
+        return $response->withJson( $resultado );
     }
 
     function ListarPorBI( Request $request, Response $response, array $args ){
+        $data = $request->getParsedBody();
+        $n_bi = $data["n_bi"];
 
+        $apostadorDao = new ApostadorDao();
+        $resultado = $apostadorDao->ListarPorBI( $n_bi );
+        return $response->withJson( $resultado );
     }
 }
