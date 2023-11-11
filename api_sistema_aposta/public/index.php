@@ -8,6 +8,7 @@ use App\Controllers\ApostaController;
 use App\Controllers\ApostadorController;
 use App\Controllers\AdministradorController;
 use App\Controllers\GestorController;
+use App\Controllers\PublicadorController;
 
 $app = new Slim\App($configuration);
 
@@ -59,5 +60,16 @@ $app->post('/gestor/listar_por_email', 'App\Controllers\GestorController:ListarP
 $app->post('/gestor/listar_por_bi_senha', 'App\Controllers\GestorController:ListarPorBISenha');
 $app->post('/gestor/listar_por_id_senha', 'App\Controllers\GestorController:ListarPorIDSenha');
 $app->post('/gestor/listar_por_bi', 'App\Controllers\GestorController:ListarPorBI');
+
+$app->get('/publicador/listar', 'App\Controllers\PublicadorController:Listar');
+$app->post('/publicador/cadastrar', 'App\Controllers\PublicadorController:Cadastrar');
+$app->post('/publicador/actualizar', 'App\Controllers\PublicadorController:Actualizar');
+$app->post('/publicador/eliminar', 'App\Controllers\PublicadorController:Eliminar');
+$app->post('/publicador/alterar_senha', 'App\Controllers\PublicadorController:AlterarSenha');
+$app->post('/publicador/listar_por_id', 'App\Controllers\PublicadorController:ListarPorId');
+$app->post('/publicador/listar_por_email', 'App\Controllers\PublicadorController:ListarPorEmail');
+$app->post('/publicador/listar_por_bi_senha', 'App\Controllers\PublicadorController:ListarPorBISenha');
+$app->post('/publicador/listar_por_id_senha', 'App\Controllers\PublicadorController:ListarPorIDSenha');
+$app->post('/publicador/listar_por_bi', 'App\Controllers\PublicadorController:ListarPorBI');
 
 $app->run();

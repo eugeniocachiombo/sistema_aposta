@@ -1,6 +1,9 @@
 <?php
 
-class Publicador extends Pessoa 
+namespace App\Models;
+use App\Models\Pessoa;
+
+class PublicadorModel extends Pessoa 
 {
     function PublicarPartida($partida_publicada){
         $partida_publicada_dao = new PartidaPublicadaDao();
